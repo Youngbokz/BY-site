@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+{% form_theme formProject 'bootstrap_4_layout.html.twig' %}
+{% block title %}
+    {% if editMode %}
+    Editer Projet
+    {% else %}
+    Ajouter Projet
+    {% endif %}
+{% endblock %}
+{% block body %}
+  <h1>
+      {% if editMode %}
+      Modifier un projet 
+    {% else %}
+      Ajouter un projet
+    {% endif %}  
+  </h1>
+
+  {{ form_start(formProject) }}
+  {{ form_row(formProject.name, { 'attr' : {'placeholder' : "Titre du Projet"}, 'label' : "Nom"}) }}
+  {{ form_row(formProject.description, { 'attr' : {'placeholder' : "Description du Projet"}, 'label' : "Description"}) }}
+  {{ form_row(formProject.imageUrl, { 'attr' : {'placeholder' : "URL de l\'image"}, 'label' : "Image"}) }}
+  {{ form_row(formProject.address, { 'attr' : {'placeholder' : "URL du projet"}, 'label' : "Adresse URL"}) }}
+  <button type="submit" class="btn btn-success">
+    {% if editMode %}
+      Modifier 
+    {% else %}
+      Ajouter le projet
+    {% endif %}
+  </button>
+  {{ form_end(formProject) }}
+{% endblock %}
+
+

@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+{% block title %}Projets{% endblock %}
+{% block body %}
+    {# <!-- Portfolio -->
+    <section class="content-section" id="portfolio">
+        
+        <div class="container">
+          <div class="content-section-heading text-center">
+            <h1 class="text-secondary mb-0">PROJETS</h1>
+            <h3 class="mb-5">Mon portfolio</h3>
+          </div>
+          <div class="row no-gutters">
+            {% for project in projects %}
+            <div class="col-lg-6">
+              <a class="portfolio-item" href="{{ path('show_project',{'id': project.id}) }}">
+                <span class="caption">
+                  <span class="caption-content">
+                    <h2>{{ project.name }}</h2>
+                    <p class="mb-0">{{ project.description }}</p>
+                    <p>{{ project.createdAt | date('d/m/Y') }}</p>
+                  </span>
+                </span>
+                <img class="img-fluid" src="{{ project.imageUrl }}" alt="">
+              </a>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      </section> #}
+      <div class="container-fluid mainProjectCont">
+      {% for project in projects %}
+      <a class="portfolio-item" href="{{ path('show_project',{'id': project.id}) }}">
+        <div class="projectContainer">
+          <img src="{{ project.imageUrl }}" alt="">
+          <div class="post-s">
+            <h2>{{ project.name }}</h2>
+            <p class="mb-0">{{ project.createdAt | date('d/m/Y') }}</p> 
+          </div>
+        </div>
+      </a>
+      {% endfor %}
+    </div>
+{% endblock %}
