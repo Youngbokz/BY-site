@@ -6,7 +6,6 @@ use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 
 class UserType extends AbstractType
 {
@@ -14,8 +13,18 @@ class UserType extends AbstractType
     {
         $builder
             ->add('log')
-            ->add('password', PasswordType::class)
-            ->add('password', PasswordType::class) //pour confirmer le mot de passe
+            ->add('password')
+            // ->add('firstname')
+            // ->add('lastname')
+            // ->add('address')
+            // ->add('city')
+            // ->add('country')
+            // ->add('email')
+            // ->add('mobilePhone')
+            // ->add('codeZip')
+            // ->add('gender')
+            // ->add('createdAt')
+            // ->add('role')
         ;
     }
 
