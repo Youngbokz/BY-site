@@ -18,11 +18,6 @@ class Comment
     private $id;
 
     /**
-     * @ORM\Column(type="integer")
-     */
-    private $projectId;
-
-    /**
      * @ORM\Column(type="string", length=255)
      */
     private $author;
@@ -57,18 +52,6 @@ class Comment
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getProjectId(): ?int
-    {
-        return $this->projectId;
-    }
-
-    public function setProjectId(int $projectId): self
-    {
-        $this->projectId = $projectId;
-
-        return $this;
     }
 
     public function getAuthor(): ?string

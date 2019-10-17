@@ -52,8 +52,10 @@ class SiteController extends AbstractController
      */
     public function show_project(Project $project)
     {
+        $user = new User();
         return $this->render('site/show_project.html.twig', [
-            'project' => $project
+            'project' => $project,
+            'user' => $user
         ]);
     }
     /**

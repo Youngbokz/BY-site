@@ -8,6 +8,7 @@
     {% endif %}
 {% endblock %}
 {% block body %}
+<div class="container-main-contain">
   <h1>
       {% if editMode %}
       Modifier un projet 
@@ -29,6 +30,7 @@
     {% endif %}
   </button>
   {{ form_end(formProject) }}
+</div>
 {% endblock %}
 
 

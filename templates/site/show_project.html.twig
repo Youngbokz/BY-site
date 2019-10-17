@@ -1,12 +1,29 @@
 {% extends 'base.html.twig' %}
 {% block title %}Show a Project{% endblock %}
 {% block body %}
-  
-<div class="container-fluid mainProjectCont-show_project">
-    <div class="projectContainer-show_project">
-        <h1>{{ project.name }}</h1>
-        <img src="../img/leone-venter-VieM9BdZKFo-unsplash.jpg" alt="">
-        <p class="mb-0">{{ project.createdAt | date('d/m/Y') }}<br>{{ project.description }}</p> 
+<div class="container-main-contain">
+    <div class="container-fluid mainProjectCont-show_project">
+        <div class="projectContainer-show_project">
+            <h1>{{ project.name }}</h1>
+            <img src="{{ project.imageUrl }}" alt="">
+            <div class="metadata">Projet posté le {{ project.createdAt | date('d/m/Y') }}</div>
+            <div class="description">{{ project.description }}</div> 
+            <br>
+            <section id="comments">
+                {% for comment in project.comments %}
+                <div class="comment">
+                    <div class="row">
+                        <div class="col-3">
+                            Posté par {{ comment.user.log }} le (<small> {{ comment.createdAt | date('d/m/Y à H:i') }} </small>)
+                        </div>
+                        <div class="col">
+                            {{ comment.comment | raw }}
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </section>
+        </div>
     </div>
 </div>
 {% endblock %}

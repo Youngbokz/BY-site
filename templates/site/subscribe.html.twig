@@ -1,6 +1,7 @@
 {% extends 'base.html.twig' %}
 {% block title %}Inscription{% endblock %}
 {% block body %}
+<div class="container-main-contain">
     <h1>Inscription</h1>
     {{ form_start(formUserSubscribe) }}
     {{ form_row(formUserSubscribe.log) }}
@@ -8,4 +9,5 @@
     {{ form_row(formUserSubscribe.password) }} 
     <button type="submit" class="btn btn-success">S'inscrire</button>
     {{ form_end(formUserSubscribe) }}
+</div>
 {% endblock %}
