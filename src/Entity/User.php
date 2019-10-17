@@ -27,8 +27,14 @@ class User
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Length(min="8", minMessage = "Oups! trop court. 8 caractères minimum")
      */
     private $password;
+
+    /**
+     * @Assert\EqualTo(propertyPath="password", message = "Votre mot de passe est différent. Tapez le même mot de passe")
+     */
+    public $confirm_password;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
