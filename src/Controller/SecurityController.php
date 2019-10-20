@@ -42,20 +42,23 @@ class SecurityController extends AbstractController
         ]);
     }
 
-      /**
+    /**
      * @Route("/connexion", name="security_connexion")
      */
     public function userConnexion(Request $request, ProjectRepository $repo)
     {
-        $user = new User();
-        $form = $this->createForm(UserType::class, $user);
-        $form->handleRequest($request);
-        if($form->isSubmitted() && $form->isValid()){
-            //$user->setCreatedAt(new \DateTime());
-            return $this->redirectToRoute('home');
-        }
-        return $this->render('security/connexion.html.twig', [
-            'formUserConnexion' => $form->createView()
-        ]);
+        // $user = new User();
+        // $form = $this->createForm(UserType::class, $user);
+        // $form->handleRequest($request);
+        // if($form->isSubmitted() && $form->isValid()){
+        //     //$user->setCreatedAt(new \DateTime());
+        //     return $this->redirectToRoute('home');
+        // }
+        return $this->render('security/connexion.html.twig');
     }
+
+    /**
+     * @Route("/disconnexion", name="security_disconnexion")
+     */
+    public function disconnexion(){}
 }

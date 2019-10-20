@@ -17,7 +17,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
  *  fields = {"email"},
  *  message = "L'email est déjà enregistré. Choississez en un autre",
  *  fields = {"log"},
- * message = "Nope! Pseudo déjà utilisé. Choisissez en un autre"
+ * message = "Oups! Pseudo déjà utilisé. Choisissez en un autre"
  * )
  */
 class User implements UserInterface

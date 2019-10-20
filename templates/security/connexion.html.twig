@@ -3,10 +3,18 @@
 {% block body %}
 <div class="container-main-contain">
   <h1>Connexion</h1>
-    {{ form_start(formUserConnexion) }}
-    {{ form_row(formUserConnexion.log, {'label' : 'Pseudo', 'attr' : {'placeholder' : 'Choisir un pseudo'}}) }}
-    {{ form_row(formUserConnexion.password, {'label' : 'Mot de passe', 'attr' : {'placeholder' : 'Mot de passe'}}) }}
-    <button type="submit" class="btn btn-success">Se connecter</button>
-    {{ form_end(formUserConnexion) }}
+  <form action="{{ path('security_connexion') }}" method="post">
+    <div class="form-group">
+      <label for="_username">Pseudo</label>
+      <input placeholder="Votre pseudo..." require name="_username" type="text" class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="_password">Mot de passe</label>
+      <input placeholder="Votre mot de passe..." require name="_password" type="password" class="form-control">
+    </div>
+    <div class="form-group">
+      <button type="submit" class="btn btn-success">Se connecter</button>
+    </div>
+  </form>
 </div>
 {% endblock %}
