@@ -3,6 +3,7 @@
 */
 body, html {
     height: 100%;
+    margin: 10px;
 }
 .container-main-contain{
     margin-top: 200px;

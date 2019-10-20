@@ -2,11 +2,11 @@
 {% block title %}Connection{% endblock %}
 {% block body %}
 <div class="container-main-contain">
-  <h1>Connection</h1>
+  <h1>Connexion</h1>
     {{ form_start(formUserConnexion) }}
-    {{ form_row(formUserConnexion.log) }}
-    {{ form_row(formUserConnexion.password) }}
-    <button type="submit" class="btn btn-success">S'inscrire</button>
+    {{ form_row(formUserConnexion.log, {'label' : 'Pseudo', 'attr' : {'placeholder' : 'Choisir un pseudo'}}) }}
+    {{ form_row(formUserConnexion.password, {'label' : 'Mot de passe', 'attr' : {'placeholder' : 'Mot de passe'}}) }}
+    <button type="submit" class="btn btn-success">Se connecter</button>
     {{ form_end(formUserConnexion) }}
 </div>
 {% endblock %}
