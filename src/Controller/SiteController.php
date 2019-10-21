@@ -7,8 +7,10 @@ use App\Form\UserType;
 use App\Entity\Comment;
 // use Symfony\Component\Form\Extension\Core\Type\TextType;
 // use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use App\Entity\Contact;
 use App\Entity\Project;
 use App\Form\CommentType;
+use App\Form\ContactType;
 use App\Form\ProjectType;
 use App\Repository\ProjectRepository;
 use Symfony\Component\HttpFoundation\Request;
@@ -81,9 +83,20 @@ class SiteController extends AbstractController
     /**
      * @Route("/contact", name="contact")
      */
-    public function contact()
+    public function contact(Request $request, ObjectManager $manager)
     {
-        return $this->render('site/contact.html.twig');
+        $contact = new Contact();
+
+        $form = $this->createForm(ContactType::class, $contact);
+
+        $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid()){
+            return $this->redirectionToRoute('site/contact.html.twig');
+        }
+        return $this->render('site/contact.html.twig', [
+            'formContact' => $form->createView()
+        ]);
     }
     /**
      * @Route("/adminAddProject", name="admin_add_project")
