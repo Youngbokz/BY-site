@@ -10,6 +10,7 @@
             <div class="description">{{ project.description }}</div> 
             <br>
             <section id="comments">
+                <h2>{{ project.comments | length }} Commentaires</h2>
                 {% for comment in project.comments %}
                 <div class="comment">
                     <div class="row">
@@ -22,6 +23,18 @@
                     </div>
                 </div>
                 {% endfor %}
+                {% if app.user %}
+                {{ form_start(commentForm) }}
+                
+                {{ form_row(commentForm.comment, {'attr': {'placeholder' : "Votre commentaire ici ..."}, 'label' : "Commentaire"}) }}
+                <button type="submit" class="btn btn-success">Commenter</button>
+                {{ form_end(commentForm) }}
+                {% else %}
+                <div>
+                    <p>Connectez vous ou créez un compte pour pouvoir laiser un commentaire</p>
+                </div>
+                {% endif %}
+
             </section>
         </div>
     </div>

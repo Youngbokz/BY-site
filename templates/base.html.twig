@@ -27,18 +27,23 @@
         <div id="myBurger" class="openMyBtn" onclick="openMyNav()"><span></span><span></span><span></span></div>
         
             <div class="myLogo">
+                {% if app.user %}      
+                    <a href="{{ path('security_disconnexion') }}"><button type="button" class="btn btn-outline-primary">Déconnexion</button></a>
+                    <a href="#"><button type="button" class="btn btn-outline-primary">Profile</button></a>
+                {% else %}
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Connexion
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="{{ path('security_connexion') }}">Se connecter</a>
+                            <a class="dropdown-item" href="{{ path('security_registration') }}">S'inscrire</a>
+                        </div>
+                    </div>
+                {% endif %}
                 <a href="{{ path('home') }}">
                     <img src="{{ asset('img/myLogo.png') }}" alt="Bokolo Yannick Logo"/>
                 </a>
-                <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Connexion
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="{{ path('security_connexion') }}">Se connecter</a>
-                        <a class="dropdown-item" href="{{ path('security_registration') }}">S'inscrire</a>
-                    </div>
-                </div>
             </div>
               
         {% block body %}{% endblock %}

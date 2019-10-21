@@ -2,17 +2,19 @@
 
 namespace App\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\HttpFoundation\Request;
+use App\Entity\User;
+use App\Form\UserType;
+use App\Entity\Comment;
 // use Symfony\Component\Form\Extension\Core\Type\TextType;
 // use Symfony\Component\Form\Extension\Core\Type\TextareaType;
-use Doctrine\Common\Persistence\ObjectManager;
 use App\Entity\Project;
-use App\Entity\User;
-use App\Repository\ProjectRepository;
+use App\Form\CommentType;
 use App\Form\ProjectType;
-use App\Form\UserType;
+use App\Repository\ProjectRepository;
+use Symfony\Component\HttpFoundation\Request;
+use Doctrine\Common\Persistence\ObjectManager;
+use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class SiteController extends AbstractController
 {
@@ -50,12 +52,30 @@ class SiteController extends AbstractController
     /**
      * @Route("/show_project/{id}", name="show_project")
      */
-    public function show_project(Project $project)
+    public function show_project(Project $project, Request $request, ObjectManager $manager)
     {
         $user = new User();
+        $comment = new Comment();
+
+        $form = $this->createForm(CommentType::class, $comment);
+
+        $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid()){
+            $comment->setCreatedAt(new \DateTime())
+                    ->setProject($project)
+                    ->setReported(true);
+                    
+            $manager->persist($comment);
+            $manager->flush();
+
+            return $this->redirectToRoute('show_project', ['id' => $project->getId()]);
+        }
+
         return $this->render('site/show_project.html.twig', [
             'project' => $project,
-            'user' => $user
+            'user' => $user,
+            'commentForm' => $form->createView()
         ]);
     }
     /**

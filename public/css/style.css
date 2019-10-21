@@ -3,7 +3,6 @@
 */
 body, html {
     height: 100%;
-    margin: 10px;
 }
 .container-main-contain{
     margin-top: 200px;
@@ -90,6 +89,8 @@ body, html {
 }
 
 .myLogo{
+    display: flex;
+    align-items: center;
     position: absolute;
     top: -40px;
     right: 30px;

@@ -47,14 +47,18 @@ class SecurityController extends AbstractController
      */
     public function userConnexion(Request $request, ProjectRepository $repo)
     {
-        // $user = new User();
-        // $form = $this->createForm(UserType::class, $user);
-        // $form->handleRequest($request);
-        // if($form->isSubmitted() && $form->isValid()){
-        //     //$user->setCreatedAt(new \DateTime());
-        //     return $this->redirectToRoute('home');
-        // }
-        return $this->render('security/connexion.html.twig');
+        $user = new User();
+
+        $form = $this->createForm(UserType::class, $user);
+
+        $form->handleRequest($request);
+        if($form->isSubmitted() && $form->isValid()){
+           
+            return $this->redirectToRoute('home');
+         }
+        return $this->render('security/connexion.html.twig',[
+            'formConnexion' => $form->createView()
+        ]);
     }
 
     /**
