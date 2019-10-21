@@ -18,7 +18,7 @@
     </form> #}
     <h1>Connexion</h1>
       {{ form_start(formConnexion) }}
-      {{ form_row(formConnexion.log, {'label' : 'Pseudo','full_name': "_username", 'attr' : {'placeholder' : 'Votre pseudo ici...'}}) }}
+      {{ form_row(formConnexion.username, {'label' : 'Pseudo','full_name': "_username", 'attr' : {'placeholder' : 'Votre pseudo ici...'}}) }}
       {{ form_row(formConnexion.password, {'label' : 'Mot de passe','full_name': "_password", 'attr' : {'placeholder' : 'Votre mot de passe ici...'}}) }}
       <button type="submit" class="btn btn-success">Se connecter</button>
       {{ form_end(formConnexion) }}

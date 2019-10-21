@@ -114,10 +114,10 @@ class SiteController extends AbstractController
     } 
   
     /**
-     * @Route("/user_profile", name="user_profile")
+     * @Route("/user_dashboard", name="user_dashboard")
      */
-    public function user_profile()
+    public function user()
     {
-        return $this->render('site/user_profile.html.twig');
+        return $this->render('site/user_dashboard.html.twig');
     }
 }

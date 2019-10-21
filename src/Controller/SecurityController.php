@@ -25,8 +25,7 @@ class SecurityController extends AbstractController
         $form->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid()){
-            $user->setCreatedAt(new \DateTime())
-                 ->setRole("NotAdmin");
+            $user->setCreatedAt(new \DateTime());
 
             $hash = $encoder->encodePassword($user, $user->getPassword());
 
@@ -45,15 +44,16 @@ class SecurityController extends AbstractController
     /**
      * @Route("/connexion", name="security_connexion")
      */
-    public function userConnexion(Request $request, ProjectRepository $repo)
+    public function userConnexion(Request $request)
     {
         $user = new User();
 
         $form = $this->createForm(UserType::class, $user);
 
         $form->handleRequest($request);
+
         if($form->isSubmitted() && $form->isValid()){
-           
+
             return $this->redirectToRoute('home');
          }
         return $this->render('security/connexion.html.twig',[

@@ -16,7 +16,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
  * @UniqueEntity(
  *  fields = {"email"},
  *  message = "Oups! eMail déjà utilisé. Choississez en un autre",
- *  fields = {"log"},
+ *  fields = {"username"},
  *  message = "Oups! Pseudo déjà utilisé. Choisissez en un autre"
  * )
  */
@@ -32,7 +32,7 @@ class User implements UserInterface
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $log;
+    private $username;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -101,11 +101,6 @@ class User implements UserInterface
      */
     private $comments;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $role;
-
     public function __construct()
     {
         $this->comments = new ArrayCollection();
@@ -116,14 +111,14 @@ class User implements UserInterface
         return $this->id;
     }
 
-    public function getLog(): ?string
+    public function getUsername(): ?string
     {
-        return $this->log;
+        return $this->username;
     }
 
-    public function setLog(string $log): self
+    public function setUsername(string $username): self
     {
-        $this->log = $log;
+        $this->username = $username;
 
         return $this;
     }
@@ -291,18 +286,6 @@ class User implements UserInterface
         return $this;
     }
 
-    public function getRole(): ?string
-    {
-        return $this->role;
-    }
-
-    public function setRole(string $role): self
-    {
-        $this->role = $role;
-
-        return $this;
-    }
-    public function getUsername(){}
     public function eraseCredentials(){}
     public function getSalt(){}
     public function getRoles(){

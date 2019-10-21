@@ -7,8 +7,10 @@
         <meta name="author" content="">
         <title>{% block title %}BOKOLO Yannick!{% endblock %}</title>
         {% block css %}
-            <!--My persnnal CSS-->
+        <!--My persnnal CSS-->
         <link href="{{ asset('css/style.css') }}" rel="stylesheet" type="text/css">
+        <!--Fontawsome-->
+        <script src="https://kit.fontawesome.com/94d8a89f76.js" crossorigin="anonymous"></script>
         <!--Bootstrap CDN-->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         {% endblock %}
@@ -21,15 +23,15 @@
                 <a href="{{ path('cv') }}">C.V.</a>
                 <a href="{{ path('skills') }}">Skills</a>
                 <a href="{{ path('projects') }}">Projets</a>
-                <a href="{{ path('contact') }}">Contact</a>
+                <a href="{{ path('contact') }}">Cont<i class="fas fa-at"></i>ct</a>
             </div>
         </div>
         <div id="myBurger" class="openMyBtn" onclick="openMyNav()"><span></span><span></span><span></span></div>
         
             <div class="myLogo">
-                {% if app.user %}      
-                    <a href="{{ path('security_disconnexion') }}"><button type="button" class="btn btn-outline-primary">Déconnexion</button></a>
-                    <a href="#"><button type="button" class="btn btn-outline-primary">Profile</button></a>
+                {% if app.user %} 
+                    <div class="container"><a href="{{ path('user_dashboard') }}"><i class="fas fa-user-tie"></i></a></div>
+                    <div class="container"><a href="{{ path('security_disconnexion') }}"><button type="button" class="btn btn-outline-primary">Déconnexion</button></a></div>     
                 {% else %}
                     <div class="dropdown">
                         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
