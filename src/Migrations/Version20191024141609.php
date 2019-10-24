@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20191016104136 extends AbstractMigration
+final class Version20191024141609 extends AbstractMigration
 {
     public function getDescription() : string
     {
@@ -22,9 +22,8 @@ final class Version20191016104136 extends AbstractMigration
         // this up() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
-        $this->addSql('ALTER TABLE comment ADD created_at DATETIME NOT NULL');
-        $this->addSql('ALTER TABLE comment ADD CONSTRAINT FK_9474526C166D1F9C FOREIGN KEY (project_id) REFERENCES project (id)');
-        $this->addSql('CREATE INDEX IDX_9474526C166D1F9C ON comment (project_id)');
+        $this->addSql('ALTER TABLE user ADD username VARCHAR(255) NOT NULL, DROP log, DROP role');
+        $this->addSql('ALTER TABLE comment CHANGE user_id user_id INT DEFAULT NULL');
     }
 
     public function down(Schema $schema) : void
@@ -32,8 +31,7 @@ final class Version20191016104136 extends AbstractMigration
         // this down() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
-        $this->addSql('ALTER TABLE comment DROP FOREIGN KEY FK_9474526C166D1F9C');
-        $this->addSql('DROP INDEX IDX_9474526C166D1F9C ON comment');
-        $this->addSql('ALTER TABLE comment DROP created_at');
+        $this->addSql('ALTER TABLE comment CHANGE user_id user_id INT NOT NULL');
+        $this->addSql('ALTER TABLE user ADD role VARCHAR(255) NOT NULL COLLATE utf8mb4_unicode_ci, CHANGE username log VARCHAR(255) NOT NULL COLLATE utf8mb4_unicode_ci');
     }
 }

@@ -16,10 +16,9 @@ class ProjectFixtures extends Fixture
         
         for($z = 1; $z <= 10; $z ++){
             $user = new User();
-            $user->setLog($faker->name())
+            $user->setUsername($faker->name())
                  ->setPassword($faker->password())
-                 ->setCreatedAt($faker->dateTimeBetween('-6 months'))
-                 ->setRole($faker->word());
+                 ->setCreatedAt($faker->dateTimeBetween('-6 months'));
     
             $manager->persist($user);
         }
@@ -42,7 +41,6 @@ class ProjectFixtures extends Fixture
                 $comment = new Comment();
                 $comment->setProject($project)
                         ->setUser($user)
-                        ->setAuthor($faker->sentence())
                         ->setReported(true)
                         ->setCreatedAt($faker->dateTimeBetween('-' . $days . 'days'))
                         ->setComment($faker->paragraph());
