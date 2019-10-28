@@ -125,12 +125,4 @@ class SiteController extends AbstractController
             'editMode' => $project->getId() !== null // Boolean qui permet de voir si il y a un id ou pas ici il est en True donc qu il a un id donc qu'il est modifiable 
         ]);
     } 
-  
-    /**
-     * @Route("/user_dashboard", name="user_dashboard")
-     */
-    public function user()
-    {
-        return $this->render('site/user_dashboard.html.twig');
-    }
 }

@@ -30,7 +30,7 @@
         
             <div class="myLogo">
                 {% if app.user %} 
-                    <div class="container"><a href="{{ path('user_dashboard') }}"><i class="fas fa-user-tie"></i></a></div>
+                    <div class="container"><a href="{{ path('profile') }}"><i class="fas fa-user-tie"></i></a></div>
                     <div class="container"><a href="{{ path('security_disconnexion') }}"><button type="button" class="btn btn-outline-primary">Déconnexion</button></a></div>     
                 {% else %}
                     <div class="dropdown">
