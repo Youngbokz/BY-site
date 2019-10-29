@@ -29,7 +29,11 @@
         <div id="myBurger" class="openMyBtn" onclick="openMyNav()"><span></span><span></span><span></span></div>
         
             <div class="myLogo">
-                {% if app.user %} 
+                {% if is_granted('ROLE_ADMIN') %}
+                    <div><a href="{{ path('admin') }}">Tableau de Bord</a></div>
+                {% endif %}
+                {% if is_granted('ROLE_USER') %}  
+                    <div>Salut {{ app.user.username }}</div>                  
                     <div class="container"><a href="{{ path('profile') }}"><i class="fas fa-user-tie"></i></a></div>
                     <div class="container"><a href="{{ path('security_disconnexion') }}"><button type="button" class="btn btn-outline-primary">Déconnexion</button></a></div>     
                 {% else %}
