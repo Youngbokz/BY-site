@@ -5,19 +5,21 @@ security:
 
     # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
     providers:
-        in_memory: { memory: null }
         in_database:
             entity:
                 class: App\Entity\User
                 property: username
-    firewalls:
+    role_hierarchy:
+        ROLE_USER: ROLE_USER
+        ROLE_ADMIN: [ROLE_USER, ROLE_ADMIN]
+    firewalls: # it checks users
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
         main:
-            pattern: ^/
-            anonymous: true
-
+            pattern: ^/ # it means that all URL are protect by a firewall
+            anonymous: true # accepte anonymous user
+        
             provider: in_database 
 
             form_login: 
