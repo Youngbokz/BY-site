@@ -7,6 +7,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 use App\Entity\Project;
 use App\Form\ProjectType;
+use App\Repository\ProjectRepository;
 use Doctrine\Common\Persistence\ObjectManager;
 
 class AdminController extends AbstractController
@@ -41,10 +42,13 @@ class AdminController extends AbstractController
     /**
      * @Route("/adminProjects", name="admin_projects")
      */
-    public function adminProjects()
+    public function adminProjects(ProjectRepository $repo)
     {
+        $projects = $repo->findAll();
 
-        return $this->render('admin/projects.html.twig');
+        return $this->render('admin/projects.html.twig', [
+            'projects' => $projects
+        ]);
     }
 
     /**

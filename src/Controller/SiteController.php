@@ -47,6 +47,7 @@ class SiteController extends AbstractController
     public function projects(ProjectRepository $repo)
     {
         $projects = $repo->findAll();
+        
         return $this->render('site/projects.html.twig', [
             'projects' => $projects
         ]);
