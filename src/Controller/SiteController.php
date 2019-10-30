@@ -98,31 +98,4 @@ class SiteController extends AbstractController
             'formContact' => $form->createView()
         ]);
     }
-    /**
-     * @Route("/adminAddProject", name="admin_add_project")
-     * @Route("/adminEditProject/{id}", name="admin_edit_project")
-     */
-    public function formProject(Project $project = null, Request $request, ObjectManager $manager)
-    {
-        if(!$project){
-            $project = new Project(); // cette article est completement vide, mais pas nul
-        }
-     
-        $form = $this->createForm(ProjectType::class, $project);
-
-        $form->handleRequest($request);
-        if($form->isSubmitted() && $form->isValid()){
-            if(!$project->getId()){ //Si l'article n'a pas d'identifiant alors on crée une heure de création
-                $project->setCreatedAt(new \DateTime());
-            }
-            $manager->persist($project);
-            $manager->flush();
-            return $this->redirectToRoute('show_project', ['id' => $project->getId()]);
-        }
-        
-        return $this->render('site/formProject.html.twig', [
-            'formProject' => $form->createView(), // Pour avoir l'aspect affiche de form
-            'editMode' => $project->getId() !== null // Boolean qui permet de voir si il y a un id ou pas ici il est en True donc qu il a un id donc qu'il est modifiable 
-        ]);
-    } 
 }
