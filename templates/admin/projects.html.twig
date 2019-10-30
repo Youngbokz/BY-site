@@ -50,24 +50,24 @@
                     </h1>
                     <div class="content">
                     {% for project in projects %}
-                    <div class="card mb-6 projectCard" style="max-width: 520px;">
-                        <div class="row no-gutters">
-                            <div class="col-md-4">
-                                <img src="{{ project.imageUrl }}" class="card-img" alt="Illustration du projet">
-                            </div>
-                            <div class="col-md-8">
-                                <div class="card-body">
-                                    <h5 class="card-title">{{ project.name }}</h5>
-                                    <p class="card-text">{{ project.description }}</p>
-                                    <p class="card-text"><small class="text-muted">{{ project.address }}</small></p>
-                                    <div>
-                                        <a href="#" class="btn btn-success">éditer</a>
-                                        <a href="#" class="btn btn-danger">éffacer</a>
+                        <div class="card mb-6 projectCard" style="max-width: 520px;">
+                            <div class="row no-gutters">
+                                <div class="col-md-4">
+                                    <img src="{{ project.imageUrl }}" class="card-img" alt="Illustration du projet">
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{ project.name }}</h5>
+                                        <p class="card-text">{{ project.description }}</p>
+                                        <p class="card-text"><small class="text-muted">{{ project.address }}</small></p>
+                                        <div>
+                                            <a href="{{ path('admin_edit_project', {'id': project.id}) }}" class="btn btn-success"><span style="text-transform:uppercase">éditer</span></a>
+                                            <a href="#" class="btn btn-danger"><span style="text-transform:uppercase">éffacer</span></a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
                     {% endfor %}
                     </div>
                 </main>
