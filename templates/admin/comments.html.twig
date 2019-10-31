@@ -45,13 +45,31 @@
             </div>
             <div class="content col-9">
                 <main>
-                <div class="container">
-                    <h1>
-                        COMMENTAIRES
-                    </h1>
-
-                    
-                </div>
+                    <div class="container">
+                        <section>
+                            <h1>
+                                <span style="text-transform:uppercase">abonnés</span>
+                            </h1>
+                            {% for comment in comments %}
+                                <div class="row">
+                                    <div class="col-4">
+                                        <span style="text-transform:uppercase">NOM DES USERs</span>
+                                    </div>
+                                    <div class="col-4">
+                                        {{  comment.createdAt | date('d/m/Y') }}
+                                    </div>
+                                    <div class="col-2">
+                                        <a class="btn btn-warning" href="#" role="button">Signaler</a>
+                                        <hr />
+                                    </div>
+                                    <div class="col-2">
+                                        <a class="btn btn-danger" href="#" role="button">Supprimer</a>
+                                        <hr />
+                                    </div>
+                                 </div>
+                            {% endfor %}
+                        </section>
+                    </div>
                 </main>
             </div>
         </div>

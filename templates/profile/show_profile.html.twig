@@ -31,7 +31,7 @@
                                 <div class="bg-white shadow rounded overflow-hidden">
                                     <div class="px-4 pt-0 pb-4 bg-dark">
                                         <div class="media align-items-end profile-header">
-                                            <div class="profile mr-3"><img src="https://d19m59y37dris4.cloudfront.net/university/1-1-1/img/teacher-4.jpg" alt="..." width="130" class="rounded mb-2 img-thumbnail"><a href="#" class="btn btn-dark btn-sm btn-block">Edit profile</a></div>
+                                            <div class="profile mr-3"><img src="{{ asset('img/profile.jpg') }}" alt="Visage de profile" width="130" class="rounded mb-2 img-thumbnail"><a href="{{ path('edit_profile') }}" class="btn btn-dark btn-sm btn-block">Éditer mon profile</a></div>
                                             <div class="media-body mb-5 text-white">
                                                 <h4 class="mt-0 mb-0">{{ app.user.firstname }} <span style="text-transform:uppercase">{{ app.user.lastname }}</span></h4>
                                                 <p class="small mb-4"> <i class="fa fa-map-marker mr-2"></i> <span style="text-transform:uppercase">{{ app.user.city }}</span></p>

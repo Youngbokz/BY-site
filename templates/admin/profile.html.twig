@@ -53,7 +53,7 @@
                                 <div class="bg-white shadow rounded overflow-hidden">
                                     <div class="px-4 pt-0 pb-4 bg-dark">
                                         <div class="media align-items-end profile-header">
-                                            <div class="profile mr-3"><img src="https://d19m59y37dris4.cloudfront.net/university/1-1-1/img/teacher-4.jpg" alt="..." width="130" class="rounded mb-2 img-thumbnail"><a href="#" class="btn btn-dark btn-sm btn-block">Edit profile</a></div>
+                                            <div class="profile mr-3"><img src="{{ asset('img/headphone.jpg') }}" alt="Casque de musique sur fond jaune" width="130" class="rounded mb-2 img-thumbnail"><a href="{{ path('admin_edit_profile') }}" class="btn btn-dark btn-sm btn-block">Éditer mon Futur</a></div>
                                             <div class="media-body mb-5 text-white">
                                                 <h4 class="mt-0 mb-0">{{ app.user.firstname }} {{ app.user.lastname }}</h4>
                                                 <p class="small mb-4"> <i class="fa fa-map-marker mr-2"></i> {{ app.user.city }}</p>
@@ -74,7 +74,7 @@
 
                                     <div class="py-4 px-4">
                                         <div class="d-flex align-items-center justify-content-between mb-3">
-                                            <h5 class="mb-0">Mes derniers projets</h5><a href="#" class="btn btn-link text-muted">Tout découvrir</a>
+                                            <h5 class="mb-0">Mes derniers projets</h5><a href="{{ path('admin_projects') }}" class="btn btn-link text-muted">Tout découvrir</a>
                                         </div>
                                         <div class="row">
                                             {% for project in projects %}

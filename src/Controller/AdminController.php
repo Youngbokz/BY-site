@@ -8,6 +8,8 @@ use Symfony\Component\HttpFoundation\Request;
 use App\Entity\Project;
 use App\Form\ProjectType;
 use App\Repository\ProjectRepository;
+use App\Repository\UserRepository;
+use App\Repository\CommentRepository;
 use Doctrine\Common\Persistence\ObjectManager;
 
 class AdminController extends AbstractController
@@ -24,10 +26,13 @@ class AdminController extends AbstractController
     /**
      * @Route("/adminUserCom", name="admin_user_com")
      */
-    public function adminUserCom()
-    {
+    public function adminUserCom(CommentRepository $repo)
+    {   
+        $comments = $repo->findAll();
 
-        return $this->render('admin/comments.html.twig');
+        return $this->render('admin/comments.html.twig', [
+            'comments' => $comments
+        ]);
     }
 
     /**
@@ -54,10 +59,13 @@ class AdminController extends AbstractController
     /**
      * @Route("/subscribers", name="subscribers")
      */
-    public function subscribers()
+    public function subscribers(UserRepository $repo)
     {
+        $users = $repo->findAll();
 
-        return $this->render('admin/subscribers.html.twig');
+        return $this->render('admin/subscribers.html.twig', [
+            'users' => $users
+        ]);
     }
 
     /**
@@ -69,6 +77,14 @@ class AdminController extends AbstractController
         return $this->render('admin/profile.html.twig', [
             'projects'=> $projects
         ]);
+    }
+
+    /**
+     * @Route("/adminEditProfile", name="admin_edit_profile")
+     */
+    public function adminEditProfile()
+    {
+        return $this->render('admin/edit_profile.html.twig');
     }
 
     /**

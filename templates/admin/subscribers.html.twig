@@ -45,13 +45,27 @@
             </div>
             <div class="content col-9">
                 <main>
-                <div class="container">
-                    <h1>
-                        <span style="text-transform:uppercase">abonnés</span>
-                    </h1>
-
-                    
-                </div>
+                    <div class="container">
+                        <section>
+                            <h1>
+                                <span style="text-transform:uppercase">abonnés</span>
+                            </h1>
+                            {% for user in users %}
+                                <div class="row">
+                                    <div class="col-5">
+                                        <span style="text-transform:uppercase">{{ user.username }}</span>
+                                    </div>
+                                    <div class="col-5">
+                                        {{  user.createdAt | date('d/m/Y') }}
+                                    </div>
+                                    <div class="col-2">
+                                        <a class="btn btn-danger" href="#" role="button">Supprimer</a>
+                                        <hr />
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </section>
+                    </div>
                 </main>
             </div>
         </div>
