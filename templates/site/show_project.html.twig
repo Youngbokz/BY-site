@@ -12,16 +12,16 @@
             <section id="comments">
                 <h2>{{ project.comments | length }} Commentaires</h2>
                 {% for comment in project.comments %}
-                <div class="comment">
-                    <div class="row">
-                        <div class="col-3">
-                            Posté par  le (<small> {{ comment.createdAt | date('d/m/Y à H:i') }} </small>)
-                        </div>
-                        <div class="col">
-                            {{ comment.comment | raw }}
+                    <div class="comment">
+                        <div class="row">
+                            <div class="col-3">
+                                Posté par  le (<small> {{ comment.createdAt | date('d/m/Y à H:i') }} </small>)
+                            </div>
+                            <div class="col">
+                                {{ comment.comment | raw }}
+                            </div>
                         </div>
                     </div>
-                </div>
                 {% endfor %}
                 {% if app.user %}
                 {{ form_start(commentForm) }}

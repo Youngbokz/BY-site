@@ -187,3 +187,13 @@ header.masthead.d-flex{
     background-size: cover;
     height: 100%;
 } */
+
+/*--------------------------
+* ADMIIN AND PROFILE MENU
+*/
+.sideMenu{
+    border-right: solid 0.2px #659dbd;
+}
+hr{
+    border-top:solid 2px #659dbd !important;
+}

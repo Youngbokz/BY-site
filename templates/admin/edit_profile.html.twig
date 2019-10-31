@@ -17,13 +17,11 @@
             <ul class="navbar-nav ml-auto">
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Options
+                    Options
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="{{ path('admin_add_project') }}">Ajouter Projet</a>
-                <a class="dropdown-item" href="#">Editer Projet</a>
-                {# <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#"></a> #}
+                    <a class="dropdown-item" href="{{ path('admin_add_project') }}">Ajouter Projet</a>
+                    <a class="dropdown-item" href="#">Editer Projet</a>
                 </div>
             </li>
             </ul>
@@ -45,13 +43,115 @@
             </div>
             <div class="content col-9">
                 <main>
-                <div class="container">
-                    <h1>
-                        ÉDITER MON PROFILE
-                    </h1>
+                    <div class="container">
+                        <div class="row py-5 px-4">
+                            <div class="col-xl-12 col-md-12 col-sm-12 mx-auto">
 
-                    
-                </div>
+                                <!-- Profile widget -->
+                                <div class="bg-white shadow rounded overflow-hidden">
+                                    <div class="px-4 pt-0 pb-4 bg-dark">
+                                        <div class="media align-items-end profile-header">
+                                            <div class="profile mr-3"><img src="{{ asset('img/headphone.jpg') }}" alt="Casque de musique sur fond jaune" width="130" class="rounded mb-2 img-thumbnail"><p>Changer mon profile</p></div>
+                                            <div class="media-body mb-5 text-white">
+                                                <h4 class="mt-0 mb-0">{{ app.user.firstname }} {{ app.user.lastname }}</h4>
+                                                <p class="small mb-4"> <i class="fa fa-map-marker mr-2"></i> {{ app.user.city }}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="bg-light p-4 d-flex justify-content-end text-center">
+                                        <ul class="list-inline mb-0">
+                                            <li class="list-inline-item">
+                                                <h5 class="font-weight-bold mb-0 d-block">241</h5><small class="text-muted"> <i class="fa fa-picture-o mr-1"></i>Commentaires</small>
+                                            </li>
+                                            <li class="list-inline-item">
+                                                <h5 class="font-weight-bold mb-0 d-block">84K</h5><small class="text-muted"> <i class="fa fa-user-circle-o mr-1"></i>Abonnés</small>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <section>
+                                        <div>
+                                            {{ form_start(formEditUser) }}
+                                            <div class="row">
+                                                <div class="col">
+                                                    <span style="text-transform:uppercase">pseudo</span>
+                                                </div>
+                                                <div class="col">
+                                                    {{ form_row(formEditUser.username, { 'attr' : {'placeholder' : "Votre pseudo ici"}, 'label' : ""}) }}
+                                                    <hr />
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col">
+                                                    <span style="text-transform:uppercase">nom</span>
+                                                </div>
+                                                <div class="col">
+                                                    {{ app.user.lastname }}
+                                                    <hr />
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col">
+                                                    <span style="text-transform:uppercase">Prénom</span>
+                                                </div>
+                                                <div class="col">
+                                                    {{ app.user.firstname }}
+                                                    <hr />
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col">
+                                                    <span style="text-transform:uppercase">email</span>
+                                                </div>
+                                                <div class="col">
+                                                    {{  app.user.email }}
+                                                    <hr />
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col">
+                                                    <span style="text-transform:uppercase">adresse</span>
+                                                </div>
+                                                <div class="col">
+                                                    {{  app.user.address }}
+                                                    <hr />
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col">
+                                                    <span style="text-transform:uppercase">code postale</span>
+                                                </div>
+                                                <div class="col">
+                                                    {{  app.user.codeZip }}
+                                                    <hr />
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col">
+                                                    <span style="text-transform:uppercase">ville</span>
+                                                </div>
+                                                <div class="col">
+                                                    {{  app.user.city }}
+                                                    <hr />
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col">
+                                                    <span style="text-transform:uppercase">téléphone</span>
+                                                </div>
+                                                <div class="col">
+                                                    {{  app.user.mobilePhone }}
+                                                    <hr />
+                                                </div>
+                                            </div>
+                                            {{ form_end(formEditUser) }}
+                                        </div>
+                                    </section>
+                                </div><!-- End profile widget -->
+                            </div>
+                        </div>
+                    </div>
                 </main>
             </div>
         </div>

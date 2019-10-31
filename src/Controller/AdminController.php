@@ -6,7 +6,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 use App\Entity\Project;
+use App\Entity\User;
 use App\Form\ProjectType;
+use App\Form\EditUserType;
 use App\Repository\ProjectRepository;
 use App\Repository\UserRepository;
 use App\Repository\CommentRepository;
@@ -82,9 +84,27 @@ class AdminController extends AbstractController
     /**
      * @Route("/adminEditProfile", name="admin_edit_profile")
      */
-    public function adminEditProfile()
+    public function adminEditProfile(User $user = null, Request $request, ObjectManager $manager)
     {
-        return $this->render('admin/edit_profile.html.twig');
+        if(!$user){
+            $user = new User();
+        }
+
+        $form = $this->createForm(EditUserType::class, $user);
+
+        $form->handleRequest($request);
+        if($form->isSubmitted() && $form->isValid()){
+            if(!$user->getId()){ //Si l'article n'a pas d'identifiant alors on crée une heure de création
+                $user->setCreatedAt(new \DateTime());
+            }
+            $manager->persist($user);
+            $manager->flush();
+            return $this->redirectToRoute('admin_profile');
+        }
+
+        return $this->render('admin/edit_profile.html.twig', [
+            'formEditUser' => $form->createView()
+        ]);
     }
 
     /**
