@@ -77,10 +77,12 @@
                                             <h5 class="mb-0">Mes derniers projets</h5><a href="#" class="btn btn-link text-muted">Tout découvrir</a>
                                         </div>
                                         <div class="row">
-                                            <div class="col-lg-6 mb-2 pr-lg-1"><img src="https://res.cloudinary.com/mhmd/image/upload/v1556294928/nicole-honeywill-546848-unsplash_ymprvp.jpg" alt="" class="img-fluid rounded shadow-sm"></div>
-                                            <div class="col-lg-6 mb-2 pl-lg-1"><img src="https://res.cloudinary.com/mhmd/image/upload/v1556294927/dose-juice-1184444-unsplash_bmbutn.jpg" alt="" class="img-fluid rounded shadow-sm"></div>
+                                            {% for project in projects %}
+                                            <div class="col-lg-6 mb-2 pr-lg-1"><img src="{{ project.imageUrl }}" alt="" class="img-fluid rounded shadow-sm"></div>
+                                            {# <div class="col-lg-6 mb-2 pl-lg-1"><img src="https://res.cloudinary.com/mhmd/image/upload/v1556294927/dose-juice-1184444-unsplash_bmbutn.jpg" alt="" class="img-fluid rounded shadow-sm"></div>
                                             <div class="col-lg-6 pr-lg-1 mb-2"><img src="https://res.cloudinary.com/mhmd/image/upload/v1556294926/cody-davis-253925-unsplash_hsetv7.jpg" alt="" class="img-fluid rounded shadow-sm"></div>
-                                            <div class="col-lg-6 pl-lg-1"><img src="https://res.cloudinary.com/mhmd/image/upload/v1556294928/tim-foster-734470-unsplash_xqde00.jpg" alt="" class="img-fluid rounded shadow-sm"></div>
+                                            <div class="col-lg-6 pl-lg-1"><img src="https://res.cloudinary.com/mhmd/image/upload/v1556294928/tim-foster-734470-unsplash_xqde00.jpg" alt="" class="img-fluid rounded shadow-sm"></div> #}
+                                            {% endfor %}
                                         </div>
                                         <div class="py-4">
                                             <h5 class="mb-3">Dernier commentaire perso posté</h5>
@@ -97,38 +99,74 @@
                                         <div>
                                             <div class="row">
                                                 <div class="col">
-                                                    NOM
+                                                    <span style="text-transform:uppercase">pseudo</span>
+                                                </div>
+                                                <div class="col">
+                                                    {{  app.user.username }}
                                                     <hr />
                                                 </div>
-                                                <div class="col">
-                                                1 of 2
-                                                </div>
                                             </div>
                                             <div class="row">
                                                 <div class="col">
-                                                Prénom
-                                                <hr />
+                                                    <span style="text-transform:uppercase">nom</span>
                                                 </div>
                                                 <div class="col">
-                                                1 of 2
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col">
-                                                
+                                                    {{ app.user.lastname }}
                                                     <hr />
                                                 </div>
+                                            </div>
+                                            <div class="row">
                                                 <div class="col">
-                                                1 of 2
+                                                    <span style="text-transform:uppercase">Prénom</span>
+                                                </div>
+                                                <div class="col">
+                                                    {{ app.user.firstname }}
+                                                    <hr />
                                                 </div>
                                             </div>
                                             <div class="row">
                                                 <div class="col">
-                                                Prénom
-                                                <hr />
+                                                    <span style="text-transform:uppercase">email</span>
                                                 </div>
                                                 <div class="col">
-                                                1 of 2
+                                                    {{  app.user.email }}
+                                                    <hr />
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col">
+                                                    <span style="text-transform:uppercase">adresse</span>
+                                                </div>
+                                                <div class="col">
+                                                    {{  app.user.address }}
+                                                    <hr />
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col">
+                                                    <span style="text-transform:uppercase">code postale</span>
+                                                </div>
+                                                <div class="col">
+                                                    {{  app.user.codeZip }}
+                                                    <hr />
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col">
+                                                    <span style="text-transform:uppercase">ville</span>
+                                                </div>
+                                                <div class="col">
+                                                    {{  app.user.city }}
+                                                    <hr />
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col">
+                                                    <span style="text-transform:uppercase">téléphone</span>
+                                                </div>
+                                                <div class="col">
+                                                    {{  app.user.mobilePhone }}
+                                                    <hr />
                                                 </div>
                                             </div>
                                         </div>
