@@ -50,10 +50,12 @@
                             <h1>
                                 <span style="text-transform:uppercase">abonnés</span>
                             </h1>
+                            {{ dump(comments) }}
                             {% for comment in comments %}
+                            {{ dump(comment.user) }}
                                 <div class="row">
                                     <div class="col-4">
-                                        <span style="text-transform:uppercase">NOM DES USERs</span>
+                                        <span style="text-transform:uppercase">{{ comment.user.username }}</span>
                                     </div>
                                     <div class="col-4">
                                         {{  comment.createdAt | date('d/m/Y') }}

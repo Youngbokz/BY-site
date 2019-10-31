@@ -18,7 +18,16 @@ class CommentRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Comment::class);
     }
-
+    public function findAllWithUser()
+    {
+        $entityManager = $this->getEntityManager();
+        $query = $entityManager->createQuery(
+            'SELECT * c, u
+            FROM App\Entity\Comment c
+            INNER JOIN c.user u'
+        );
+        return $query->getArrayResult();
+    }
     // /**
     //  * @return Comment[] Returns an array of Comment objects
     //  */
