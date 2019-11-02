@@ -15,7 +15,7 @@
                     <div class="comment">
                         <div class="row">
                             <div class="col-3">
-                                Posté par  le (<small> {{ comment.createdAt | date('d/m/Y à H:i') }} </small>)
+                                Posté par le (<small> {{ comment.createdAt | date('d/m/Y à H:i') }} </small>) par {{ comment.user.username }}
                             </div>
                             <div class="col">
                                 {{ comment.comment | raw }}

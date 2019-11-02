@@ -19,9 +19,7 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="{{ path('admin_add_project') }}">Ajouter Projet</a>
-                        <a class="dropdown-item" href="#">Editer Projet</a>
-                        {# <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#"></a> #}
+                        <a class="dropdown-item" href="{{ path('admin_projects') }}">Editer Projet</a>
                     </div>
                 </li>
             </ul>
@@ -42,16 +40,31 @@
             </div>
         </div>
         <div class="content col-9">
-            <main>
-                <div class="container-fluid">
-                    <div class="row">
-                        <div>
-                          MESSAGE DE BIENVENUE AVEC EXPLICATIONS D'UTILISATION DE L'ESPACE MEMBRE <br/>
-                          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestiae laboriosam a, sint quibusdam quidem, officia sunt unde ut nisi voluptatem atque molestias ducimus officiis delectus illo vero fugit facere iste!
+                <div class="card">
+                        <div class="mainColorBg card-header">
+                            <h3>Vue Globale</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="col-md-4">
+                                <div class="card">
+                                    <h3><a href="#" class="list-group-item"><i class="fas fa-user"></i><span class="badge "></span></a></h3>
+                                    <h5>Abonnés</h5>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card">
+                                    <h3><a href="#" class="list-group-item"><i class="fas fa-book"></i><span class="badge "></span></a> </h3>
+                                    <h5>Projets</h5>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card">
+                                    <h3><a href="#" class="list-group-item"><i class="fas fa-comment-dots"></i><span class="badge "></span></a></h3>
+                                    <h5>Commentaires</h5>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </main>
         </div>
     </div>
 </div>
