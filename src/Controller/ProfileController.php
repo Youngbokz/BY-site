@@ -36,9 +36,6 @@ class ProfileController extends AbstractController
 
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid()){
-            // if(!$user->getId()){ //Si l'article n'a pas d'identifiant alors on crée une heure de création
-            //     $user->setCreatedAt(new \DateTime());
-            // }
             $manager->persist($user);
             $manager->flush();
             return $this->redirectToRoute('show_profile');

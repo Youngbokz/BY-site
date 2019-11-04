@@ -18,16 +18,27 @@ class CommentRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Comment::class);
     }
+
     public function findAllWithUser()
     {
-        $entityManager = $this->getEntityManager();
-        $query = $entityManager->createQuery(
-            'SELECT * c, u
-            FROM App\Entity\Comment c
-            INNER JOIN c.user u'
-        );
-        return $query->getArrayResult();
+        return $this->createQueryBuilder('c')
+            ->andWhere('c.reported = true')
+            ->orderBy('c.createdAt', 'DESC')
+            ->getQuery()
+            ->getResult()
+        ;
     }
+
+    public function findAllReportedComment()
+    {
+        return $this->createQueryBuilder('c')
+            ->andWhere('c.reported = false')
+            ->orderBy('c.createdAt', 'DESC')
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
     // /**
     //  * @return Comment[] Returns an array of Comment objects
     //  */

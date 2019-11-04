@@ -30,7 +30,7 @@ class AdminController extends AbstractController
      */
     public function adminUserCom(CommentRepository $repo)
     {   
-        $comments = $repo->findAll();
+        $comments = $repo->findAllWithUser();
 
         return $this->render('admin/comments.html.twig', [
             'comments' => $comments
@@ -40,10 +40,13 @@ class AdminController extends AbstractController
     /**
      * @Route("/RepotedCom", name="reported_com")
      */
-    public function reportedCom()
+    public function reportedCom(CommentRepository $repo)
     {
+        $comments = $repo->findAllReportedComment();
 
-        return $this->render('admin/reported.html.twig');
+        return $this->render('admin/reported.html.twig', [
+            'comments' => $comments
+        ]);
     }
 
     /**
@@ -51,7 +54,7 @@ class AdminController extends AbstractController
      */
     public function adminProjects(ProjectRepository $repo)
     {
-        $projects = $repo->findAll();
+        $projects = $repo->findAllProjetByDate();
 
         return $this->render('admin/projects.html.twig', [
             'projects' => $projects
@@ -63,7 +66,7 @@ class AdminController extends AbstractController
      */
     public function subscribers(UserRepository $repo)
     {
-        $users = $repo->findAll();
+        $users = $repo->findAllUserByDate();
 
         return $this->render('admin/subscribers.html.twig', [
             'users' => $users
