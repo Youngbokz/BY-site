@@ -19,12 +19,16 @@ class AdminController extends AbstractController
     /**
      * @Route("/admin", name="admin")
      */
-    public function dashboard(UserRepository $repo)
+    public function dashboard(UserRepository $userRepo, CommentRepository $comRepo, ProjectRepository $projectRepo)
     {
-        $countUsers = $repo->countAllUser();
+        $countUsers = $userRepo->countAllUser();
+        $countComments = $comRepo->countAllComment();
+        $countProjects = $projectRepo->countAllProject();
 
         return $this->render('admin/dashboard.html.twig', [
-            'countUsers' => $countUsers
+            'countUsers' => $countUsers,
+            'countComments' => $countComments,
+            'countProjects' => $countProjects
         ]);
     }
 

@@ -33,7 +33,7 @@ class UserRepository extends ServiceEntityRepository
         return $this->createQueryBuilder('u')
             ->select('COUNT(u.id)')
             ->getQuery()
-            ->getResult()
+            ->getArrayResult()
         ;
     }
     // /**

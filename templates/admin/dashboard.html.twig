@@ -51,8 +51,11 @@
                                 <div class="card">
                                     <h3><a href="#" class="list-group-item"><i class="fas fa-user"><span class="badge"></span></i></a></h3>
                                     <h5>Abonnés</h5>
-                                    {{ dump(countUsers) }}
-                                    {{ countUsers | number_format }}
+                                    {% for countUsersArray in countUsers %}
+                                        {% for countUsersNumb in countUsersArray %}
+                                            {{ countUsersNumb | number_format }}
+                                        {% endfor %}
+                                    {% endfor %}
                                 </div>
                             </div>
                         </div>
@@ -61,6 +64,11 @@
                                 <div class="card">
                                     <h3><a href="#" class="list-group-item"><i class="fas fa-book"><span class="badge"></span></i></a></h3>
                                     <h5>Projets</h5>
+                                    {% for countProjectsArray in countProjects %}
+                                        {% for countProjectsNum in countProjectsArray %}
+                                            {{ countProjectsNum | number_format }}
+                                        {% endfor %}
+                                    {% endfor %}
                                 </div>
                             </div>
                         </div>
@@ -69,6 +77,11 @@
                                 <div class="card">
                                     <h3><a href="#" class="list-group-item"><i class="fas fa-comment-dots"><span class="badge"></span></i></a></h3>
                                     <h5>Commentaires</h5>
+                                    {% for countCommentsArray in countComments %}
+                                        {% for countCommentsNum in countCommentsArray %}
+                                            {{ countCommentsNum | number_format }}
+                                        {% endfor %}
+                                    {% endfor %}
                                 </div>
                             </div>
                         </div>

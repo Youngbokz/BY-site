@@ -8,14 +8,17 @@ use Symfony\Component\HttpFoundation\Request;
 use App\Entity\User;
 use App\Form\EditUserForUserType;
 use Doctrine\Common\Persistence\ObjectManager;
+use App\Repository\CommentRepository;
 
 class ProfileController extends AbstractController
 {
     /**
      * @Route("/profile", name="profile")
      */
-    public function index()
+    public function index(CommentRepository $comRepo)
     {
+         // afficher les commentaires de l'utilisateur et mettre l'id de l'utlisateur connecté. 
+        
         return $this->render('profile/dashboard.html.twig');
     }
 
@@ -49,9 +52,13 @@ class ProfileController extends AbstractController
     /**
      * @Route("/userComments", name="user_comments")
      */
-    public function userComments()
+    public function userComments(CommentRepository $repo)
     {
-        return $this->render('profile/comments.html.twig');
+        $comments = $repo->findAllWithUser();
+
+        return $this->render('profile/comments.html.twig', [
+            'comments' => $comments
+        ]);
     }
 
     /**

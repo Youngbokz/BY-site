@@ -5,8 +5,6 @@ namespace App\Controller;
 use App\Entity\User;
 use App\Form\UserType;
 use App\Entity\Comment;
-// use Symfony\Component\Form\Extension\Core\Type\TextType;
-// use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use App\Entity\Contact;
 use App\Entity\Project;
 use App\Form\CommentType;
@@ -46,7 +44,7 @@ class SiteController extends AbstractController
      */
     public function projects(ProjectRepository $repo)
     {
-        $projects = $repo->findAll();
+        $projects = $repo->findAllProjetByDate();
         
         return $this->render('site/projects.html.twig', [
             'projects' => $projects

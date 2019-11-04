@@ -28,6 +28,14 @@ class ProjectRepository extends ServiceEntityRepository
         ;
     }
 
+    public function countAllProject()
+    {
+        return $this->createQueryBuilder('p')
+            ->select('COUNT(p.id)')
+            ->getQuery()
+            ->getArrayResult()
+        ;
+    }
     // /**
     //  * @return Project[] Returns an array of Project objects
     //  */
