@@ -4,6 +4,10 @@ namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\Request;
+use App\Entity\User;
+use App\Form\EditUserForUserType;
+use Doctrine\Common\Persistence\ObjectManager;
 
 class ProfileController extends AbstractController
 {
@@ -24,11 +28,25 @@ class ProfileController extends AbstractController
     }
 
     /**
-     * @Route("/editProfile", name="edit_profile")
+     * @Route("/editProfile/{id}", name="edit_profile")
      */
-    public function editProfile()
+    public function editProfile(User $user, Request $request, ObjectManager $manager)
     {
-        return $this->render('profile/edit_profile.html.twig');
+        $form = $this->createForm(EditUserForUserType::class, $user);
+
+        $form->handleRequest($request);
+        if($form->isSubmitted() && $form->isValid()){
+            // if(!$user->getId()){ //Si l'article n'a pas d'identifiant alors on crée une heure de création
+            //     $user->setCreatedAt(new \DateTime());
+            // }
+            $manager->persist($user);
+            $manager->flush();
+            return $this->redirectToRoute('show_profile');
+        }
+
+        return $this->render('profile/edit_profile.html.twig', [
+            'formEditUserForUser' => $form->createView()
+        ]);
     }
 
     /**

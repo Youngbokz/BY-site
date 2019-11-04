@@ -7,13 +7,13 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class EditUserType extends AbstractType
+class EditUserForUserType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
             ->add('username')
-            //->add('password')
+           // ->add('password')
             ->add('firstname')
             ->add('lastname')
             ->add('address')
@@ -23,7 +23,7 @@ class EditUserType extends AbstractType
             ->add('mobilePhone')
             ->add('codeZip')
             ->add('gender')
-            ;
+        ;
     }
 
     public function configureOptions(OptionsResolver $resolver)

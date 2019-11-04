@@ -53,7 +53,7 @@
                                 <div class="bg-white shadow rounded overflow-hidden">
                                     <div class="px-4 pt-0 pb-4 bg-dark">
                                         <div class="media align-items-end profile-header">
-                                            <div class="profile mr-3"><img src="{{ asset('img/headphone.jpg') }}" alt="Casque de musique sur fond jaune" width="130" class="rounded mb-2 img-thumbnail"><a href="{{ path('admin_edit_profile') }}" class="btn btn-dark btn-sm btn-block">Éditer mon profile</a></div>
+                                            <div class="profile mr-3"><img src="{{ asset('img/headphone.jpg') }}" alt="Casque de musique sur fond jaune" width="130" class="rounded mb-2 img-thumbnail"><a href="{{ path('admin_edit_profile', {'id': app.user.id}) }}" class="btn btn-dark btn-sm btn-block">Éditer mon profile</a></div>
                                             <div class="media-body mb-5 text-white">
                                                 <h4 class="mt-0 mb-0">{{ app.user.firstname }} {{ app.user.lastname }}</h4>
                                                 <p class="small mb-4"> <i class="fa fa-map-marker mr-2"></i> {{ app.user.city }}</p>
@@ -154,6 +154,15 @@
                                                 </div>
                                                 <div class="col">
                                                     {{  app.user.city }}
+                                                    <hr />
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col">
+                                                    <span style="text-transform:uppercase">pays</span>
+                                                </div>
+                                                <div class="col">
+                                                    {{  app.user.country }}
                                                     <hr />
                                                 </div>
                                             </div>

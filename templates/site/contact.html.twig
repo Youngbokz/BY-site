@@ -1,25 +1,25 @@
 {% extends 'base.html.twig' %}
 {% block title %}Contact{% endblock %}
 {% block body %}
-<div class="container-main-contain">
-  <h1>Ma page CONTACT ici !! ahah</h1>
-  <div id="contactForm" class="mt-4"> 
-    {{ form_start(formContact) }}
-    <div class="row">
-      <div class="col">{{ form_row(formContact.firstname, { 'attr' : {'placeholder' : "Votre prénom..."}, 'label' : "Prénom"}) }}</div>
-      <div class="col">{{ form_row(formContact.lastname, { 'attr' : {'placeholder' : "Votre nom de famille..."}, 'label' : "Nom"}) }}</div>
+  <div class="container-main-contain">
+    <h1>Ma page CONTACT ici !! ahah</h1>
+    <div id="contactForm" class="mt-4"> 
+      {{ form_start(formContact) }}
+      <div class="row">
+        <div class="col">{{ form_row(formContact.firstname, { 'attr' : {'placeholder' : "Votre prénom..."}, 'label' : "Prénom"}) }}</div>
+        <div class="col">{{ form_row(formContact.lastname, { 'attr' : {'placeholder' : "Votre nom de famille..."}, 'label' : "Nom"}) }}</div>
+      </div>
+      <div class="row">
+        <div class="col">{{ form_row(formContact.phone, { 'attr' : {'placeholder' : "Votre numéro..."}, 'label' : "Téléphone"}) }}</div>
+        <div class="col">{{ form_row(formContact.email, { 'attr' : {'placeholder' : "Votre email......"}, 'label' : "Email"}) }}</div>
+      </div>
+      <div class="row">
+        <div class="col-12">{{ form_row(formContact.message, { 'attr' : {'placeholder' : "Votre message..."}, 'label' : "Message"}) }}</div> 
+      </div>
+      <div class="form-group">
+          <button type="submit" class="btn btn-success">Envoyer</button>
+      </div>
+      {{ form_end(formContact) }}
     </div>
-     <div class="row">
-      <div class="col">{{ form_row(formContact.phone, { 'attr' : {'placeholder' : "Votre numéro..."}, 'label' : "Téléphone"}) }}</div>
-      <div class="col">{{ form_row(formContact.email, { 'attr' : {'placeholder' : "Votre email......"}, 'label' : "Email"}) }}</div>
-    </div>
-    <div class="row">
-      <div class="col-12">{{ form_row(formContact.message, { 'attr' : {'placeholder' : "Votre message..."}, 'label' : "Message"}) }}</div> 
-    </div>
-    <div class="form-group">
-        <button type="submit" class="btn btn-success">Envoyer</button>
-    </div>
-    {{ form_end(formContact) }}
   </div>
-</div>
 {% endblock %}

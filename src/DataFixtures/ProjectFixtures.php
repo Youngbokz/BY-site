@@ -13,15 +13,8 @@ class ProjectFixtures extends Fixture
     public function load(ObjectManager $manager)
     {
         $faker = \Faker\Factory::create('fr_FR');
-        
-        for($z = 1; $z <= 10; $z ++){
-            $user = new User();
-            $user->setUsername($faker->name())
-                 ->setPassword($faker->password())
-                 ->setCreatedAt($faker->dateTimeBetween('-6 months'));
-    
-            $manager->persist($user);
-        }
+       
+       
         for($i = 1; $i <= 4; $i ++)
         {
             $project = new Project();
@@ -36,6 +29,7 @@ class ProjectFixtures extends Fixture
             // Je crée de faux commentaires pour les liés aux projets et aux utilisateurs
             for($j = 1; $j <= mt_rand(4, 6); $j ++)
             {
+                $user = new User();
                 $days = (new \DateTime())->diff($project->getCreatedAt())->days;
                 
                 $comment = new Comment();
@@ -45,7 +39,16 @@ class ProjectFixtures extends Fixture
                         ->setCreatedAt($faker->dateTimeBetween('-' . $days . 'days'))
                         ->setComment($faker->paragraph());
 
-                $manager->persist($comment);    
+                $manager->persist($comment);
+
+                for($z = 1; $z <= 3; $z ++){
+                    
+                    $user->setUsername($faker->name())
+                         ->setPassword($faker->password())
+                         ->setCreatedAt($faker->dateTimeBetween('-6 months'));
+            
+                    $manager->persist($user);
+                } 
             }
         }
         $manager->flush();

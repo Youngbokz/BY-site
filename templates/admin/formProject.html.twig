@@ -8,11 +8,11 @@
     {% endif %}
 {% endblock %}
 {% block body %}
-<div class="container-main-contain">
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-          <button class="navbar-toggler sideMenuToggler" type="button">
-                  <span class="navbar-toggler-icon"></span>
-              </button>
+  <div class="container-main-contain">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <button class="navbar-toggler sideMenuToggler" type="button">
+        <span class="navbar-toggler-icon"></span>
+      </button>
       <a class="navbar-brand" href="#">{{ app.user.username }}</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -27,13 +27,12 @@
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <a class="dropdown-item" href="{{ path('admin_add_project') }}">Ajouter Projet</a>
               <a class="dropdown-item" href="#">Editer Projet</a>
-              {# <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#"></a> #}
             </div>
           </li>
         </ul>
       </div>
     </nav>
+
     <div class="wrapper d-flex">
         <div class="sideMenu col-2">
             <div class="sidebar">
@@ -73,16 +72,10 @@
                 </button>
                 {{ form_end(formProject) }}
             </div>
-            </main>
+          </main>
         </div>
     </div>
 </div>
-
-
-
-
-
-
 {% endblock %}
 
 

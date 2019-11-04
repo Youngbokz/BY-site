@@ -82,21 +82,17 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/adminEditProfile", name="admin_edit_profile")
+     * @Route("/adminEditProfile/{id}", name="admin_edit_profile")
      */
-    public function adminEditProfile(User $user = null, Request $request, ObjectManager $manager)
+    public function adminEditProfile(User $user, Request $request, ObjectManager $manager)
     {
-        if(!$user){
-            $user = new User();
-        }
-
         $form = $this->createForm(EditUserType::class, $user);
 
-        $form->handleRequest($request);
+        $form->handleRequest($request);//analyse la requete HTTP
         if($form->isSubmitted() && $form->isValid()){
-            if(!$user->getId()){ //Si l'article n'a pas d'identifiant alors on crée une heure de création
-                $user->setCreatedAt(new \DateTime());
-            }
+            // if(!$user->getId()){ //Si l'article n'a pas d'identifiant alors on crée une heure de création
+            //     $user->setCreatedAt(new \DateTime());
+            // }
             $manager->persist($user);
             $manager->flush();
             return $this->redirectToRoute('admin_profile');
