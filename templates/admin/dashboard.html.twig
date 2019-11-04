@@ -25,7 +25,7 @@
                 </ul>
             </div>
         </nav>
-
+        
         <div class="wrapper d-flex">
             <div class="sideMenu col-2">
                 <div class="sidebar">
@@ -51,6 +51,8 @@
                                 <div class="card">
                                     <h3><a href="#" class="list-group-item"><i class="fas fa-user"><span class="badge"></span></i></a></h3>
                                     <h5>Abonnés</h5>
+                                    {{ dump(countUsers) }}
+                                    {{ countUsers | number_format }}
                                 </div>
                             </div>
                         </div>

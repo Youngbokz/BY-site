@@ -28,6 +28,14 @@ class UserRepository extends ServiceEntityRepository
         ;
     }
 
+    public function countAllUser()
+    {
+        return $this->createQueryBuilder('u')
+            ->select('COUNT(u.id)')
+            ->getQuery()
+            ->getResult()
+        ;
+    }
     // /**
     //  * @return User[] Returns an array of User objects
     //  */
