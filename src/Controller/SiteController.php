@@ -55,7 +55,10 @@ class SiteController extends AbstractController
      */
     public function show_project(Project $project, Request $request, ObjectManager $manager)
     {
-        $user = new User();
+        // $session = $request->getSession();
+        // $userId = $session->get('id');
+
+        $id = $this->getUser(); // pourquoi this?
         $comment = new Comment();
 
         $form = $this->createForm(CommentType::class, $comment);
@@ -65,8 +68,9 @@ class SiteController extends AbstractController
         if($form->isSubmitted() && $form->isValid()){
             $comment->setCreatedAt(new \DateTime())
                     ->setProject($project)
-                    ->setReported(true);
-                    
+                    ->setReported(true)
+                    ->setUser($id);
+
             $manager->persist($comment);
             $manager->flush();
 
@@ -75,7 +79,6 @@ class SiteController extends AbstractController
 
         return $this->render('site/show_project.html.twig', [
             'project' => $project,
-            'user' => $user,
             'commentForm' => $form->createView()
         ]);
     }

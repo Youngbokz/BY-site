@@ -12,7 +12,7 @@
         <div class="sideMenu col-2">
             <div class="sidebar">
                 <ul class="navbar-nav">
-                    <li class="nav-item"><a href="{{ path('profile') }}" class="nav-link"> <span>Tableau de bord</span> <i class="fas fa-tachometer-alt"></i></a></li>
+                    <li class="nav-item"><a href="{{ path('profile', {'id': app.user.id}) }}" class="nav-link"> <span>Tableau de bord</span> <i class="fas fa-tachometer-alt"></i></a></li>
                     <li class="nav-item"><a href="{{ path('show_profile') }}" class="nav-link"> <span>Mon profile</span> <i class="fas fa-id-card"></i></a></li>
                     <li class="nav-item"><a href="{{ path('user_comments') }}" class="nav-link"><span>Mes messages <i class="far fa-comments"></i></span></a></li>
                     <li class="nav-item"><a href="{{ path('user_reported_com') }}" class="nav-link"><span>Notifications <i class="far fa-comments"></i></span></a></li>
@@ -31,7 +31,12 @@
                             <div class="card">
                                 <h3><a href="#" class="list-group-item"><i class="fas fa-book"><span class="badge"></span></i></a></h3>
                                 <h5>Commentaires</h5>
-                                
+
+                                {% for userCommentsArray in userComments %}
+                                    {% for userComment in userCommentsArray %}
+                                        {{ userComment }}
+                                    {% endfor %}
+                                {% endfor %}
                             </div>
                         </div>
                     </div>
@@ -40,6 +45,11 @@
                             <div class="card">
                                 <h3><a href="#" class="list-group-item"><i class="fas fa-comment-dots"><span class="badge"></span></i></a></h3>
                                 <h5>Commentaires notifiés</h5>
+                                {% for userReportedArray in userReported %}
+                                    {% for userLastReported in userReportedArray %}
+                                        {{ userLastReported }}
+                                    {% endfor %}
+                                {% endfor %}
                             </div>
                         </div>
                     </div>

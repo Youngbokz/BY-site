@@ -34,7 +34,7 @@
                 {% endif %}
                 {% if is_granted('ROLE_USER') %}  
                     <div>Salut {{ app.user.username }}</div>                  
-                    <div class="container"><a href="{{ path('profile') }}"><i class="fas fa-user-tie"></i></a></div>
+                    <div class="container"><a href="{{ path('profile', {'id': app.user.id}) }}"><i class="fas fa-user-tie"></i></a></div>
                     <div class="container"><a href="{{ path('security_disconnexion') }}"><button type="button" class="btn btn-outline-primary">Déconnexion</button></a></div>     
                 {% else %}
                     <div class="dropdown">
