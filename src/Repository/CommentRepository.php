@@ -19,23 +19,22 @@ class CommentRepository extends ServiceEntityRepository
         parent::__construct($registry, Comment::class);
     }
 
-    public function findAllWithUser()
+    public function findAllWithUserQuery()
     {
         return $this->createQueryBuilder('c')
             ->andWhere('c.reported = true')
             ->orderBy('c.createdAt', 'DESC')
             ->getQuery()
-            ->getResult()
+            // ->getResult()
         ;
     }
 
-    public function findAllReportedComment()
+    public function findAllReportedCommentQuery()
     {
         return $this->createQueryBuilder('c')
             ->andWhere('c.reported = false')
             ->orderBy('c.createdAt', 'DESC')
             ->getQuery()
-            ->getResult()
         ;
     }
 

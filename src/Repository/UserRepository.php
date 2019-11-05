@@ -19,12 +19,11 @@ class UserRepository extends ServiceEntityRepository
         parent::__construct($registry, User::class);
     }
 
-    public function findAllUserByDate()
+    public function findAllUserByDateQuery()
     {
         return $this->createQueryBuilder('u')
             ->orderBy('u.createdAt', 'DESC')
             ->getQuery()
-            ->getResult()
         ;
     }
 

@@ -36,6 +36,7 @@ class ProjectRepository extends ServiceEntityRepository
             ->getArrayResult()
         ;
     }
+
     // /**
     //  * @return Project[] Returns an array of Project objects
     //  */

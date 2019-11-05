@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 {% block title %}
-<span style="text-transform:uppercase">abonnés</span>
+    ABONNÉS
 {% endblock %}
 {% block body %}
     <div class="container-main-contain">
@@ -64,6 +64,9 @@
                                 </div>
                             {% endfor %}
                         </section>
+                        <div class="pagination">
+                            {{ knp_pagination_render(users) }}
+                        </div>
                     </div>
                 </main>
             </div>

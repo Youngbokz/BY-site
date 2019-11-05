@@ -13,6 +13,7 @@ use App\Repository\ProjectRepository;
 use App\Repository\UserRepository;
 use App\Repository\CommentRepository;
 use Doctrine\Common\Persistence\ObjectManager;
+use Knp\Component\Pager\PaginatorInterface;
 
 class AdminController extends AbstractController
 {
@@ -35,9 +36,13 @@ class AdminController extends AbstractController
     /**
      * @Route("/adminUserCom", name="admin_user_com")
      */
-    public function adminUserCom(CommentRepository $repo)
+    public function adminUserCom(PaginatorInterface $paginator, CommentRepository $repo, Request $request)
     {   
-        $comments = $repo->findAllWithUser();
+        $comments = $paginator->paginate(
+            $repo->findAllWithUserQuery(), 
+            $request->query->getInt('page', 1), 
+            5
+        );
 
         return $this->render('admin/comments.html.twig', [
             'comments' => $comments
@@ -47,9 +52,13 @@ class AdminController extends AbstractController
     /**
      * @Route("/RepotedCom", name="reported_com")
      */
-    public function reportedCom(CommentRepository $repo)
+    public function reportedCom(CommentRepository $repo, Request $request, PaginatorInterface $paginator)
     {
-        $comments = $repo->findAllReportedComment();
+        $comments = $paginator->paginate(
+            $repo->findAllReportedCommentQuery(),
+            $request->query->getInt('page', 1),
+            5
+        );
 
         return $this->render('admin/reported.html.twig', [
             'comments' => $comments
@@ -71,9 +80,13 @@ class AdminController extends AbstractController
     /**
      * @Route("/subscribers", name="subscribers")
      */
-    public function subscribers(UserRepository $repo)
+    public function subscribers(UserRepository $repo, Request $request, PaginatorInterface $paginator)
     {
-        $users = $repo->findAllUserByDate();
+        $users = $paginator->paginate(
+            $repo->findAllUserByDateQuery(), 
+            $request->query->getInt('page', 1),
+            5
+        );
 
         return $this->render('admin/subscribers.html.twig', [
             'users' => $users
