@@ -53,7 +53,7 @@
                                     <h5>Abonnés</h5>
                                     {% for countUsersArray in countUsers %}
                                         {% for countUsersNumb in countUsersArray %}
-                                            {{ countUsersNumb | number_format }}
+                                            {{ countUsersNumb }}
                                         {% endfor %}
                                     {% endfor %}
                                 </div>
@@ -66,7 +66,7 @@
                                     <h5>Projets</h5>
                                     {% for countProjectsArray in countProjects %}
                                         {% for countProjectsNum in countProjectsArray %}
-                                            {{ countProjectsNum | number_format }}
+                                            {{ countProjectsNum }}
                                         {% endfor %}
                                     {% endfor %}
                                 </div>
@@ -79,7 +79,7 @@
                                     <h5>Commentaires</h5>
                                     {% for countCommentsArray in countComments %}
                                         {% for countCommentsNum in countCommentsArray %}
-                                            {{ countCommentsNum | number_format }}
+                                            {{ countCommentsNum }}
                                         {% endfor %}
                                     {% endfor %}
                                 </div>

@@ -64,17 +64,39 @@
                                     <div class="bg-light p-4 d-flex justify-content-end text-center">
                                         <ul class="list-inline mb-0">
                                             <li class="list-inline-item">
-                                                <h5 class="font-weight-bold mb-0 d-block">241</h5><small class="text-muted"> <i class="fa fa-picture-o mr-1"></i>Commentaires</small>
+                                                <h5 class="font-weight-bold mb-0 d-block">
+                                                    {% for countUsersArray in countUsers %}
+                                                        {% for countUsersNumb in countUsersArray %}
+                                                            {{ countUsersNumb | number_format }}
+                                                        {% endfor %}
+                                                    {% endfor %}
+                                                </h5>
+                                                <small class="text-muted"> <i class="fa fa-picture-o mr-1"></i>Commentaires</small>
                                             </li>
                                             <li class="list-inline-item">
-                                                <h5 class="font-weight-bold mb-0 d-block">84K</h5><small class="text-muted"> <i class="fa fa-user-circle-o mr-1"></i>Abonnés</small>
+                                                <h5 class="font-weight-bold mb-0 d-block">
+                                                    {% for countCommentsArray in countComments %}
+                                                        {% for countCommentsNum in countCommentsArray %}
+                                                            {{ countCommentsNum | number_format }}
+                                                        {% endfor %}
+                                                    {% endfor %}
+                                                </h5>
+                                                <small class="text-muted"> <i class="fa fa-user-circle-o mr-1"></i>Abonnés</small>
                                             </li>
                                         </ul>
                                     </div>
 
                                     <div class="py-4 px-4">
                                         <div class="d-flex align-items-center justify-content-between mb-3">
-                                            <h5 class="mb-0">Mes derniers projets</h5><a href="{{ path('admin_projects') }}" class="btn btn-link text-muted">Tout découvrir</a>
+                                            <h5 class="mb-0">Mes derniers projets</h5>
+                                            <a href="{{ path('admin_projects') }}" class="btn btn-link text-muted">
+                                                Tout découvrir: 
+                                                {% for countProjectsArray in countProjects %}
+                                                    {% for countProjectsNum in countProjectsArray %}
+                                                        {{ countProjectsNum | number_format }}
+                                                    {% endfor %}
+                                                {% endfor %}
+                                            </a>
                                         </div>
                                         <div class="row">
                                             {% for project in projects %}
@@ -82,13 +104,15 @@
                                             {% endfor %}
                                         </div>
                                         <div class="py-4">
-                                            <h5 class="mb-3">Dernier commentaire perso posté</h5>
+                                            <h5 class="mb-3">Dernier commentaire posté</h5>
                                             <div class="p-4 bg-light rounded shadow-sm">
-                                                <p class="font-italic mb-0">Mettre le dernier commentaire ici</p>
+                                                {% for theLastComment in lastComment %}
+                                                <p class="font-italic mb-0">{{ theLastComment.comment }}</p>
                                                 <ul class="list-inline small text-muted mt-3 mb-0">
-                                                    <li class="list-inline-item"><i class="far fa-clock"></i> {{ app.user.createdAt | date('d/m/Y') }} </li>
-                                                    <li class="list-inline-item"><i class="fa fa-heart-o mr-2"></i>{{ app.user.username }}</li>
+                                                    <li class="list-inline-item"><i class="far fa-clock"></i> {{ theLastComment.createdAt | date('d/m/Y') }} </li>
+                                                    <li class="list-inline-item"><i class="fa fa-heart-o mr-2"></i>{{ theLastComment.user.username }}</li>
                                                 </ul>
+                                                {% endfor %}
                                             </div>
                                         </div>
                                     </div>

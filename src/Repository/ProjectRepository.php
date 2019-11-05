@@ -33,10 +33,20 @@ class ProjectRepository extends ServiceEntityRepository
         return $this->createQueryBuilder('p')
             ->select('COUNT(p.id)')
             ->getQuery()
-            ->getArrayResult()
+            ->getResult()
         ;
     }
 
+    public function findLastProject()
+    {
+        return $this->createQueryBuilder('p')
+            ->orderBy('p.createdAt', 'DESC')
+            ->setMaxResults(2)
+            ->getQuery()
+            ->getArrayResult()
+        ;
+    }
+    
     // /**
     //  * @return Project[] Returns an array of Project objects
     //  */

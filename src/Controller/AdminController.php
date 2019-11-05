@@ -96,11 +96,22 @@ class AdminController extends AbstractController
     /**
      * @Route("/adminProfile", name="admin_profile")
      */
-    public function adminProfile(ProjectRepository $repo)
+    public function adminProfile(UserRepository $userRepo, CommentRepository $comRepo, ProjectRepository $projectRepo)
     {
-        $projects = $repo->findAll();
+        $projects = $projectRepo->findLastProject();
+
+        $lastComment = $comRepo->lastCommentFromAll();
+
+        $countUsers = $userRepo->countAllUser();
+        $countComments = $comRepo->countAllComment();
+        $countProjects = $projectRepo->countAllProject();
+
         return $this->render('admin/profile.html.twig', [
-            'projects'=> $projects
+            'projects'=> $projects,
+            'countUsers' => $countUsers,
+            'countComments' => $countComments,
+            'countProjects' => $countProjects, 
+            'lastComment' => $lastComment
         ]);
     }
 

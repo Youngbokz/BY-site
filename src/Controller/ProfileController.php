@@ -17,7 +17,9 @@ class ProfileController extends AbstractController
      */
     public function index(CommentRepository $comRepo)
     {
-         // afficher les commentaires de l'utilisateur et mettre l'id de l'utlisateur connecté. 
+        // $id = 
+        //  // afficher les commentaires de l'utilisateur et mettre l'id de l'utlisateur connecté. 
+        // $userComments = $comRepo->countAllCommentsOfUser($id);
         
         return $this->render('profile/dashboard.html.twig');
     }

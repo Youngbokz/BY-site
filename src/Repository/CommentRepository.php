@@ -25,7 +25,6 @@ class CommentRepository extends ServiceEntityRepository
             ->andWhere('c.reported = true')
             ->orderBy('c.createdAt', 'DESC')
             ->getQuery()
-            // ->getResult()
         ;
     }
 
@@ -47,17 +46,31 @@ class CommentRepository extends ServiceEntityRepository
         ;
     }
 
-    public function countAllCommentsByUsers($id)
+    public function countAllCommentsOfUser($id)
     {
         return $this->createQueryBuilder('c')
             ->select('COUNT(c.id)')
+            ->andWhere('c.reported = true')
             ->andWhere('c.id = :id')
             ->setParameter('id', $id)
+            ->orderBy('c.createdAt', 'DESC')
             ->getQuery()
-            ->getArrayResult()
+            ->getResult()
         ;
     }
 
+    public function lastCommentFromAll()
+    {
+        return $this->createQueryBuilder('c')
+            ->andWhere('c.reported = true')
+            ->orderBy('c.createdAt', 'DESC')
+            ->setMaxResults(1)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
+    
     // /**
     //  * @return Comment[] Returns an array of Comment objects
     //  */
