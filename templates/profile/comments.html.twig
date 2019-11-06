@@ -12,7 +12,7 @@
             <div class="sideMenu col-2">
                 <div class="sidebar">
                     <ul class="navbar-nav">
-                        <li class="nav-item"><a href="{{ path('profile') }}" class="nav-link"> <span>Tableau de bord</span> <i class="fas fa-tachometer-alt"></i></a></li>
+                        <li class="nav-item"><a href="{{ path('profile', {'id': app.user.id}) }}" class="nav-link"> <span>Tableau de bord</span> <i class="fas fa-tachometer-alt"></i></a></li>
                         <li class="nav-item"><a href="{{ path('show_profile') }}" class="nav-link"> <span>Mon profile</span> <i class="fas fa-id-card"></i></a></li>
                         <li class="nav-item"><a href="{{ path('user_comments') }}" class="nav-link"><span>Mes messages <i class="far fa-comments"></i></span></a></li>
                         <li class="nav-item"><a href="{{ path('user_reported_com') }}" class="nav-link"><span>Notifications <i class="far fa-comments"></i></span></a></li>
@@ -23,11 +23,32 @@
             <div class="content col-9">
                 <main>
                     <div class="container">
-                        <h1>
-                            <span style="text-transform:uppercase">commentaires</span>
-                        </h1>
-
-                        
+                        <section>
+                            <h1>
+                                <span style="text-transform:uppercase">Mes commentaires</span>
+                            </h1>
+                            {# {% for comment in comments %} #}
+                                <div class="row">
+                                    <div class="col-12">
+                                        {# COMMENTAIRE posté le {{  comment.createdAt | date('d/m/Y') }} #}
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12">
+                                        {# {{ comment.comment }} #}
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-4">
+                                        <a class="btn btn-success" href="#" role="button">Modifier</a>
+                                    </div>
+                                    <div class="col-4">
+                                        <a class="btn btn-danger" href="#" role="button">Supprimer</a>
+                                    </div>
+                                    <hr align=center size=8 width="100%" />
+                                </div>
+                            {# {% endfor %} #}
+                        </section>
                     </div>
                 </main>
             </div>

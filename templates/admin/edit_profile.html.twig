@@ -21,12 +21,17 @@
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="{{ path('admin_add_project') }}">Ajouter Projet</a>
+<<<<<<< HEAD
                             <a class="dropdown-item" href="{{ path('admin_projects') }}">Editer Projet</a>
+=======
+                            <a class="dropdown-item" href="#">Editer Projet</a>
+>>>>>>> e4a5899124068916b5a27123b86ab068878c490f
                         </div>
                     </li>
                 </ul>
             </div>
         </nav>
+
         <div class="wrapper d-flex">
             <div class="sideMenu col-2">
                 <div class="sidebar">
@@ -78,8 +83,8 @@
                                                 </div>
                                                 <div class="col">
                                                     {{ form_row(formEditUser.username, { 'attr' : {'placeholder' : "Votre pseudo ici"}, 'label' : false}) }}
-                                                    <hr />
                                                 </div>
+                                                <hr align=center size=8 width="100%" />
                                             </div>
                                             <div class="row">
                                                 <div class="col">
@@ -87,8 +92,12 @@
                                                 </div>
                                                 <div class="col">
                                                     {{ form_row(formEditUser.lastname, { 'attr' : {'placeholder' : "Votre nom ici"}, 'label' : false}) }}
+<<<<<<< HEAD
                                                     <hr />
+=======
+>>>>>>> e4a5899124068916b5a27123b86ab068878c490f
                                                 </div>
+                                                <hr align=center size=8 width="100%" />
                                             </div>
                                             <div class="row">
                                                 <div class="col">
@@ -96,8 +105,12 @@
                                                 </div>
                                                 <div class="col">
                                                     {{ form_row(formEditUser.firstname, { 'attr' : {'placeholder' : "Votre prénom ici"}, 'label' : false}) }}
+<<<<<<< HEAD
                                                     <hr />
+=======
+>>>>>>> e4a5899124068916b5a27123b86ab068878c490f
                                                 </div>
+                                                <hr align=center size=8 width="100%" />
                                             </div>
                                             <div class="row">
                                                 <div class="col">
@@ -105,8 +118,12 @@
                                                 </div>
                                                 <div class="col">
                                                     {{ form_row(formEditUser.email, { 'attr' : {'placeholder' : "Votre email ici"}, 'label' : false}) }}
+<<<<<<< HEAD
                                                     <hr />
+=======
+>>>>>>> e4a5899124068916b5a27123b86ab068878c490f
                                                 </div>
+                                                <hr align=center size=8 width="100%" />
                                             </div>
                                             <div class="row">
                                                 <div class="col">
@@ -114,8 +131,12 @@
                                                 </div>
                                                 <div class="col">
                                                     {{ form_row(formEditUser.address, { 'attr' : {'placeholder' : "Votre adresse ici"}, 'label' : false}) }}
+<<<<<<< HEAD
                                                     <hr />
+=======
+>>>>>>> e4a5899124068916b5a27123b86ab068878c490f
                                                 </div>
+                                                <hr align=center size=8 width="100%" />
                                             </div>
                                             <div class="row">
                                                 <div class="col">
@@ -123,8 +144,12 @@
                                                 </div>
                                                 <div class="col">
                                                     {{ form_row(formEditUser.codeZip, { 'attr' : {'placeholder' : "Votre code postale ici"}, 'label' : false}) }}
+<<<<<<< HEAD
                                                     <hr />
+=======
+>>>>>>> e4a5899124068916b5a27123b86ab068878c490f
                                                 </div>
+                                                <hr align=center size=8 width="100%" />
                                             </div>
                                             <div class="row">
                                                 <div class="col">
@@ -132,8 +157,21 @@
                                                 </div>
                                                 <div class="col">
                                                     {{ form_row(formEditUser.city, { 'attr' : {'placeholder' : "Votre ville ici"}, 'label' : false}) }}
+<<<<<<< HEAD
                                                     <hr />
+=======
+>>>>>>> e4a5899124068916b5a27123b86ab068878c490f
                                                 </div>
+                                                <hr align=center size=8 width="100%" />
+                                            </div>
+                                            <div class="row">
+                                                <div class="col">
+                                                    <span style="text-transform:uppercase">pays</span>
+                                                </div>
+                                                <div class="col">
+                                                    {{ form_row(formEditUser.country, { 'attr' : {'placeholder' : "Votre pays ici"}, 'label' : false}) }}
+                                                </div>
+                                                <hr align=center size=8 width="100%" />
                                             </div>
                                             <div class="row">
                                                     <div class="col">
@@ -149,20 +187,35 @@
                                                     <span style="text-transform:uppercase">téléphone</span>
                                                 </div>
                                                 <div class="col">
+<<<<<<< HEAD
                                                     {{ form_row(formEditUser.mobilePhone, { 'attr' : {'placeholder' : "Votre numéro téléphone ici"}, 'label' : false}) }}
                                                     <hr />
                                                 </div>
+=======
+                                                    {{ form_row(formEditUser.mobilePhone, { 'attr' : {'placeholder' : "Votre numéro de mobile ici"}, 'label' : false}) }}
+                                                </div>
+                                                <hr align=center size=8 width="100%" />
+>>>>>>> e4a5899124068916b5a27123b86ab068878c490f
                                             </div>
                                             <div class="row">
                                                 <div class="col">
                                                     <span style="text-transform:uppercase">Sexe</span>
                                                 </div>
                                                 <div class="col">
+<<<<<<< HEAD
                                                     {{ form_row(formEditUser.gender, {'label' : false}) }}
                                                     <hr />
+=======
+                                                    {{ form_row(formEditUser.gender, { 'attr' : {'placeholder' : " "}, 'label' : false}) }}
+>>>>>>> e4a5899124068916b5a27123b86ab068878c490f
                                                 </div>
+                                                <hr align=center size=8 width="100%" />
                                             </div>
+<<<<<<< HEAD
                                             <a href="#" class="btn btn-success"><span style="text-transform:uppercase">éditer</span></a>
+=======
+                                            <button type="submit" class="btn btn-success"><span style="text-transform:uppercase">éditer</span></button>
+>>>>>>> e4a5899124068916b5a27123b86ab068878c490f
                                             {{ form_end(formEditUser) }}
                                         </div>
                                     </section>

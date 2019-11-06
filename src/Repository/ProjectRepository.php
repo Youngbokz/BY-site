@@ -18,7 +18,35 @@ class ProjectRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Project::class);
     }
+    
+    public function findAllProjetByDate()
+    {
+        return $this->createQueryBuilder('p')
+            ->orderBy('p.createdAt', 'DESC')
+            ->getQuery()
+            ->getResult()
+        ;
+    }
 
+    public function countAllProject()
+    {
+        return $this->createQueryBuilder('p')
+            ->select('COUNT(p.id)')
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
+    public function findLastProject()
+    {
+        return $this->createQueryBuilder('p')
+            ->orderBy('p.createdAt', 'DESC')
+            ->setMaxResults(2)
+            ->getQuery()
+            ->getArrayResult()
+        ;
+    }
+    
     // /**
     //  * @return Project[] Returns an array of Project objects
     //  */

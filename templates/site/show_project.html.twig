@@ -1,10 +1,12 @@
 {% extends 'base.html.twig' %}
 {% block title %}Show a Project{% endblock %}
 {% block body %}
-<div class="container-main-contain">
+<div style="text-align: center;min-height:500px;background-attachment: fixed;background-position: center;background-size: cover;background-repeat: no-repeat;background-image: url('img/wall.jpg')">
+    <h1>{{ project.name }}</h1>
+</div>
+<div class="container">
     <div class="container-fluid mainProjectCont-show_project">
         <div class="projectContainer-show_project">
-            <h1>{{ project.name }}</h1>
             <img src="{{ project.imageUrl }}" alt="">
             <div class="metadata">Projet posté le {{ project.createdAt | date('d/m/Y') }}</div>
             <div class="description">{{ project.description }}</div> 
@@ -15,7 +17,11 @@
                     <div class="comment">
                         <div class="row">
                             <div class="col-3">
+<<<<<<< HEAD
                                 Posté par le (<small> {{ comment.createdAt | date('d/m/Y à H:i') }} </small>) par {{ comment.user.username }}
+=======
+                                Posté par {{ comment.user.username }} le (<small> {{ comment.createdAt | date('d/m/Y à H:i') }} </small>)
+>>>>>>> e4a5899124068916b5a27123b86ab068878c490f
                             </div>
                             <div class="col">
                                 {{ comment.comment | raw }}

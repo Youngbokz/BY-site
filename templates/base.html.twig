@@ -16,44 +16,53 @@
         {% endblock %}
         </head>
     <body id="page-top">
-        <div id="my_nav" class="my_overlay">
-            <div class="closeMyBtn" onclick="closeMyNav()">&times;</div>
-            <div class="my_overlay__content">
-                <a href="{{ path('home') }}">Accueil</a>
-                <a href="{{ path('cv') }}">C.V.</a>
-                <a href="{{ path('skills') }}">Skills</a>
-                <a href="{{ path('projects') }}">Projets</a>
-                <a href="{{ path('contact') }}">Cont<i class="fas fa-at"></i>ct</a>
-            </div>
-        </div>
-        <div id="myBurger" class="openMyBtn" onclick="openMyNav()"><span></span><span></span><span></span></div>
-        
-            <div class="myLogo">
-                {% if is_granted('ROLE_ADMIN') %}
-                    <div><a href="{{ path('admin') }}">Tableau de Bord</a></div>
-                {% endif %}
-                {% if is_granted('ROLE_USER') %}  
-                    <div>Salut {{ app.user.username }}</div>                  
-                    <div class="container"><a href="{{ path('profile') }}"><i class="fas fa-user-tie"></i></a></div>
-                    <div class="container"><a href="{{ path('security_disconnexion') }}"><button type="button" class="btn btn-outline-primary">Déconnexion</button></a></div>     
-                {% else %}
-                    <div class="dropdown">
-                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Connexion
-                        </button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="{{ path('security_connexion') }}">Se connecter</a>
-                            <a class="dropdown-item" href="{{ path('security_registration') }}">S'inscrire</a>
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+                <div id="my_nav" class="my_overlay">
+                        <div class="closeMyBtn" onclick="closeMyNav()">&times;</div>
+                        <div class="my_overlay__content">
+                            <a href="{{ path('home') }}">Accueil</a>
+                            <a href="{{ path('cv') }}">C.V.</a>
+                            <a href="{{ path('skills') }}">Skills</a>
+                            <a href="{{ path('projects') }}">Projets</a>
+                            <a href="{{ path('contact') }}">Cont<i class="fas fa-at"></i>ct</a>
                         </div>
                     </div>
-                {% endif %}
-                <a href="{{ path('home') }}">
-                    <img src="{{ asset('img/myLogo.png') }}" alt="Bokolo Yannick Logo"/>
-                </a>
-            </div>
+                    <div id="myBurger" class="openMyBtn" onclick="openMyNav()"><span></span><span></span><span></span></div>
+                    
+                        <div class="myLogo">
+                            {% if is_granted('ROLE_ADMIN') %}
+                                <div><a href="{{ path('admin') }}">Tableau de Bord</a></div>
+                            {% endif %}
+                            {% if is_granted('ROLE_USER') %}  
+                                <div>Salut {{ app.user.username }}</div>                  
+                                <div class="container"><a href="{{ path('profile', {'id': app.user.id}) }}"><i class="fas fa-user-tie"></i></a></div>
+                                <div class="container"><a href="{{ path('security_disconnexion') }}"><button type="button" class="btn btn-outline-primary">Déconnexion</button></a></div>     
+                            {% else %}
+                                <div class="dropdown">
+                                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Connexion
+                                    </button>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                        <a class="dropdown-item" href="{{ path('security_connexion') }}">Se connecter</a>
+                                        <a class="dropdown-item" href="{{ path('security_registration') }}">S'inscrire</a>
+                                    </div>
+                                </div>
+                            {% endif %}
+                            <a href="{{ path('home') }}">
+                                <img src="{{ asset('img/myLogo.png') }}" alt="Bokolo Yannick Logo"/>
+                            </a>
+                        </div>
+        </nav>
+        
               
         {% block body %}{% endblock %}
-   
+        
+        <footer id="sticky-footer" class="py-4 bg-dark text-white-50">
+            <div class="container text-center">
+                <small>Copyright &copy; BOKOLO Yannick</small>
+            </div>
+        </footer>
+
         {% block script %}
             <!--jQuery CDN Js-->
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

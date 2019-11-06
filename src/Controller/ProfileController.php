@@ -5,18 +5,29 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
-use App\Form\EditUserUserType;
 use App\Entity\User;
+use App\Form\EditUserForUserType;
 use Doctrine\Common\Persistence\ObjectManager;
+use App\Repository\CommentRepository;
 
 class ProfileController extends AbstractController
 {
     /**
-     * @Route("/profile", name="profile")
+     * @Route("/profile/{id}", name="profile")
      */
-    public function index()
+    public function index($id, Request $request, CommentRepository $comRepo)
     {
-        return $this->render('profile/dashboard.html.twig');
+        $session = $request->getSession();
+        $id = $session->getId();
+
+        //  // afficher les commentaires de l'utilisateur et mettre l'id de l'utlisateur connecté. 
+        $userComments = $comRepo->countAllCommentsOfUser($id);
+        $userReported = $comRepo->countAllReportedOfUser($id);
+        
+        return $this->render('profile/dashboard.html.twig', [
+            'userComments' => $userComments,
+            'userReported' => $userReported
+        ]);
     }
 
     /**
@@ -28,37 +39,31 @@ class ProfileController extends AbstractController
     }
 
     /**
-     * @Route("/editProfile", name="edit_profile")
+     * @Route("/editProfile/{id}", name="edit_profile")
      */
-    public function editProfile(User $user = null, Request $request, ObjectManager $manager)
+    public function editProfile(User $user, Request $request, ObjectManager $manager)
     {
-        if(!$user){
-            $user = new User();
-        }
-
-        $form = $this->createForm(EditUserUserType::class, $user);
+        $form = $this->createForm(EditUserForUserType::class, $user);
 
         $form->handleRequest($request);
-
         if($form->isSubmitted() && $form->isValid()){
-            if(!$user->getId()){ //Si l'article n'a pas d'identifiant alors on crée une heure de création
-                $user->setCreatedAt(new \DateTime());
-            }
             $manager->persist($user);
             $manager->flush();
             return $this->redirectToRoute('show_profile');
         }
 
         return $this->render('profile/edit_profile.html.twig', [
-            'formEditUserUser' => $form->createView()
+            'formEditUserForUser' => $form->createView()
         ]);
     }
 
     /**
      * @Route("/userComments", name="user_comments")
      */
-    public function userComments()
+    public function userComments(CommentRepository $repo)
     {
+        // $comments = $repo->findAllWithUser();
+
         return $this->render('profile/comments.html.twig');
     }
 

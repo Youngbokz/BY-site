@@ -21,7 +21,11 @@
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="{{ path('admin_add_project') }}">Ajouter Projet</a>
+<<<<<<< HEAD
                             <a class="dropdown-item" href="{{ path('admin_projects') }}">Editer Projet</a>
+=======
+                            <a class="dropdown-item" href="#">Editer Projet</a>
+>>>>>>> e4a5899124068916b5a27123b86ab068878c490f
                         </div>
                     </li>
                 </ul>
@@ -44,13 +48,43 @@
             </div>
             <div class="content col-9">
                 <main>
-                <div class="container">
-                    <h1>
-                        NOTIFICATIONS
-                    </h1>
-
-                    
-                </div>
+                    <div class="container">
+                        <section>
+                            <h1>
+                                <span style="text-transform:uppercase">Commentaires notifiés</span>
+                            </h1>
+                            {% for comment in comments %}
+                                <div class="row">
+                                    <div class="col-4">
+                                        <span style="text-transform:uppercase">{{ comment.user.username }}</span>
+                                    </div>
+                                    <div class="col-4">
+                                        {{  comment.createdAt | date('d/m/Y') }}
+                                    </div>
+                                    <div class="col-2">
+                                        <a class="btn btn-warning" href="#" role="button">Restaurer</a>
+                                    </div>
+                                    <div class="col-2">
+                                        <a class="btn btn-danger" href="#" role="button">Supprimer</a>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12">
+                                        COMMENTAIRE
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12">
+                                        {{ comment.comment }}
+                                    </div>
+                                </div>
+                                <hr align=center size=8 width="100%" />
+                            {% endfor %}
+                        </section>
+                        <div class="pagination">
+                            {{ knp_pagination_render(comments) }}
+                        </div>
+                    </div>
                 </main>
             </div>
         </div>

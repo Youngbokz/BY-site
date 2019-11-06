@@ -13,8 +13,8 @@ class ProjectFixtures extends Fixture
     public function load(ObjectManager $manager)
     {
         $faker = \Faker\Factory::create('fr_FR');
-        
-        
+       
+       
         for($i = 1; $i <= 4; $i ++)
         {
             $project = new Project();
@@ -39,15 +39,16 @@ class ProjectFixtures extends Fixture
                         ->setCreatedAt($faker->dateTimeBetween('-' . $days . 'days'))
                         ->setComment($faker->paragraph());
 
-                $manager->persist($comment);  
+                $manager->persist($comment);
 
                 for($z = 1; $z <= 3; $z ++){
+                    
                     $user->setUsername($faker->name())
                          ->setPassword($faker->password())
                          ->setCreatedAt($faker->dateTimeBetween('-6 months'));
             
                     $manager->persist($user);
-                }
+                } 
             }
         }
         $manager->flush();

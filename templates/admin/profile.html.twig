@@ -52,7 +52,7 @@
                                 <div class="bg-white shadow rounded overflow-hidden">
                                     <div class="px-4 pt-0 pb-4 bg-dark">
                                         <div class="media align-items-end profile-header">
-                                            <div class="profile mr-3"><img src="{{ asset('img/headphone.jpg') }}" alt="Casque de musique sur fond jaune" width="130" class="rounded mb-2 img-thumbnail"><a href="{{ path('admin_edit_profile') }}" class="btn btn-dark btn-sm btn-block">Éditer mon profile</a></div>
+                                            <div class="profile mr-3"><img src="{{ asset('img/headphone.jpg') }}" alt="Casque de musique sur fond jaune" width="130" class="rounded mb-2 img-thumbnail"><a href="{{ path('admin_edit_profile', {'id': app.user.id}) }}" class="btn btn-dark btn-sm btn-block">Éditer mon profile</a></div>
                                             <div class="media-body mb-5 text-white">
                                                 <h4 class="mt-0 mb-0">{{ app.user.firstname }} {{ app.user.lastname }}</h4>
                                                 <p class="small mb-4"> <i class="fa fa-map-marker mr-2"></i> {{ app.user.city }}</p>
@@ -63,17 +63,39 @@
                                     <div class="bg-light p-4 d-flex justify-content-end text-center">
                                         <ul class="list-inline mb-0">
                                             <li class="list-inline-item">
-                                                <h5 class="font-weight-bold mb-0 d-block">241</h5><small class="text-muted"> <i class="fa fa-picture-o mr-1"></i>Commentaires</small>
+                                                <h5 class="font-weight-bold mb-0 d-block">
+                                                    {% for countUsersArray in countUsers %}
+                                                        {% for countUsersNumb in countUsersArray %}
+                                                            {{ countUsersNumb | number_format }}
+                                                        {% endfor %}
+                                                    {% endfor %}
+                                                </h5>
+                                                <small class="text-muted"> <i class="fa fa-picture-o mr-1"></i>Commentaires</small>
                                             </li>
                                             <li class="list-inline-item">
-                                                <h5 class="font-weight-bold mb-0 d-block">84K</h5><small class="text-muted"> <i class="fa fa-user-circle-o mr-1"></i>Abonnés</small>
+                                                <h5 class="font-weight-bold mb-0 d-block">
+                                                    {% for countCommentsArray in countComments %}
+                                                        {% for countCommentsNum in countCommentsArray %}
+                                                            {{ countCommentsNum | number_format }}
+                                                        {% endfor %}
+                                                    {% endfor %}
+                                                </h5>
+                                                <small class="text-muted"> <i class="fa fa-user-circle-o mr-1"></i>Abonnés</small>
                                             </li>
                                         </ul>
                                     </div>
 
                                     <div class="py-4 px-4">
                                         <div class="d-flex align-items-center justify-content-between mb-3">
-                                            <h5 class="mb-0">Mes derniers projets</h5><a href="{{ path('admin_projects') }}" class="btn btn-link text-muted">Tout découvrir</a>
+                                            <h5 class="mb-0">Mes derniers projets</h5>
+                                            <a href="{{ path('admin_projects') }}" class="btn btn-link text-muted">
+                                                Tout découvrir: 
+                                                {% for countProjectsArray in countProjects %}
+                                                    {% for countProjectsNum in countProjectsArray %}
+                                                        {{ countProjectsNum | number_format }}
+                                                    {% endfor %}
+                                                {% endfor %}
+                                            </a>
                                         </div>
                                         <div class="row">
                                             {% for project in projects %}
@@ -81,13 +103,15 @@
                                             {% endfor %}
                                         </div>
                                         <div class="py-4">
-                                            <h5 class="mb-3">Dernier commentaire perso posté</h5>
+                                            <h5 class="mb-3">Dernier commentaire posté</h5>
                                             <div class="p-4 bg-light rounded shadow-sm">
-                                                <p class="font-italic mb-0">Mettre le dernier commentaire ici</p>
+                                                {% for theLastComment in lastComment %}
+                                                <p class="font-italic mb-0">{{ theLastComment.comment }}</p>
                                                 <ul class="list-inline small text-muted mt-3 mb-0">
-                                                    <li class="list-inline-item"><i class="far fa-clock"></i> {{ app.user.createdAt | date('d/m/Y') }} </li>
-                                                    <li class="list-inline-item"><i class="fa fa-heart-o mr-2"></i>{{ app.user.username }}</li>
+                                                    <li class="list-inline-item"><i class="far fa-clock"></i> {{ theLastComment.createdAt | date('d/m/Y') }} </li>
+                                                    <li class="list-inline-item"><i class="fa fa-heart-o mr-2"></i>{{ theLastComment.user.username }}</li>
                                                 </ul>
+                                                {% endfor %}
                                             </div>
                                         </div>
                                     </div>
@@ -99,8 +123,8 @@
                                                 </div>
                                                 <div class="col">
                                                     {{  app.user.username }}
-                                                    <hr />
                                                 </div>
+                                                <hr align=center size=8 width="100%" />
                                             </div>
                                             <div class="row">
                                                 <div class="col">
@@ -108,8 +132,8 @@
                                                 </div>
                                                 <div class="col">
                                                     {{ app.user.lastname }}
-                                                    <hr />
                                                 </div>
+                                                <hr align=center size=8 width="100%" />
                                             </div>
                                             <div class="row">
                                                 <div class="col">
@@ -117,8 +141,8 @@
                                                 </div>
                                                 <div class="col">
                                                     {{ app.user.firstname }}
-                                                    <hr />
                                                 </div>
+                                                <hr align=center size=8 width="100%" />
                                             </div>
                                             <div class="row">
                                                 <div class="col">
@@ -126,8 +150,8 @@
                                                 </div>
                                                 <div class="col">
                                                     {{  app.user.email }}
-                                                    <hr />
                                                 </div>
+                                                <hr align=center size=8 width="100%" />
                                             </div>
                                             <div class="row">
                                                 <div class="col">
@@ -135,8 +159,8 @@
                                                 </div>
                                                 <div class="col">
                                                     {{  app.user.address }}
-                                                    <hr />
                                                 </div>
+                                                <hr align=center size=8 width="100%" />
                                             </div>
                                             <div class="row">
                                                 <div class="col">
@@ -144,8 +168,8 @@
                                                 </div>
                                                 <div class="col">
                                                     {{  app.user.codeZip }}
-                                                    <hr />
                                                 </div>
+                                                <hr align=center size=8 width="100%" />
                                             </div>
                                             <div class="row">
                                                 <div class="col">
@@ -153,8 +177,17 @@
                                                 </div>
                                                 <div class="col">
                                                     {{  app.user.city }}
-                                                    <hr />
                                                 </div>
+                                                <hr align=center size=8 width="100%" />
+                                            </div>
+                                            <div class="row">
+                                                <div class="col">
+                                                    <span style="text-transform:uppercase">pays</span>
+                                                </div>
+                                                <div class="col">
+                                                    {{  app.user.country }}
+                                                </div>
+                                                <hr align=center size=8 width="100%" />
                                             </div>
                                             <div class="row">
                                                 <div class="col">
@@ -162,8 +195,8 @@
                                                 </div>
                                                 <div class="col">
                                                     {{  app.user.mobilePhone }}
-                                                    <hr />
                                                 </div>
+                                                <hr align=center size=8 width="100%" />
                                             </div>
                                         </div>
                                     </section>

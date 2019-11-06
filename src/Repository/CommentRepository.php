@@ -18,16 +18,76 @@ class CommentRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Comment::class);
     }
-    public function findAllWithUser()
+
+    public function findAllWithUserQuery()
     {
-        $entityManager = $this->getEntityManager();
-        $query = $entityManager->createQuery(
-            'SELECT * c, u
-            FROM App\Entity\Comment c
-            INNER JOIN c.user u'
-        );
-        return $query->getArrayResult();
+        return $this->createQueryBuilder('c')
+            ->andWhere('c.reported = true')
+            ->orderBy('c.createdAt', 'DESC')
+            ->getQuery()
+        ;
     }
+
+    public function findAllReportedCommentQuery()
+    {
+        return $this->createQueryBuilder('c')
+            ->andWhere('c.reported = false')
+            ->orderBy('c.createdAt', 'DESC')
+            ->getQuery()
+        ;
+    }
+
+    public function countAllComment()
+    {
+        return $this->createQueryBuilder('c')
+            ->select('COUNT(c.id)')
+            ->getQuery()
+            ->getArrayResult()
+        ;
+    }
+
+    public function lastCommentFromAll()
+    {
+        return $this->createQueryBuilder('c')
+            ->andWhere('c.reported = true')
+            ->orderBy('c.createdAt', 'DESC')
+            ->setMaxResults(1)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
+    //------------------------------------------------------------
+    
+    public function countAllCommentsOfUser($id)
+    {
+        return $this->createQueryBuilder('c')
+            ->select('COUNT(c.id)')
+            ->andWhere('c.reported = true')
+            ->andWhere('c.id = :id')
+            ->setParameter('id', $id)
+            ->orderBy('c.createdAt', 'DESC')
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
+    public function countAllReportedOfUser($id)
+    {
+        return $this->createQueryBuilder('c')
+            ->select('COUNT(c.id)')
+            ->andWhere('c.reported = false')
+            ->andWhere('c.id = :id')
+            ->setParameter('id', $id)
+            ->orderBy('c.createdAt', 'DESC')
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
+  
+
+    
     // /**
     //  * @return Comment[] Returns an array of Comment objects
     //  */

@@ -1,7 +1,10 @@
 {% extends 'base.html.twig' %}
 {% block title %}Projets{% endblock %}
 {% block body %}
-<div class="container-main-contain">
+<div style="text-align: center;min-height:500px;background-attachment: fixed;background-position: center;background-size: cover;background-repeat: no-repeat;background-image: url('img/wall.jpg')">
+  <h1>MES PROJETS</h1>
+</div>
+<div class="container-fluid">
       <div class="container-fluid mainProjectCont">
       {% for project in projects %}
       <a class="portfolio-item" href="{{ path('show_project',{'id': project.id}) }}">

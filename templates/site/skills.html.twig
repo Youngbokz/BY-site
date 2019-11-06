@@ -1,9 +1,95 @@
 {% extends 'base.html.twig' %}
 {% block title %}Skills{% endblock %}
 {% block body %} 
-<div class="container-main-contain">
-   <h1>
-       Ma page SKILLS ici !!
-   </h1>
+<div style="text-align: center;min-height:500px;background-attachment: fixed;background-position: center;background-size: cover;background-repeat: no-repeat;background-image: url('img/wall.jpg')"><h1>Mes "skills" | Compétences</h1></div>
+<div class="container"> 
+   <section>
+       <div class="card">
+           <div class="card-content">
+               <h2>FRONT-OFFICE</h2>
+               <div class="row text-content">
+                   <div class="col s4 m2">
+                        <figure>
+                            <img src="{{ asset('img/html5.png') }}" alt="" style="max-width: 100%;
+                            max-height: 256px;">
+                            <figcaption>HTML5</figcaption>
+                        </figure>
+                   </div>
+                   <div class="col s4 m2">
+                        <figure>
+                            <img src="{{ asset('img/css3.png') }}" alt="" style="max-width: 100%;
+                            max-height: 256px;">
+                            <figcaption>CCS3</figcaption>
+                        </figure>
+                   </div>
+                   <div class="col s4 m2">
+                        <figure>
+                            <img src="{{ asset('img/js.png') }}" alt="" style="max-width: 100%;
+                            max-height: 256px;">
+                            <figcaption>JavaScript</figcaption>
+                        </figure>
+                   </div>
+                   <div class="col s4 m2">
+                        <figure>
+                            <img src="{{ asset('img/jquery.png') }}" alt="" style="max-width: 100%;
+                            max-height: 256px;">
+                            <figcaption>jQuery</figcaption>
+                        </figure>
+                   </div>
+                   <div class="col s4 m2">
+                        <figure>
+                            <img src="{{ asset('img/bootstrap.png') }}" alt="" style="max-width: 100%;
+                            max-height: 256px;">
+                            <figcaption>BOOTSTRAP</figcaption>
+                        </figure>
+                   </div>
+               </div>
+           </div>
+       </div>
+
+       <div class="card">
+            <div class="card-content">
+                <h2>BACK-OFFICE</h2>
+                <div class="row text-content">
+                    <div class="col s4 m2">
+                         <figure>
+                             <img src="{{ asset('img/php.png') }}" alt="" style="max-width: 100%;
+                             max-height: 256px;">
+                             <figcaption>pHp</figcaption>
+                         </figure>
+                    </div>
+                    <div class="col s4 m2">
+                         <figure>
+                             <img src="{{ asset('img/mysql.png') }}" alt="" style="max-width: 100%;
+                             max-height: 256px;">
+                             <figcaption>MySQL</figcaption>
+                         </figure>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-content">
+                <h2>CMS</h2>
+                <div class="row text-content">
+                    <div class="col s4 m2">
+                         <figure>
+                             <img src="{{ asset('img/wordpress.png') }}" alt="" style="max-width: 100%;
+                             max-height: 256px;">
+                             <figcaption>WORDPRESS</figcaption>
+                         </figure>
+                    </div>
+                    <div class="col s4 m2">
+                         <figure>
+                             <img src="{{ asset('img/elementor.png') }}" alt="" style="max-width: 100%;
+                             max-height: 256px;">
+                             <figcaption>ELEMENTOR</figcaption>
+                         </figure>
+                    </div>
+                </div>
+            </div>
+        </div>
+   </section>
 </div>
 {% endblock %}
