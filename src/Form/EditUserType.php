@@ -22,12 +22,7 @@ class EditUserType extends AbstractType
             ->add('email')
             ->add('mobilePhone')
             ->add('codeZip')
-            ->add('gender')
-<<<<<<< HEAD
-        ;
-=======
-            ;
->>>>>>> e4a5899124068916b5a27123b86ab068878c490f
+            ->add('gender');
     }
 
     public function configureOptions(OptionsResolver $resolver)

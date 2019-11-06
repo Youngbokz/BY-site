@@ -1,8 +1,10 @@
 {% extends 'base.html.twig' %}
 {% block title %}Connection{% endblock %}
 {% block body %}
-  <div class="container-main-contain">
-    <h1>Connexion</h1>
+<div class="main_title_topContainer" style="text-align: center;min-height:500px;background-attachment: fixed;background-position: center;background-size: cover;background-repeat: no-repeat;background-image: url('img/wall.jpg')">
+  <h1 class="main_title">CONNEXION</h1>
+</div>
+  <div class="container">
       {{ form_start(formConnexion) }}
       {{ form_row(formConnexion.username, {'label' : 'Pseudo','full_name': "_username", 'attr' : {'placeholder' : 'Votre pseudo ici...'}}) }}
       {{ form_row(formConnexion.password, {'label' : 'Mot de passe','full_name': "_password", 'attr' : {'placeholder' : 'Votre mot de passe ici...'}}) }}
