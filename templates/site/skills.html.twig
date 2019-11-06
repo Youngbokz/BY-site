@@ -1,10 +1,10 @@
 {% extends 'base.html.twig' %}
 {% block title %}Skills{% endblock %}
 {% block body %} 
-<div style="text-align: center;min-height:500px;background-attachment: fixed;background-position: center;background-size: cover;background-repeat: no-repeat;background-image: url('img/wall.jpg')"><h1>Mes "skills" | Compétences</h1></div>
+<div class="main_title_topContainer" style="text-align: center;min-height:500px;background-attachment: fixed;background-position: center;background-size: cover;background-repeat: no-repeat;background-image: url('img/wall.jpg')"><h1 class="main_title">Mes "skills" | Compétences</h1></div>
 <div class="container"> 
    <section>
-       <div class="card">
+       <div class="card skills_card">
            <div class="card-content">
                <h2>FRONT-OFFICE</h2>
                <div class="row text-content">
@@ -47,22 +47,22 @@
            </div>
        </div>
 
-       <div class="card">
+       <div class="card skills_card">
             <div class="card-content">
                 <h2>BACK-OFFICE</h2>
                 <div class="row text-content">
                     <div class="col s4 m2">
                          <figure>
-                             <img src="{{ asset('img/php.png') }}" alt="" style="max-width: 100%;
+                             <img src="{{ asset('img/mysql.png') }}" alt="" style="max-width: 100%;
                              max-height: 180px;">
-                             <figcaption>pHp</figcaption>
+                             <figcaption>MySQL</figcaption>
                          </figure>
                     </div>
                     <div class="col s4 m2">
                          <figure>
-                             <img src="{{ asset('img/mysql.png') }}" alt="" style="max-width: 100%;
+                             <img src="{{ asset('img/php.png') }}" alt="" style="max-width: 100%;
                              max-height: 180px;">
-                             <figcaption>MySQL</figcaption>
+                             <figcaption>PHP</figcaption>
                          </figure>
                     </div>
                     <div class="col s4 m2">
@@ -90,7 +90,7 @@
             </div>
         </div>
 
-        <div class="card">
+        <div class="card skills_card">
             <div class="card-content">
                 <h2>CMS</h2>
                 <div class="row text-content">

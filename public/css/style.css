@@ -115,6 +115,20 @@ body, html
 	right: 30px;
 }
 
+.main_title_topContainer{
+    position: relative;
+}
+/*Page h1 Titles*/
+.main_title{
+    position: absolute;
+    top: 200px;
+    left: 5%;
+    right: 0%;
+    font-size: 4rem;
+    color: white;
+}
+
+
 /* --------------------------------------------------------------------------------------------------------------------------- */
 /* ==            HOME PAGE                */
 /*---------------------------------------- */
@@ -220,7 +234,18 @@ header.masthead.d-flex
 /* --------------------------------------------------------------------------------------------------------------------------- */
 /* ==            SKILLS PAGE                */
 /*---------------------------------------- */
+div.card.skills_card{
+    margin: 15px auto;
+    max-width: 1500px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+    text-align: center;
+}
 
+div.card.skills_card h2{
+    font-size: 3rem;
+    color: lightgray;
+    text-decoration: rgba(0, 0, 0, 0.05) underline;
+}
 /* --------------------------------------------------------------------------------------------------------------------------- */
 /* ==            ADMIN GENERAL                */
 /*---------------------------------------- */
