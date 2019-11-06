@@ -1,199 +1,318 @@
-/*
-* GENERAL
-*/
-body, html {
-    height: 100%;
-}
-.container-main-contain{
-    margin-top: 200px;
-}
-/*
-* NAVBAR for All pages
-*/
-
-/*My Nav test*/
-.my_overlay{
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 0%;
-    background:rgba(0,0,0,.9);
-    overflow-x: hidden;
-    z-index: 5;
-    transition: all 0.9s;
-}
-.my_overlay__content{
-    position: relative;
-    top: 25%;
-    width: 100%;
-    text-align: center;
-    margin-top: 30px;
-}
-.my_overlay a{
-    padding: 10px;
-    color: #ffffff;
-    font-size: 40px;
-    text-decoration: none;
-    display: block;
-}
-.my_overlay a:hover{
-    color: #659DBD;
-    text-decoration: none; 
-}
-.my_overlay .closeMyBtn{
-    position: absolute;
-    top: 20px;
-    right: 50px;
-    font-size: 50px;
-    color: #ffffff;
-    cursor: pointer;
+/* ---------------------------------------- */
+/* ==            GENERAL                */
+/*---------------------------------------- */
+body, html
+{
+	height: 100%;
 }
 
-.my_overlay .closeMyBtn:hover{
-    color: #5D5C61;
+.container-main-contain
+{
+	margin-top: 200px;
+}
+/*****NAVBAR for All pages*****/
+
+/*Overlay: my Nav*/
+.my_overlay
+{
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 0%;
+	background:rgba(0,0,0,.9);
+	overflow-x: hidden;
+	z-index: 5;
+	transition: all 0.9s;
 }
 
-.openMyBtn{
-    width: 30px;
-    height: 20px;
-    position: absolute;
-    margin: 0px;
-    top: 30px;
-    left: 30px;
-    cursor: pointer;
-    }
-    
-.openMyBtn span{
-    display: block;
-    position: absolute;
-    height: 3px;
-    width: 100%;
-    border-radius: 9px;
-}
-    
-.openMyBtn span{
-    background: #659DBD;
-}
-    
-.openMyBtn span:nth-child(1){
-    top: 0px;
-}
-    
-.openMyBtn span:nth-child(2){
-    top: 10px;
-}
-    
-.openMyBtn span:nth-child(3){
-    top: 20px;
+.my_overlay__content
+{
+	position: relative;
+	top: 25%;
+	width: 100%;
+	text-align: center;
+	margin-top: 30px;
 }
 
-.myLogo{
-    display: flex;
-    align-items: center;
-    position: absolute;
-    top: -40px;
-    right: 30px;
+.my_overlay a
+{
+	padding: 10px;
+	color: #ffffff;
+	font-size: 40px;
+	text-decoration: none;
+	display: block;
 }
-/*
-*HOME PAGE: Header
-*/
-header.masthead.d-flex{
-    min-height: 30rem;
-    background-image: url(../img/glasses_on_computer.jpg);
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
-    height: 100%;
+
+.my_overlay a:hover
+{
+	color: #659DBD;
+	text-decoration: none;
+}
+
+.my_overlay .closeMyBtn
+{
+	position: absolute;
+	top: 20px;
+	right: 50px;
+	font-size: 50px;
+	color: #ffffff;
+	cursor: pointer;
+}
+
+.my_overlay .closeMyBtn:hover
+{
+	color: #5D5C61;
+}
+
+.openMyBtn
+{
+	width: 30px;
+	height: 20px;
+	position: absolute;
+	margin: 0px;
+	top: 30px;
+	left: 30px;
+	cursor: pointer;
+}
+
+.openMyBtn span
+{
+	display: block;
+	position: absolute;
+	height: 3px;
+	width: 100%;
+	border-radius: 9px;
+}
+
+.openMyBtn span
+{
+	background: #659DBD;
+}
+
+.openMyBtn span:nth-child(1)
+{
+	top: 0px;
+}
+
+.openMyBtn span:nth-child(2)
+{
+	top: 10px;
+}
+
+.openMyBtn span:nth-child(3)
+{
+	top: 20px;
+}
+/*Logo*/
+
+.myLogo
+{
+	display: flex;
+	align-items: center;
+	position: absolute;
+	top: -40px;
+	right: 30px;
+}
+
+/* --------------------------------------------------------------------------------------------------------------------------- */
+/* ==            HOME PAGE                */
+/*---------------------------------------- */
+
+/*Header*/
+header.masthead.d-flex
+{
+	min-height: 30rem;
+	background-image: url(../img/glasses_on_computer.jpg);
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: cover;
+	height: 100%;
 }
 
 /*Button*/
-.btn.btn-primary.btn-xl.js-scroll-trigger{
-    background: #659DBD;
-    border: #659DBD;
+.btn.btn-primary.btn-xl.js-scroll-trigger
+{
+	background: #659DBD;
+	border: #659DBD;
 }
 
+/* --------------------------------------------------------------------------------------------------------------------------- */
+/* ==            PROJECT PAGE                */
+/*---------------------------------------- */
 
-/*--------------------------
-* PROJECTS PAGES
-*/
 /*Images effect*/
-
-.mainProjectCont{
-    display: flex;
-    width: 100%;
-    flex-wrap: wrap;
-    /*margin-top: 200px;*/
-    justify-content: center;
+.mainProjectCont
+{
+	display: flex;
+	width: 100%;
+	flex-wrap: wrap;
+	/*margin-top: 200px;
+	*/
+	justify-content: center;
 }
 
-.projectContainer{
-    width: 600px;
-    height: 400px;
-    position: relative;
-    cursor: pointer;
-    margin: 5px;
+.projectContainer
+{
+	width: 600px;
+	height: 400px;
+	position: relative;
+	cursor: pointer;
+	margin: 5px;
 }
 
-.projectContainer:hover .post-s{
-    width: 600px;
+.projectContainer:hover .post-s
+{
+	width: 600px;
 }
 
-.projectContainer img{
-    display: block;
-    width: 600px;
-    height: 400px;
+.projectContainer img
+{
+	display: block;
+	width: 600px;
+	height: 400px;
 }
 
-.post-s{
-    width: 0px;
-    height: 400px;
-    background: rgba(0,0,0,.3);
-    position: absolute;
-    top: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    transition: 0.9s ease;
-}
-.post-s h2{
-    border: 2px solid #5D5C61;
-    font-size: 50px;
-}
-.post-s h2, .post-s p{
-    color: #ffffff;
-    padding: 10px 30px;
+.post-s
+{
+	width: 0px;
+	height: 400px;
+	background: rgba(0,0,0,.3);
+	position: absolute;
+	top: 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	overflow: hidden;
+	transition: 0.9s ease;
 }
 
-.post-s p{
-    font-size: 25px;
+.post-s h2
+{
+	border: 2px solid #5D5C61;
+	font-size: 50px;
 }
 
-/*Show-project page*/
-/* .mainProjectCont-show_project{
-    margin-top: 200px;
-} */
-/* .projectContainer-show_project, .projectContainer-show_project img{
-    width: 100%;
-    max-height: 200px;
-} */
-/* .mainProjectCont-show_project{
-    min-height: 30rem;
-    background-image: url(../img/leone-venter-VieM9BdZKFo-unsplash.jpg);
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
-    height: 100%;
-} */
-
-/*--------------------------
-* ADMIIN AND PROFILE MENU
-*/
-.sideMenu{
-    border-right: solid 0.2px #659dbd;
+.post-s h2, .post-s p
+{
+	color: #ffffff;
+	padding: 10px 30px;
 }
-hr{
-    border-top:solid 2px #659dbd !important;
+
+.post-s p
+{
+	font-size: 25px;
+}
+
+/* --------------------------------------------------------------------------------------------------------------------------- */
+/* ==            SHOW ONE PROJECT PAGE                */
+/*---------------------------------------- */
+
+/* --------------------------------------------------------------------------------------------------------------------------- */
+/* ==            CV PAGE PAGE                */
+/*---------------------------------------- */
+
+/* --------------------------------------------------------------------------------------------------------------------------- */
+/* ==            CONTACT PAGE                */
+/*---------------------------------------- */
+
+/* --------------------------------------------------------------------------------------------------------------------------- */
+/* ==            SKILLS PAGE                */
+/*---------------------------------------- */
+
+/* --------------------------------------------------------------------------------------------------------------------------- */
+/* ==            ADMIN GENERAL                */
+/*---------------------------------------- */
+
+/* --------------------------------------------------------------------------------------------------------------------------- */
+/* ==            SECURITY CONNEXION PAGE                */
+/*---------------------------------------- */
+
+/* --------------------------------------------------------------------------------------------------------------------------- */
+/* ==            SECURITY REGISTRATION PAGE                */
+/*---------------------------------------- */
+
+/* --------------------------------------------------------------------------------------------------------------------------- */
+/* ==            (ADMIN) DASHBOARD PAGE                */
+/*---------------------------------------- */
+.sideMenu
+{
+	border-right: solid 0.2px #659dbd;
+}
+
+hr
+{
+	border-top:solid 2px #659dbd !important;
+}
+/* --------------------------------------------------------------------------------------------------------------------------- */
+/* ==            (ADMIN) COMMENTS PAGE                */
+/*---------------------------------------- */
+
+/* --------------------------------------------------------------------------------------------------------------------------- */
+/* ==            (ADMIN) REPORTED PAGE                */
+/*---------------------------------------- */
+
+/* --------------------------------------------------------------------------------------------------------------------------- */
+/* ==            (ADMIN) PROFILE PAGE                */
+/*---------------------------------------- */
+
+/* --------------------------------------------------------------------------------------------------------------------------- */
+/* ==            (ADMIN) PROJECTS PAGE                */
+/*---------------------------------------- */
+
+/* --------------------------------------------------------------------------------------------------------------------------- */
+/* ==            (ADMIN) SUBSCRIBERS PAGE                */
+/*---------------------------------------- */
+
+/* --------------------------------------------------------------------------------------------------------------------------- */
+/* ==            (ADMIN) EDIT-PROFILE PAGE                */
+/*---------------------------------------- */
+
+/* --------------------------------------------------------------------------------------------------------------------------- */
+/* ==            (ADMIN) ADD-PROJECT in FORMPROJECT PAGE                */
+/*---------------------------------------- */
+
+/* --------------------------------------------------------------------------------------------------------------------------- */
+/* ==            (ADMIN) EDIT-PROJECT in FORMPROJECT PAGE                */
+/*---------------------------------------- */
+
+/* --------------------------------------------------------------------------------------------------------------------------- */
+/* ==            (PROFILE) DASHBOARD PAGE                */
+/*---------------------------------------- */
+
+/* --------------------------------------------------------------------------------------------------------------------------- */
+/* ==            (PROFILE) SHOW-PROFILE PAGE                */
+/*---------------------------------------- */
+
+/* --------------------------------------------------------------------------------------------------------------------------- */
+/* ==            (PROFILE) EDIT-PROFILE                */
+/*---------------------------------------- */
+
+/* --------------------------------------------------------------------------------------------------------------------------- */
+/* ==            (PROFILE) REPORTED PAGE                */
+/*---------------------------------------- */
+
+/* --------------------------------------------------------------------------------------------------------------------------- */
+/* ==            (PROFILE) COMMENTS PAGE                */
+/*---------------------------------------- */
+
+/* --------------------------------------------------------------------------------------------------------------------------- */
+/* --------------------------------------------------------------------------------------------------------------------------- */
+/* --------------------------------------------------------------------------------------------------------------------------- */
+/* --------------------------------------------------------------------------------------------------------------------------- */
+/* -----------------------------------------------------     MEDIA QUERIES     ----------------------------------------------- */
+
+/* --------------------------------------------------------------------------------------------------------------------------- */
+/* ==                  On screens that are 992px wide or less          */
+/*---------------------------------------- */
+@media screen and (max-width: 992px) {
+    
+}
+/* --------------------------------------------------------------------------------------------------------------------------- */
+/* ==                  On screens that are 600px wide or less          */
+/*---------------------------------------- */
+
+@media screen and (max-width: 600px) {
+    
 }
