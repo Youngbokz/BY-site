@@ -4,19 +4,39 @@
 <div class="main_title_topContainer" style="text-align: center;min-height:500px;background-attachment: fixed;background-position: center;background-size: cover;background-repeat: no-repeat;background-image: url('img/wall.jpg')">
   <h1 class="main_title">MES PROJETS</h1>
 </div>
-<div class="container-fluid">
-      <div class="container-fluid mainProjectCont">
-      {% for project in projects %}
-      <a class="portfolio-item" href="{{ path('show_project',{'id': project.id}) }}">
-        <div class="projectContainer">
-          <img src="{{ project.imageUrl }}" alt="">
-          <div class="post-s">
-            <h2>{{ project.name }}</h2>
-            <p class="mb-0">{{ project.createdAt | date('d/m/Y') }}</p> 
-          </div>
+
+
+ 
+        <div class="container">           
+            <div class="row">
+                {% for project in projects %}
+                <div class="col-md-4 col-sm-6">
+                    <div class="box8">
+                        <img src="{{ project.imageUrl }}" alt="">
+                        <h2 class="title">{{ project.name }}</h2>
+                        <div class="box-content">
+                            <ul class="icon">
+                                <li>Découvrir <a href="{{ path('show_project',{'id': project.id}) }}"><i class="fa fa-search"></i></a> </li>
+                                <li> {{ project.createdAt | date('d/m/Y') }} <i class="fa fa-link"></i> </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+                <!-- <div class="col-md-4 col-sm-6">
+                    <div class="box8">
+                        <img src="http://bestjquery.com/tutorial/hover-effect/demo148/images/img-3.jpg">
+                        <h3 class="title">Kristiana</h3>
+                        <div class="box-content">
+                            <ul class="icon">
+                                <li><a href="#"><i class="fa fa-search"></i> </a> </li>
+                                <li><a href="#"><i class="fa fa-link"></i> </a> </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div> -->
+            </div> 
         </div>
-      </a>
-      {% endfor %}
-    </div>
-  </div>
+        
+        
 {% endblock %}

@@ -34,12 +34,12 @@
                                 <div><a href="{{ path('admin') }}">Tableau de Bord</a></div>
                             {% endif %}
                             {% if is_granted('ROLE_USER') %}  
-                                <div>Salut {{ app.user.username }}</div>                  
+                                <div>Hey! {{ app.user.username }}</div>                  
                                 <div class="container"><a href="{{ path('profile', {'id': app.user.id}) }}"><i class="fas fa-user-tie"></i></a></div>
                                 <div class="container"><a href="{{ path('security_disconnexion') }}"><button type="button" class="btn btn-outline-primary">Déconnexion</button></a></div>     
                             {% else %}
                                 <div class="dropdown">
-                                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <button class="btn btn-secondary dropdown-toggle connexion_btn" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         Connexion
                                     </button>
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
