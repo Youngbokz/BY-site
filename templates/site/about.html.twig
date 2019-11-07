@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+{% block title %}A propos{% endblock %}
+{% block body %}
+<div class="main_title_topContainer" style="text-align: center;min-height:500px;background-attachment: fixed;background-position: center;background-size: cover;background-repeat: no-repeat;background-image: url('img/wall.jpg')">
+  <h1 class="main_title">A PROPOS</h1>
+</div> 
+  <div class="container">
+
+    <h2>Coucou ! Échanger, interprèter pour produire ... </h2><br /><br /><br />
+
+    <div class="jumbotron jumbotron-fluid">
+      <div class="container">
+        <h3 class="display-4">Le métier de développeur selon moi</h3><br />
+        <p class="lead">
+            Le métier de développeur web est un mélange de profession qui permet une projection de la réalité sur la toile.<br />
+            Vous voulez mettre votre activité professionnel, ou votre vie privée en lumière pour plus de visibilité sur internet ?<br /><br />
+            Le développeur web est là pour vous accompagner dans votre objectif.<br /> 
+            A partir de votre cahier des charges, de vos envies, l'intégrateur web analyse vos besoins
+            pour vous proposer une solution technique adaptée. <br /><br /> 
+            Les lignes de code informatique, les mises à jour, l'entretient du site vous font peur ? C'est normal, voilà pourquoi vous êtes ici, pour qu'on prenne soin de vous, de votre entreprise. 
+            Il créer votre site internet, parmis une variété:
+        </p>  
+            <ul>
+              <li>Les sites vitrines</li>
+              <li>Les sites e-commerces</li>
+              <li>Les sites constitutionnels</li>
+              <li>Les blogs</li>
+            </ul>
+            <br />
+        <p class="lead">
+            Cet interpète du web utilise différents langages informatique, <a href="{{ path('skills') }}">les skills</a> comme j'aime à les appeler, pour monter votre projet numérique.<br />
+            Il s'assure du bon fonction de votre application web avec des outils de test, pour le mettre en ligne.<br /><br /> Il pensera votre référencement, point capital
+            pour votre positionnement sur Google.<br /> Le référencement SEO à travers l'ossature du site mais aussi dans la communication externe de votre site, respectivement grâce entre autre aux métadonnés et aux backlinks.<br /><br /> 
+            Le développeur web continue<br /> à utiliser ces techniques liées au web en vous accompagnant aprés la livraison du site.<br /> En effet, le service après vente permet la maintenance,<br /> voir même l'évolution de votre site et dans certains cas  
+            avec des CMS comme WORDPRESS par exemple,<br /> une formation pour vous apprendre à utiliser certaines fonctionnalités utiles notamment ajouter du texte.
+        </p>
+      </div>
+    </div>
+
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+          <h3 class="display-4">Le métier de développeur selon moi</h3><br />
+          <p class="lead">
+              Bien évidement, il est nécessaire qu'il maîtrise certains languages afin de répondre aux besoins du clients.<br /> Son organisation, son autonomie et assiduité au travail doivent lui permettrent de répondre aux exigences de délai et de budget 
+              du client.<br /><br /> Il suit l'actualité de l'évolution de son métier, en effectuant une veille régulière des innovations.<br /> Sa curiosité ajoutée à sa créativité lui permettrons de livrer un projet calqué sur votre vision. 
+          </p>
+        </div>
+      </div>
+      
+      <div class="jumbotron jumbotron-fluid">
+          <div class="container">
+            <h3 class="display-4">A propos de moi</h3><br />
+            <p class="lead">
+                Cette idée du métier de développeur web, je la dois à la formation professionnelle diplômante que je suis avec <a href="https://openclassrooms.com/fr/">OPENCLASSROOMS</a>.<br /><br /> Je suis donc développeur web junior, anciennement sportif de haut-niveau.<br /> 
+        Grâce à 16 années de carrière en tant que basketteur, j'ai acquis , une certaine expérience de la vie en groupe et du travail sous pression.<br />
+        Je me reconvertis sur un nouveau terrain, celui du web.<br /><br /> Mon but est de pouvoir refléter l'identité d'une entreprise, d'une personne en associant le design et la technologie pour créer un site web.<br /> 
+        Mes qualités et mon travail sont, en partie, déterminés et validés par vous.<br /><br />
+        Voici mon cv <a href="{{ asset('img/attest.pdf') }}"><i class="fas fa-file-signature"></i></a> et <a href="{{ path('projects') }}">mes réalistions</a> . 
+            </p>
+          </div>
+        </div>
+  </div>
+{% endblock %}

@@ -26,11 +26,11 @@ class SiteController extends AbstractController
         return $this->render('site/home.html.twig');
     }
     /**
-     * @Route("/cv", name="cv")
+     * @Route("/about", name="about")
      */
-    public function cv()
+    public function about()
     {
-        return $this->render('site/cv.html.twig');
+        return $this->render('site/about.html.twig');
     }
     /**
      * @Route("/skills", name="skills")

@@ -3,21 +3,47 @@
 /*---------------------------------------- */
 /*Fonts*/
 @font-face {
-    font-family: 'TarponMotel';
+    font-family: 'Aquatico';
     font-style: normal;
     font-weight: normal;
     src: url('../fonts/Aquatico-Regular.woff') format('woff');
 }
-		   
+
+@font-face {
+    font-family: 'Amerika';
+    font-style: normal;
+    font-weight: 100;
+	src: url('../fonts/AMERSN__-webfont.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'AdventPro';
+    font-style: normal;
+    font-weight: 100;
+	src: url('../fonts/adventpro-semibold-webfont.woff') format('woff');
+}
 
 body, html
 {
 	height: 100%;
-	font-family: 'TarponMotel' !important;
+	font-family: 'Amerika' !important;
+}
+
+h2, h3, h4{
+	text-align: center;
 }
 
 .main_title_topContainer{
-    position: relative;
+	position: relative;
+	font-family: 'Aquatico';
+}
+/*All link a*/
+a{
+	/* color: #659DBD !important; */
+}
+/*All p*/
+p{
+	font-family: 'AdventPro', Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 /*Page h1 Titles*/
 .main_title{
@@ -27,7 +53,7 @@ body, html
     right: 0%;
     font-size: 4rem;
     color: white;
-    text-shadow: 0px 3px 0px #b2a98f,
+    text-shadow: 0px 3px 0px #659DBD,
                  0px 14px 10px rgba(0,0,0,0.15),
                  0px 24px 2px rgba(0,0,0,0.1),
                  0px 34px 30px rgba(0,0,0,0.1);
@@ -39,6 +65,27 @@ body, html
 }
 /*****NAVBAR for All pages*****/
 
+nav#mainNav.navbar.navbar-expand-lg.navbar-light.fixed-top{
+	display: flex;
+	justify-content: space-evenly;
+}
+
+.connexion_group{
+	display: flex;
+}
+
+/*Button dropdown menu*/
+button#dropdownMenuButton.btn.btn-secondary.dropdown-toggle.connexion_btn, button.btn.btn-outline-primary:hover{
+	color: #fff;
+	background-color: #659DBD;
+	border-color: rgba(0, 0, 0, 0.01);
+}
+
+button#dropdownMenuButton.btn.btn-secondary.dropdown-toggle.connexion_btn:hover, .btn.btn-primary.btn-xl.js-scroll-trigger:hover, button.btn.btn-outline-primary{
+	color: #659DBD;
+	background-color: white;
+	border-color: rgba(0, 0, 0, 0.01);;
+}
 /*Overlay: my Nav*/
 .my_overlay
 {
@@ -137,9 +184,9 @@ body, html
 {
 	display: flex;
 	align-items: center;
-	position: absolute;
+	/* position: absolute;
 	top: -40px;
-	right: 30px;
+	right: 30px; */
 }
 
 /* --------------------------------------------------------------------------------------------------------------------------- */
@@ -158,7 +205,7 @@ header.masthead.d-flex
 }
 
 .main_title_home{
-	color: #66FCF1;
+	color: #062f4f;
     text-shadow: 0px 2px 0px rgba(0,0,0,0.04),
                  0px 5px 8px rgba(0,0,0,0.04),
                  0px 10px 2px rgba(0,0,0,0.04),
@@ -167,19 +214,6 @@ header.masthead.d-flex
 
 .my_name{
 	color: gray;
-}
-/*Button dropdown menu*/
-button#dropdownMenuButton.btn.btn-secondary.dropdown-toggle.connexion_btn{
-	color: #fff;
-	background-color: #659DBD;
-	border-color: rgba(0, 0, 0, 0.01);
-	/* box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset; */
-}
-
-button#dropdownMenuButton.btn.btn-secondary.dropdown-toggle.connexion_btn:hover, .btn.btn-primary.btn-xl.js-scroll-trigger:hover{
-	color: #659DBD;
-	background-color: white;
-	border-color: rgba(0, 0, 0, 0.01);;
 }
 
 /*Button "Codons ensemble"*/
