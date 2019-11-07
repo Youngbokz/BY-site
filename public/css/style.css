@@ -194,12 +194,12 @@ button#dropdownMenuButton.btn.btn-secondary.dropdown-toggle.connexion_btn:hover,
 /*Header*/
 header.masthead.d-flex
 {
-	min-height: 30rem;
+	min-height: 95%;
 	background-image: url(../img/glasses_on_computer.jpg);
 	background-repeat: no-repeat;
 	background-position: center center;
 	background-size: cover;
-	height: 100%;
+	height: auto;
 }
 
 .main_title_home{
@@ -352,6 +352,9 @@ div.card.skills_card h2{
 {
 	border-right: solid 0.2px #659dbd;
 }
+#dropDownMenuAdmin.dropdown-menu {
+	left: -50% !important;
+}
 
 hr
 {
@@ -419,8 +422,8 @@ hr
 /* ==                  On screens that are 992px wide or less          */
 /*---------------------------------------- */
 @media screen and (max-width: 992px) {
-    
 }
+
 /* --------------------------------------------------------------------------------------------------------------------------- */
 /* ==                  On screens that are 600px wide or less          */
 /*---------------------------------------- */

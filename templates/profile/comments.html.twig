@@ -27,31 +27,29 @@
                             <h1>
                                 <span style="text-transform:uppercase">Mes commentaires</span>
                             </h1>
-                            
                             {% for comment in app.user.comments %}
-                            {% if comment.reported != false %}
-                                <div class="row">
-                                    <div class="col-12">
-                                        COMMENTAIRE posté le {{  comment.createdAt | date('d/m/Y') }}
+                                {% if comment.reported != false %}
+                                    <div class="row">
+                                        <div class="col-12">
+                                            COMMENTAIRE posté le {{  comment.createdAt | date('d/m/Y') }}
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-12">
-                                        {{ comment.comment }}
+                                    <div class="row">
+                                        <div class="col-12">
+                                            {{ comment.comment }}
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-4">
-                                        <a class="btn btn-success" href="#" role="button">Modifier</a>
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <a class="btn btn-success" href="#" role="button">Modifier</a>
+                                        </div>
+                                        <div class="col-4">
+                                            <a class="btn btn-danger" href="#" role="button">Supprimer</a>
+                                        </div>
+                                        <hr align=center size=8 width="100%" />
                                     </div>
-                                    <div class="col-4">
-                                        <a class="btn btn-danger" href="#" role="button">Supprimer</a>
-                                    </div>
-                                    <hr align=center size=8 width="100%" />
-                                </div>
                                 {% endif %}
                             {% endfor %}
-                            
                         </section>
                     </div>
                 </main>

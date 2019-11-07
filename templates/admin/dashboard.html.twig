@@ -1,7 +1,10 @@
 {% extends 'base.html.twig' %}
 {% block title %}TABLEAU DE BORD{% endblock %}
 {% block body %}
-    <div class="container-main-contain">
+    <div class="main_title_topContainer" style="text-align: center;min-height:500px;background-attachment: fixed;background-position: center;background-size: cover;background-repeat: no-repeat;background-image: url('img/wall.jpg')">
+        <h1 class="main_title">MES PROJETS</h1>
+    </div>
+    <div class="content">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <button class="navbar-toggler sideMenuToggler" type="button">
                 <span class="navbar-toggler-icon"></span>
@@ -17,7 +20,7 @@
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Options
                         </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <div id="dropDownMenuAdmin" class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="{{ path('admin_add_project') }}">Ajouter Projet</a>
                             <a class="dropdown-item" href="#">Editer Projet</a>
                         </div>
