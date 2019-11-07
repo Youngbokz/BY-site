@@ -37,10 +37,7 @@ h2, h3, h4{
 	position: relative;
 	font-family: 'Aquatico';
 }
-/*All link a*/
-a{
-	/* color: #659DBD !important; */
-}
+
 /*All p*/
 p{
 	font-family: 'AdventPro', Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
@@ -72,6 +69,7 @@ nav#mainNav.navbar.navbar-expand-lg.navbar-light.fixed-top{
 
 .connexion_group{
 	display: flex;
+	float: right;
 }
 
 /*Button dropdown menu*/

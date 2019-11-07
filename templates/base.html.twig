@@ -28,6 +28,7 @@
                         </div>
                 </div>
                 <div id="myBurger" class="openMyBtn" onclick="openMyNav()"><span></span><span></span><span></span></div>
+                <div></div>
                 <div class="connexion_group">
                     {% if is_granted('ROLE_ADMIN') %}
                         <div><a href="{{ path('admin') }}">Tableau de Bord</a></div>
