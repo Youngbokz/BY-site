@@ -33,7 +33,7 @@ class ProjectRepository extends ServiceEntityRepository
         return $this->createQueryBuilder('p')
             ->select('COUNT(p.id)')
             ->getQuery()
-            ->getResult()
+            ->getSingleScalarResult()
         ;
     }
 

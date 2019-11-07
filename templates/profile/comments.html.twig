@@ -27,15 +27,17 @@
                             <h1>
                                 <span style="text-transform:uppercase">Mes commentaires</span>
                             </h1>
-                            {# {% for comment in comments %} #}
+                            
+                            {% for comment in app.user.comments %}
+                            {% if comment.reported != false %}
                                 <div class="row">
                                     <div class="col-12">
-                                        {# COMMENTAIRE posté le {{  comment.createdAt | date('d/m/Y') }} #}
+                                        COMMENTAIRE posté le {{  comment.createdAt | date('d/m/Y') }}
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-12">
-                                        {# {{ comment.comment }} #}
+                                        {{ comment.comment }}
                                     </div>
                                 </div>
                                 <div class="row">
@@ -47,7 +49,9 @@
                                     </div>
                                     <hr align=center size=8 width="100%" />
                                 </div>
-                            {# {% endfor %} #}
+                                {% endif %}
+                            {% endfor %}
+                            
                         </section>
                     </div>
                 </main>

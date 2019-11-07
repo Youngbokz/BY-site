@@ -31,12 +31,7 @@
                             <div class="card">
                                 <h3><a href="#" class="list-group-item"><i class="fas fa-book"><span class="badge"></span></i></a></h3>
                                 <h5>Commentaires</h5>
-
-                                {% for userCommentsArray in userComments %}
-                                    {% for userComment in userCommentsArray %}
-                                        {{ userComment }}
-                                    {% endfor %}
-                                {% endfor %}
+                                {{ countUserComments }}
                             </div>
                         </div>
                     </div>
@@ -45,11 +40,7 @@
                             <div class="card">
                                 <h3><a href="#" class="list-group-item"><i class="fas fa-comment-dots"><span class="badge"></span></i></a></h3>
                                 <h5>Commentaires notifiés</h5>
-                                {% for userReportedArray in userReported %}
-                                    {% for userLastReported in userReportedArray %}
-                                        {{ userLastReported }}
-                                    {% endfor %}
-                                {% endfor %}
+                                {{ countUserReportedComents }}
                             </div>
                         </div>
                     </div>

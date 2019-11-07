@@ -42,7 +42,7 @@ class CommentRepository extends ServiceEntityRepository
         return $this->createQueryBuilder('c')
             ->select('COUNT(c.id)')
             ->getQuery()
-            ->getArrayResult()
+            ->getSingleScalarResult()
         ;
     }
 
@@ -59,29 +59,28 @@ class CommentRepository extends ServiceEntityRepository
 
     //------------------------------------------------------------
     
-    public function countAllCommentsOfUser($id)
+    public function countAllCommentsOfUser($userId)
     {
         return $this->createQueryBuilder('c')
-            ->select('COUNT(c.id)')
+            ->select('COUNT(c.user)')
             ->andWhere('c.reported = true')
-            ->andWhere('c.id = :id')
-            ->setParameter('id', $id)
-            ->orderBy('c.createdAt', 'DESC')
+            ->andWhere('c.user = :userId')
+            ->setParameter('userId', $userId)
             ->getQuery()
-            ->getResult()
+            ->getSingleScalarResult()
         ;
     }
 
-    public function countAllReportedOfUser($id)
+    public function countAllReportedOfUser($reportedUserId)
     {
         return $this->createQueryBuilder('c')
-            ->select('COUNT(c.id)')
+            ->select('COUNT(c.user)')
             ->andWhere('c.reported = false')
-            ->andWhere('c.id = :id')
-            ->setParameter('id', $id)
+            ->andWhere('c.user = :reportedUserId')
+            ->setParameter('reportedUserId', $reportedUserId)
             ->orderBy('c.createdAt', 'DESC')
             ->getQuery()
-            ->getResult()
+            ->getSingleScalarResult()
         ;
     }
 

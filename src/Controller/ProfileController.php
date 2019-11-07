@@ -13,20 +13,20 @@ use App\Repository\CommentRepository;
 class ProfileController extends AbstractController
 {
     /**
-     * @Route("/profile/{id}", name="profile")
+     * @Route("/profile", name="profile")
      */
-    public function index($id, Request $request, CommentRepository $comRepo)
+    public function index(Request $request, CommentRepository $comRepo)
     {
-        $session = $request->getSession();
-        $id = $session->getId();
+        $user = $this->getUser();
+        $userId = $user->getId();
 
-        //  // afficher les commentaires de l'utilisateur et mettre l'id de l'utlisateur connecté. 
-        $userComments = $comRepo->countAllCommentsOfUser($id);
-        $userReported = $comRepo->countAllReportedOfUser($id);
+        $countUserComments = $comRepo->countAllCommentsOfUser($userId);
+        $countUserReportedComents = $comRepo->countAllReportedOfUser($userId);
+        
         
         return $this->render('profile/dashboard.html.twig', [
-            'userComments' => $userComments,
-            'userReported' => $userReported
+            'countUserComments' => $countUserComments,
+            'countUserReportedComents' => $countUserReportedComents
         ]);
     }
 
@@ -62,8 +62,6 @@ class ProfileController extends AbstractController
      */
     public function userComments(CommentRepository $repo)
     {
-        // $comments = $repo->findAllWithUser();
-
         return $this->render('profile/comments.html.twig');
     }
 
