@@ -1,81 +1,42 @@
-{% extends 'base.html.twig' %}
+{% extends 'adminBase.html.twig' %}
 {% form_theme formProject 'bootstrap_4_layout.html.twig' %}
 {% block title %}
     {% if editMode %}
-      <span style="text-transform:uppercase">éditer projet</span>
+        ÉDITER PROJET
     {% else %}
-      AJOUTER PROJET    
+        AJOUTER PROJET
+    {% endif %}
+{% endblock %}
+{% block adminPageTitle %}
+    {% if editMode %}
+        ÉDITER UN PROJET
+    {% else %}
+        AJOUTER UN PROJET
     {% endif %}
 {% endblock %}
 {% block body %}
-  <div class="container-main-contain">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <button class="navbar-toggler sideMenuToggler" type="button">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <a class="navbar-brand" href="#">{{ app.user.username }}</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-    
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Options
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="{{ path('admin_add_project') }}">Ajouter Projet</a>
-              <a class="dropdown-item" href="#">Editer Projet</a>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </nav>
-
-    <div class="wrapper d-flex">
-        <div class="sideMenu col-2">
-            <div class="sidebar">
-                <ul class="navbar-nav">
-                  <li class="nav-item"><a href="{{ path('admin') }}" class="nav-link"> <span>Tableau de bord </span> <i class="fas fa-tachometer-alt"></i></a></li>
-                  <li class="nav-item"><a href="{{ path('admin_profile') }}" class="nav-link">Profile</a></li>
-                  <li class="nav-item"><a href="{{ path('admin_projects') }}" class="nav-link">Projets</a></li>
-                  <li class="nav-item"><a href="{{ path('subscribers') }}" class="nav-link"><span>Abonnés </span> <i class="fas fa-id-card"></i></a></li>
-                  <li class="nav-item"><a href="{{ path('admin_user_com') }}" class="nav-link"><span>Commentaires <i class="far fa-comments"></i></span></a></li>
-                  <li class="nav-item"><a href="{{ path('reported_com') }}" class="nav-link">Notifications</a></li>
-                  <li class="nav-item"><a href="{{ path('security_disconnexion') }}" class="nav-link"><span>Se déconnecter <i class="fas fa-sign-out-alt"></i></span></a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="content col-9">
-            <main>
-              <div class="container">
-                <h1>
-                  {% if editMode %}
-                    MODIFIER UN PROJET 
-                  {% else %}
-                    AJOUTER UN PROJET
-                  {% endif %}  
-                </h1>
-
-                {{ form_start(formProject) }}
-                {{ form_row(formProject.name, { 'attr' : {'placeholder' : "Titre du Projet"}, 'label' : "Nom"}) }}
-                {{ form_row(formProject.description, { 'attr' : {'placeholder' : "Description du Projet"}, 'label' : "Description"}) }}
-                {{ form_row(formProject.imageUrl, { 'attr' : {'placeholder' : "URL de l\'image"}, 'label' : "Image"}) }}
-                {{ form_row(formProject.address, { 'attr' : {'placeholder' : "URL du projet"}, 'label' : "Adresse URL"}) }}
-                <button type="submit" class="btn btn-success">
-                  {% if editMode %}
-                    Modifier 
-                  {% else %}
+    <div class="content col-9">
+        <h2>
+            {% if editMode %}
+                <span style="text-transform:uppercase">Modifier le projet :<br />{{ project.name }}</span>
+            {% else %}
+                <span style="text-transform:uppercase">Un nouveau projet</span>
+            {% endif %}
+        </h2>
+        <div class="container">
+            {{ form_start(formProject) }}
+            {{ form_row(formProject.name, { 'attr' : {'placeholder' : "Titre du Projet"}, 'label' : "Nom"}) }}
+            {{ form_row(formProject.description, { 'attr' : {'placeholder' : "Description du Projet"}, 'label' : "Description"}) }}
+            {{ form_row(formProject.imageUrl, { 'attr' : {'placeholder' : "URL de l\'image"}, 'label' : "Image"}) }}
+            {{ form_row(formProject.address, { 'attr' : {'placeholder' : "URL du projet"}, 'label' : "Adresse URL"}) }}
+            <button type="submit" class="btn btn-success">
+                {% if editMode %}
+                    Modifier
+                {% else %}
                     Ajouter le projet
-                  {% endif %}
-                </button>
-                {{ form_end(formProject) }}
-            </div>
-          </main>
+                {% endif %}
+            </button>
+            {{ form_end(formProject) }}
         </div>
     </div>
-</div>
 {% endblock %}
-
-

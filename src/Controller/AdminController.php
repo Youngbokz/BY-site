@@ -124,9 +124,6 @@ class AdminController extends AbstractController
 
         $form->handleRequest($request);//analyse la requete HTTP
         if($form->isSubmitted() && $form->isValid()){
-            // if(!$user->getId()){ //Si l'article n'a pas d'identifiant alors on crée une heure de création
-            //     $user->setCreatedAt(new \DateTime());
-            // }
             $manager->persist($user);
             $manager->flush();
             return $this->redirectToRoute('admin_profile');
@@ -161,7 +158,8 @@ class AdminController extends AbstractController
         
         return $this->render('admin/formProject.html.twig', [
             'formProject' => $form->createView(), // Pour avoir l'aspect affiche de form
-            'editMode' => $project->getId() !== null // Boolean qui permet de voir si il y a un id ou pas ici il est en True donc qu il a un id donc qu'il est modifiable 
+            'editMode' => $project->getId() !== null, // Boolean qui permet de voir si il y a un id ou pas ici il est en True donc qu il a un id donc qu'il est modifiable 
+            'project' => $project
         ]);
     } 
 }

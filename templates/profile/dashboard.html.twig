@@ -29,7 +29,7 @@
                     <div class="card-body">
                         <div class="col-md-4">
                             <div class="card">
-                                <h3><a href="#" class="list-group-item"><i class="fas fa-book"><span class="badge"></span></i></a></h3>
+                                <h3><a href="{{ path('user_comments') }}" class="list-group-item"><i class="fas fa-book"><span class="badge"></span></i></a></h3>
                                 <h5>Commentaires</h5>
                                 {{ countUserComments }}
                             </div>
@@ -38,7 +38,7 @@
                     <div class="card-body">
                         <div class="col-md-4">
                             <div class="card">
-                                <h3><a href="#" class="list-group-item"><i class="fas fa-comment-dots"><span class="badge"></span></i></a></h3>
+                                <h3><a href="{{ path('user_reported_com') }}" class="list-group-item"><i class="fas fa-comment-dots"><span class="badge"></span></i></a></h3>
                                 <h5>Commentaires notifiés</h5>
                                 {{ countUserReportedComents }}
                             </div>
