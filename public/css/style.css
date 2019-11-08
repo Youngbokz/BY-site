@@ -339,6 +339,14 @@ div.card.skills_card h2{
 .pagination{
 	justify-content: center;
 }
+
+/*SideNavBar*/
+div.sidebar a.nav-link{
+	padding-right: 10px;
+    padding-left: 10px;
+    display: flex;
+    justify-content: space-between;
+} 
 /* --------------------------------------------------------------------------------------------------------------------------- */
 /* ==            SECURITY CONNEXION PAGE                */
 /*---------------------------------------- */

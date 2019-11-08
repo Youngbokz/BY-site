@@ -1,52 +1,41 @@
-{% extends 'base.html.twig' %}
-{% block title %}
-    PAGE PROFILE
-{% endblock %}
+{% extends 'profileBase.html.twig' %}
+{% block title %}TABLEAU DE BORD PROFILE{% endblock %}
+{% block adminPageTitle %}ESPACE PERSONNEL{% endblock %}
 {% block body %}
-<div class="container-main-contain">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">{{ app.user.username }}</a>
-    </nav>
-    
-    <div class="wrapper d-flex">
-        <div class="sideMenu col-2">
-            <div class="sidebar">
-                <ul class="navbar-nav">
-                    <li class="nav-item"><a href="{{ path('profile', {'id': app.user.id}) }}" class="nav-link"> <span>Tableau de bord</span> <i class="fas fa-tachometer-alt"></i></a></li>
-                    <li class="nav-item"><a href="{{ path('show_profile') }}" class="nav-link"> <span>Mon profile</span> <i class="fas fa-id-card"></i></a></li>
-                    <li class="nav-item"><a href="{{ path('user_comments') }}" class="nav-link"><span>Mes messages <i class="far fa-comments"></i></span></a></li>
-                    <li class="nav-item"><a href="{{ path('user_reported_com') }}" class="nav-link"><span>Notifications <i class="far fa-comments"></i></span></a></li>
-                    <li class="nav-item"><a href="{{ path('security_disconnexion') }}" class="nav-link"><span>Se déconnecter <i class="fas fa-sign-out-alt"></i></span></a></li>
-                </ul>
+    <div class="content col-9">
+        <div class="card">
+            <div class="crad-header">
+                <h2>Vue Globale</h2>
             </div>
-        </div>
-        <div class="content col-9">
-            <main>
-                <div class="card">
-                    <div class="crad-header">
-                        <h3>Vue Globale</h3>
-                    </div>
-                    <div class="card-body">
-                        <div class="col-md-4">
-                            <div class="card">
-                                <h3><a href="{{ path('user_comments') }}" class="list-group-item"><i class="fas fa-book"><span class="badge"></span></i></a></h3>
-                                <h5>Commentaires</h5>
-                                {{ countUserComments }}
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <div class="col-md-4">
-                            <div class="card">
-                                <h3><a href="{{ path('user_reported_com') }}" class="list-group-item"><i class="fas fa-comment-dots"><span class="badge"></span></i></a></h3>
-                                <h5>Commentaires notifiés</h5>
-                                {{ countUserReportedComents }}
-                            </div>
-                        </div>
+            <div class="card-body">
+                <div class="col-md-4">
+                    <div class="card">
+                        <h3>
+                            <a href="{{ path('user_comments') }}" class="list-group-item">
+                                <i class="fas fa-book">
+                                    <span class="badge"></span>
+                                </i>
+                            </a>
+                        </h3>
+                        <h5>Commentaires</h5>
+                        {{ countUserComments }}
                     </div>
                 </div>
-            </main>
+            </div>
+            <div class="card-body">
+                <div class="col-md-4">
+                    <div class="card">
+                        <h3>
+                            <a href="{{ path('user_reported_com') }}" class="list-group-item">
+                                <i class="fas fa-comment-dots">
+                                    <span class="badge"></span>
+                                </i>
+                            </a>
+                        </h3>
+                        <h5>Commentaires notifiés</h5>
+                        {{ countUserReportedComents }}
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-</div>
-{% endblock %}
+    {% endblock %}

@@ -15,7 +15,7 @@ class ProfileController extends AbstractController
     /**
      * @Route("/profile", name="profile")
      */
-    public function index(Request $request, CommentRepository $comRepo)
+    public function index(CommentRepository $comRepo)
     {
         $user = $this->getUser();
         $userId = $user->getId();
@@ -33,9 +33,16 @@ class ProfileController extends AbstractController
     /**
      * @Route("/showProfile", name="show_profile")
      */
-    public function showProfile()
+    public function showProfile(CommentRepository $comRepo)
     {
-        return $this->render('profile/show_profile.html.twig');
+        $user = $this->getUser();
+        $userId = $user->getId();
+
+        $countComments = $comRepo->countAllCommentsOfUser($userId);
+
+        return $this->render('profile/show_profile.html.twig', [
+            'countComments' => $countComments
+        ]);
     }
 
     /**
