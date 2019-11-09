@@ -56,26 +56,54 @@ p{
                  0px 34px 30px rgba(0,0,0,0.1);
 }
 
-.container-main-contain
-{
-	margin-top: 200px;
+/*****NAVBAR for Site pages*****/
+/* Main Navbar */
+nav#mainNav{
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 120px;
+	padding: 10px 100px;
+	box-sizing: border-box;
+	transition: .5s;
+	z-index: 200;
 }
-/*****NAVBAR for All pages*****/
+/* NavBar scrolling */
+nav#mainNav.black{
+	background: rgba(255, 255, 255, 0.8);
+	height: 130px;
+	padding: 10px 50px;
+}
 
-nav#mainNav.navbar.navbar-expand-lg.navbar-light.fixed-top{
+.sectionFirst{
+	height: 120px;
+	width: 100%;
+}
+.sectionSecond{
 	display: flex;
-	justify-content: space-evenly;
+	width: 100%;
+	justify-content: flex-end;
 }
-
 .connexion_group{
 	display: flex;
-	float: right;
+	align-items: center;
+	justify-content: flex-end;
+}
+/*Link for admin dashborad*/
+nav#mainNav .connexion_group div.col-md-3 a{
+	color: #083b66;
+}
+/*Logo*/
+.myLogo img
+{
+	height: 120px;
 }
 
 /*Button dropdown menu*/
 button#dropdownMenuButton.btn.btn-secondary.dropdown-toggle.connexion_btn, button.btn.btn-outline-primary:hover{
 	color: #fff;
-	background-color: #659DBD;
+	background-color: #083b66;
 	border-color: rgba(0, 0, 0, 0.01);
 }
 
@@ -175,16 +203,6 @@ button#dropdownMenuButton.btn.btn-secondary.dropdown-toggle.connexion_btn:hover,
 .openMyBtn span:nth-child(3)
 {
 	top: 20px;
-}
-/*Logo*/
-
-.myLogo
-{
-	display: flex;
-	align-items: center;
-	/* position: absolute;
-	top: -40px;
-	right: 30px; */
 }
 
 /* --------------------------------------------------------------------------------------------------------------------------- */

@@ -22,6 +22,11 @@
                             <div class="col">
                                 {{ comment.comment | raw }}
                             </div>
+                            {% if app.user %}
+                            <div>
+                                <a class="btn btn-danger" href="#" role="button"><i class="far fa-times-circle"></i> Signaler</a>
+                            </div>
+                            {% endif %}
                         </div>
                     </div>
                 {% endfor %}
