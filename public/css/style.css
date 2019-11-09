@@ -71,7 +71,7 @@ nav#mainNav{
 }
 /* NavBar scrolling */
 nav#mainNav.black{
-	background: rgba(255, 255, 255, 0.8);
+	background: rgba(0, 0, 0, 0.7);
 	height: 130px;
 	padding: 10px 50px;
 }
@@ -91,8 +91,12 @@ nav#mainNav.black{
 	justify-content: flex-end;
 }
 /*Link for admin dashborad*/
-nav#mainNav .connexion_group div.col-md-3 a{
-	color: #083b66;
+nav#mainNav .connexion_group div.col-md-3, nav#mainNav .connexion_group div.col-md-3 a{
+	color: white;
+}
+nav#mainNav .connexion_group div.col-md-3 a:hover{
+	color: red;
+	text-decoration: none;
 }
 /*Logo*/
 .myLogo img
@@ -187,7 +191,12 @@ button#dropdownMenuButton.btn.btn-secondary.dropdown-toggle.connexion_btn:hover,
 
 .openMyBtn span
 {
-	background: #659DBD;
+	background-color: white;
+}
+
+.openMyBtn span.homeSpan
+{
+	background-color: #062f4f;
 }
 
 .openMyBtn span:nth-child(1)
