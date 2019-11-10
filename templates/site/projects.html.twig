@@ -4,36 +4,23 @@
     <div class="main_title_topContainer" style="text-align: center;min-height:500px;background-attachment: fixed;background-position: center;background-size: cover;background-repeat: no-repeat;background-image: url('img/wall.jpg')">
     <h1 class="main_title">MES PROJETS</h1>
     </div>
-        <div class="container">           
+        <div class="container-fluid projects_container" style="padding:0px 120px;background-attachment: fixed;background-position: center;background-size: cover;background-repeat: no-repeat;background-image: url('img/wall.jpg')">           
             <div class="row">
                 {% for project in projects %}
-                <div class="col-md-4 col-sm-6">
-                    <div class="box8">
-                        <img src="{{ project.imageUrl }}" alt="">
+                <div class="col-md-6 col-sm-6">
+                    <div class="box_project" style="box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inse;">
+                        <img src="{{ project.imageUrl }}" alt="Image de Projet">
                         <h2 class="title">{{ project.name }}</h2>
                         <div class="box-content">
                             <ul class="icon">
-                                <li>Découvrir <a href="{{ path('show_project',{'id': project.id}) }}"><i class="fa fa-search"></i></a> </li>
-                                <li> {{ project.createdAt | date('d/m/Y') }} <i class="fa fa-link"></i> </li>
+                                    <li>Découvrir<br /> {{ project.createdAt | date('d/m/Y') }}</li>
+                                <li><a href="{{ path('show_project',{'id': project.id}) }}"><i class="fa fa-search"></i></a> </li>
+                                
                             </ul>
                         </div>
                     </div>
                 </div>
                 {% endfor %}
-                <!-- <div class="col-md-4 col-sm-6">
-                    <div class="box8">
-                        <img src="http://bestjquery.com/tutorial/hover-effect/demo148/images/img-3.jpg">
-                        <h3 class="title">Kristiana</h3>
-                        <div class="box-content">
-                            <ul class="icon">
-                                <li><a href="#"><i class="fa fa-search"></i> </a> </li>
-                                <li><a href="#"><i class="fa fa-link"></i> </a> </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div> -->
             </div> 
         </div>
-        
-        
 {% endblock %}
