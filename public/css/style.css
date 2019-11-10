@@ -281,7 +281,9 @@ header.masthead.d-flex
 	width: 600px;
 	height: 400px;
 }
-
+.projectContainer-show_project{
+	text-align: center;
+}
 .post-s
 {
 	width: 0px;
@@ -346,10 +348,25 @@ header.masthead.d-flex
 .about_container{
 	margin-top: 40px;
 }
+.about_container .about_nav{
+	text-align: center;
+}
+.about_container .about_nav li{
+	list-style: none;
+}
+.about_container .about_nav li a{
+	text-decoration: none;
+	color: #659DBD;
+}
+.about_container .about_nav li a:hover{
+	color: #062f4f;
+}
 /* --------------------------------------------------------------------------------------------------------------------------- */
 /* ==            CONTACT PAGE                */
 /*---------------------------------------- */
-
+div.container.contact_container{
+	padding: 40px 80px;
+}
 /* --------------------------------------------------------------------------------------------------------------------------- */
 /* ==            SKILLS PAGE                */
 /*---------------------------------------- */
@@ -382,11 +399,15 @@ div.sidebar a.nav-link{
 /* --------------------------------------------------------------------------------------------------------------------------- */
 /* ==            SECURITY CONNEXION PAGE                */
 /*---------------------------------------- */
-
+div.container.connexion_container{
+	padding: 40px 400px;
+}
 /* --------------------------------------------------------------------------------------------------------------------------- */
 /* ==            SECURITY REGISTRATION PAGE                */
 /*---------------------------------------- */
-
+div.container.registration_container{
+	padding: 40px 200px;
+}
 /* --------------------------------------------------------------------------------------------------------------------------- */
 /* ==            (ADMIN) DASHBOARD PAGE                */
 /*---------------------------------------- */
