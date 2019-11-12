@@ -7,6 +7,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 use App\Entity\Project;
 use App\Entity\User;
+use App\Entity\Comment;
 use App\Form\ProjectType;
 use App\Form\EditUserType;
 use App\Repository\ProjectRepository;
@@ -50,7 +51,22 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/RepotedCom", name="reported_com")
+     * @Route("/adminDeleteUserCom/{id}", name="admin_delete_user_com")
+     */
+    public function adminDeleteUserCom(Comment $comment, ObjectManager $manager, CommentRepository $comRepo)
+    {
+        $id = $comment->getId();
+        $comment = $comRepo->find($id);
+        $userComment = strtoupper($comment->getUser()->getUsername());
+
+        $manager->remove($comment);
+        $manager->flush();
+        $this->addFlash('sucess', 'Le message de ' . $userComment . ' à bien été supprimé !');
+        return $this->redirectToRoute('admin_user_com');
+    }
+
+    /**
+     * @Route("/reportedCom", name="reported_com")
      */
     public function reportedCom(CommentRepository $repo, Request $request, PaginatorInterface $paginator)
     {
@@ -63,6 +79,21 @@ class AdminController extends AbstractController
         return $this->render('admin/reported.html.twig', [
             'comments' => $comments
         ]);
+    }
+
+    /**
+     * @Route("/deleteReportedCom/{id}", name="delete_reported_com")
+     */
+    public function adminDeleteUserReportedCom(Comment $reportedCom, ObjectManager $manager, CommentRepository $comRepo)
+    {
+        $id = $reportedCom->getId();
+        $reportedCom = $comRepo->find($id);
+        $userReportedCom = strtoupper($reportedCom->getUser()->getUsername());
+
+        $manager->remove($reportedCom);
+        $manager->flush();
+        $this->addFlash('sucess', 'Le message de ' . $userReportedCom . ' à bien été supprimé !');
+        return $this->redirectToRoute('reported_com');
     }
 
     /**
@@ -154,6 +185,7 @@ class AdminController extends AbstractController
             }
             $manager->persist($project);
             $manager->flush();
+            $this->addFlash('sucess', 'Votre projet à bien été ajouté !');
             return $this->redirectToRoute('show_project', ['id' => $project->getId()]);
         }
         
@@ -174,7 +206,7 @@ class AdminController extends AbstractController
         
         $manager->remove($project);
         $manager->flush();
-
+        $this->addFlash('sucess', 'Votre projet à bien été supprimé !');
         return $this->redirectToRoute('admin_projects');
     } 
     

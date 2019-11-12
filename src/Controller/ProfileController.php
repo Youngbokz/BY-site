@@ -6,6 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 use App\Entity\User;
+use App\Entity\Comment;
 use App\Form\EditUserForUserType;
 use Doctrine\Common\Persistence\ObjectManager;
 use App\Repository\CommentRepository;
@@ -73,10 +74,40 @@ class ProfileController extends AbstractController
     }
 
     /**
+     * @Route("/userDeleteCom/{id}", name="user_delete_com")
+     */
+    public function userDeletedCom(Comment $comment, ObjectManager $manager, CommentRepository $comRepo)
+    {
+        $id = $comment->getId();
+        $comment = $comRepo->find($id);
+        $userCom = strtoupper($comment->getUser()->getUsername());
+
+        $manager->remove($comment);
+        $manager->flush();
+        $this->addFlash('sucess', 'Votre message, ' . $userCom . ', à bien été supprimé !');
+        return $this->redirectToRoute('reported_com');
+    }
+
+    /**
      * @Route("/userReportedCom", name="user_reported_com")
      */
     public function userReportedCom()
     {
         return $this->render('profile/reported.html.twig');
+    }
+
+    /**
+     * @Route("/userDeleteReportedCom/{id}", name="user_delete_reported_com")
+     */
+    public function userDeletedReportedCom(Comment $reportedCom, ObjectManager $manager, CommentRepository $comRepo)
+    {
+        $id = $reportedCom->getId();
+        $reportedCom = $comRepo->find($id);
+        $userReportedCom = strtoupper($reportedCom->getUser()->getUsername());
+
+        $manager->remove($reportedCom);
+        $manager->flush();
+        $this->addFlash('sucess', 'Le message de ' . $userReportedCom . ' à bien été supprimé !');
+        return $this->redirectToRoute('reported_com');
     }
 }

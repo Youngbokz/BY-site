@@ -82,6 +82,11 @@
     <div class="content">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <a class="navbar-brand" href="#">{{ app.user.username }}</a>
+            {% for message in app.flashes('sucess') %}
+                <div class="alert alert-sucess">
+                    {{ message }}
+                </div>
+            {% endfor %}
         </nav>
         <div class="wrapper d-flex">
             <div class="sideMenu col-2">

@@ -37,6 +37,17 @@ class CommentRepository extends ServiceEntityRepository
         ;
     }
 
+    // public function findOneReportedComment($id)
+    // {
+    //     return $this->createQueryBuilder('c')
+    //         ->andWhere('c.reported = false')
+    //         ->andWhere('c.user = :userId')
+    //         ->setParameter('userId', $id)
+    //         ->getQuery()
+    //         ->getSingleScalarResult()
+    //     ;
+    // }
+
     public function countAllComment()
     {
         return $this->createQueryBuilder('c')
