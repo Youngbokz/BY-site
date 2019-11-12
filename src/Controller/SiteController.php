@@ -11,6 +11,7 @@ use App\Form\CommentType;
 use App\Form\ContactType;
 use App\Form\ProjectType;
 use App\Repository\ProjectRepository;
+use App\Repository\CommentRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\Routing\Annotation\Route;
@@ -94,10 +95,31 @@ class SiteController extends AbstractController
         $form->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid()){
-            return $this->redirectionToRoute('site/contact.html.twig');
+            return $this->redirectToRoute('site/contact.html.twig');
         }
         return $this->render('site/contact.html.twig', [
             'formContact' => $form->createView()
         ]);
+    }
+
+    /**
+     * @Route("/report/{id}", name="report")
+     */
+    public function report(Comment $comment,CommentRepository $comRepo, ObjectManager $manager)
+    {
+        $id = $comment->getId();
+        $comment = $comRepo->find($id);
+        if($comment->getReported() === false){
+            $comment->getReported() === true;
+            $manager->persist($comment);
+            $manager->flush();
+            return  $this->redirectToRoute('projects');
+        }
+        else{
+            $comment->getReported() === false;
+            $manager->persist($comment);
+            $manager->flush();
+            return  $this->redirectToRoute('projects');
+        }
     }
 }

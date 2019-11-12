@@ -52,6 +52,7 @@ class AdminController extends AbstractController
 
     /**
      * @Route("/adminDeleteUserCom/{id}", name="admin_delete_user_com")
+     * * @Route("/deleteReportedCom/{id}", name="delete_reported_com")
      */
     public function adminDeleteUserCom(Comment $comment, ObjectManager $manager, CommentRepository $comRepo)
     {
@@ -62,7 +63,12 @@ class AdminController extends AbstractController
         $manager->remove($comment);
         $manager->flush();
         $this->addFlash('sucess', 'Le message de ' . $userComment . ' à bien été supprimé !');
-        return $this->redirectToRoute('admin_user_com');
+        if($comment->getReported() === false){
+            return $this->redirectToRoute('reported_com');
+        }
+        else{
+            return $this->redirectToRoute('admin_user_com');
+        }
     }
 
     /**
@@ -81,20 +87,20 @@ class AdminController extends AbstractController
         ]);
     }
 
-    /**
-     * @Route("/deleteReportedCom/{id}", name="delete_reported_com")
-     */
-    public function adminDeleteUserReportedCom(Comment $reportedCom, ObjectManager $manager, CommentRepository $comRepo)
-    {
-        $id = $reportedCom->getId();
-        $reportedCom = $comRepo->find($id);
-        $userReportedCom = strtoupper($reportedCom->getUser()->getUsername());
+    // /**
+    //  * @Route("/deleteReportedCom/{id}", name="delete_reported_com")
+    //  */
+    // public function adminDeleteUserReportedCom(Comment $reportedCom, ObjectManager $manager, CommentRepository $comRepo)
+    // {
+    //     $id = $reportedCom->getId();
+    //     $reportedCom = $comRepo->find($id);
+    //     $userReportedCom = strtoupper($reportedCom->getUser()->getUsername());
 
-        $manager->remove($reportedCom);
-        $manager->flush();
-        $this->addFlash('sucess', 'Le message de ' . $userReportedCom . ' à bien été supprimé !');
-        return $this->redirectToRoute('reported_com');
-    }
+    //     $manager->remove($reportedCom);
+    //     $manager->flush();
+    //     $this->addFlash('sucess', 'Le message de ' . $userReportedCom . ' à bien été supprimé !');
+    //     return $this->redirectToRoute('reported_com');
+    // }
 
     /**
      * @Route("/adminProjects", name="admin_projects")
@@ -168,7 +174,7 @@ class AdminController extends AbstractController
 
     /**
      * @Route("/adminAddProject", name="admin_add_project")
-     * @Route("/adminEditProject/{id}", name="admin_edit_project")
+     *   
      */
     public function formProject(Project $project = null, Request $request, ObjectManager $manager)
     {

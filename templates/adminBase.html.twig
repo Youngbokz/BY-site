@@ -92,7 +92,7 @@
                     </button>
                     <a class="navbar-brand" href="#">{{ app.user.username }}</a>
                     {% for message in app.flashes('sucess') %}
-                        <span class="badge badge-success" style="font-size:15px;">{{ message }}</span>
+                        <span class="badge badge-success" style="font-size:15px;font-weight:100;">{{ message }}</span>
                     {% endfor %}
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>

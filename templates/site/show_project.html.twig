@@ -40,7 +40,7 @@
                                         <p>{{ comment.comment | raw }}</p>
                                         {% if app.user %}
                                         <p>
-                                            <a class="btn btn-danger" href="#" role="button"><i
+                                            <a class="btn btn-danger" href="{{ path('report', {'id': comment.id}) }}" role="button"><i
                                                     class="far fa-times-circle"></i> Signaler</a>
                                         </p>
                                         {% endif %}

@@ -8,6 +8,7 @@ use Symfony\Component\HttpFoundation\Request;
 use App\Entity\User;
 use App\Entity\Comment;
 use App\Form\EditUserForUserType;
+use App\Form\CommentType;
 use Doctrine\Common\Persistence\ObjectManager;
 use App\Repository\CommentRepository;
 
@@ -109,5 +110,31 @@ class ProfileController extends AbstractController
         $manager->flush();
         $this->addFlash('sucess', 'Le message de ' . $userReportedCom . ' à bien été supprimé !');
         return $this->redirectToRoute('reported_com');
+    }
+
+    /**
+     * @Route("/edit_message/{id}", name="edit_message")
+     */
+    public function edit_message(Comment $comment, Request $request, ObjectManager $manager)
+    {
+        // $id = $comRepo->getId();
+        // $comment = $comRepo->findBy($id);
+        
+        $form = $this->createForm(CommentType::class, $comment);
+
+        $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid()){
+             
+            $manager->persist($comment);
+            $manager->flush();
+
+            $this->addFlash('sucess', 'Votre message à bien été modifié !');
+            return $this->redirectToRoute('user_comments');
+        }
+
+        return $this->render('profile/edit_message.html.twig', [
+            'commentForm' => $form->createView()
+        ]);
     }
 }

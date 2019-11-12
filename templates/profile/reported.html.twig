@@ -1,6 +1,6 @@
 {% extends 'profileBase.html.twig' %}
 {% block title %}NOTIFICATIONS{% endblock %}
-{% block adminPageTitle %}MESSAGES NOTIFIÉS{% endblock %}
+{% block adminPageTitle %}MESSAGES NOTIFIES{% endblock %}
 {% block body %}
     <div class="content col-9">
         <div class="container">
@@ -25,13 +25,13 @@
                             <a class="btn btn-success" href="#" role="button">Modifier</a>
                         </div>
                         <div class="col-4">
-                            <a class="btn btn-danger" href="{{ path('user_delete_reported_com'), {'id': comment.id} }}" role="button">Supprimer</a>
+                            <a class="btn btn-danger" href="{{ path('user_delete_reported_com', {'id': comment.id}) }}" role="button">Supprimer</a>
                         </div>
                         <hr align="center" size="8" width="100%"/>
                     </div>
         
                     {% else %}
-                    <p>srjbir;r</p>
+                        <p class="noReported"><span class="badge badge-secondary">Vous n'avez pas de message signalé</span></p>
                     {% endif %}
 
             {% endfor %}
