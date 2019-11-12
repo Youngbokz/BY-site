@@ -33,12 +33,9 @@
                                         <a href="{{ path('admin_edit_project', {'id': project.id}) }}" class="btn btn-success">
                                             <span style="text-transform:uppercase">éditer</span>
                                         </a>
-                                        <form method="post" action="{{ path('admin_delete_project', {'id': project.id}) }}">
-                                            <input type="hidden" name="method" value="DELETE">
-                                            <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ project.id) }}">
-                                            <button class="btn btn-danger"><span style="text-transform:uppercase">éffacer</span></button>
-                                        </form>
-                                        
+                                        <a href="{{ path('admin_delete_project', {'id': project.id}) }}" class="btn btn-danger">
+                                            <span style="text-transform:uppercase">éffacer</span>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
