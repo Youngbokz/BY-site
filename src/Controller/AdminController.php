@@ -116,6 +116,18 @@ class AdminController extends AbstractController
     }
 
     /**
+     * @Route("/adminDeleteProject/{id}", name="admin_delete_project", methods="DELETE")
+     */
+    public function deleteProject(Project $project, ObjectManager $manager, Request $request)
+    {
+        if($this->isCsrfTokenValid('delete' . $project->getId(), $request->get('_token'))){
+            $manager->remove($project);
+            $manager->flush();
+        }
+        return $this->redirectToRoute('admin/projects.html.twig');
+    } 
+
+    /**
      * @Route("/adminEditProfile/{id}", name="admin_edit_profile")
      */
     public function adminEditProfile(User $user, Request $request, ObjectManager $manager)
@@ -126,6 +138,7 @@ class AdminController extends AbstractController
         if($form->isSubmitted() && $form->isValid()){
             $manager->persist($user);
             $manager->flush();
+            $this->addFlash('sucess', 'Votre profile à bien été mis à jour !');
             return $this->redirectToRoute('admin_profile');
         }
 
@@ -136,7 +149,7 @@ class AdminController extends AbstractController
 
     /**
      * @Route("/adminAddProject", name="admin_add_project")
-     * @Route("/adminEditProject/{id}", name="admin_edit_project")
+     * @Route("/adminEditProject/{id}", name="admin_edit_project", methods="GET|POST")
      */
     public function formProject(Project $project = null, Request $request, ObjectManager $manager)
     {
@@ -162,4 +175,6 @@ class AdminController extends AbstractController
             'project' => $project
         ]);
     } 
+
+    
 }

@@ -21,6 +21,11 @@
                                         <i class="fa fa-map-marker mr-2"></i>
                                         {{ app.user.city }}
                                     </p>
+                                    {% for message in app.flashes('sucess') %}
+                                        <div class="alert alert-sucess">
+                                            {{ message }}
+                                        </div>
+                                    {% endfor %}
                                 </div>
                             </div>
                         </div>

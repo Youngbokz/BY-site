@@ -89,6 +89,11 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <a class="navbar-brand" href="#">{{ app.user.username }}</a>
+            {% for message in app.flashes('sucess') %}
+                                        <div class="alert alert-sucess">
+                                            {{ message }}
+                                        </div>
+                                    {% endfor %}
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
