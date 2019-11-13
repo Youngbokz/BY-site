@@ -404,6 +404,11 @@ div.sidebar a.nav-link{
     display: flex;
     justify-content: space-between;
 } 
+
+/*main content*/
+/* div.content.col-9{
+	padding: 15px;
+} */
 /* --------------------------------------------------------------------------------------------------------------------------- */
 /* ==            SECURITY CONNEXION PAGE                */
 /*---------------------------------------- */

@@ -1,51 +1,95 @@
 {% extends 'adminBase.html.twig' %}
-{% block title %}TABLEAU DE BORD{% endblock %}
-{% block adminPageTitle %}TABLEAU DE BORD<br />ADMINISTRATEUR{% endblock %}
-{% block body %}            
-    <div class="content col-9">
-        <div class="card">
-            <div class="crad-header">
-                <h2>Vue Globale</h2>
-            </div>
-            <div class="card-body">
-                <div class="col-md-4">
-                    <div class="card">
-                        <h5>
-                            <a href="{{ path('subscribers') }}" class="list-group-item">
-                                <i class="fas fa-user"><span class="badge"></span></i>
-                            </a>
-                        </h5>
-                        <h4>Abonnés</h4>
-                        {{ countUsers }}                                                        
-                    </div>
-                </div>
-            </div>
-            <div class="card-body">
-                <div class="col-md-4">
-                    <div class="card">
-                        <h5>
-                            <a href="{{ path('admin_projects') }}" class="list-group-item">
-                                <i class="fas fa-book"><span class="badge"></span></i>
-                            </a>
-                        </h5>
-                        <h4>Projets</h4>
-                        {{ countProjects }}                                                        
-                    </div>
-                </div>
-            </div>
-            <div class="card-body">
-                <div class="col-md-4">
-                    <div class="card">
-                        <h5>
-                            <a href="{{ path('admin_user_com') }}" class="list-group-item">
-                                <i class="fas fa-comment-dots"><span class="badge"></span></i>
-                            </a>
-                        </h5>
-                        <h4>Commentaires</h4>
-                        {{ countComments }}                                                        
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+{% block title %}TABLEAU DE BORD
 {% endblock %}
+{% block adminPageTitle %}TABLEAU DE BORD<br/>ADMINISTRATEUR
+{% endblock %}
+{% block body %}
+	<div class="content col-9">
+		<div class="card">
+			<div class="crad-header">
+				<h2>Vue Globale</h2>
+			</div>
+			<div class="card-body row">
+				<div class="col-md-4">
+					<div class="card">
+						<h5>
+							<a href="{{ path('subscribers') }}" class="list-group-item">
+								<i class="fas fa-user">
+									<span class="badge"></span>
+								</i>
+							</a>
+						</h5>
+						<h4>Abonnés</h4>
+						{{ countUsers }}
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="card">
+						<h5>
+							<a href="{{ path('admin_projects') }}" class="list-group-item">
+								<i class="fas fa-book">
+									<span class="badge"></span>
+								</i>
+							</a>
+						</h5>
+						<h4>Projets</h4>
+						{{ countProjects }}
+					</div>
+				</div>
+			
+			<div class="col-md-4">
+				<div class="card">
+					<h5>
+						<a href="{{ path('admin_user_com') }}" class="list-group-item">
+							<i class="fas fa-comment-dots">
+								<span class="badge"></span>
+							</i>
+						</a>
+					</h5>
+					<h4>Commentaires</h4>
+					{{ countComments }}
+				</div>
+            </div>
+            </div>
+		</div>
+		{# <div class="card-body">
+					                <div class="col-md-4">
+					                    <div class="card">
+					                        <h5>
+					                            <a href="{{ path('subscribers') }}" class="list-group-item">
+					                                <i class="fas fa-user"><span class="badge"></span></i>
+					                            </a>
+					                        </h5>
+					                        <h4>Abonnés</h4>
+					                        {{ countUsers }}                                                        
+					                    </div>
+					                </div>
+					            </div>
+					            <div class="card-body">
+					                <div class="col-md-4">
+					                    <div class="card">
+					                        <h5>
+					                            <a href="{{ path('admin_projects') }}" class="list-group-item">
+					                                <i class="fas fa-book"><span class="badge"></span></i>
+					                            </a>
+					                        </h5>
+					                        <h4>Projets</h4>
+					                        {{ countProjects }}                                                        
+					                    </div>
+					                </div>
+					            </div>
+					            <div class="card-body">
+					                <div class="col-md-4">
+					                    <div class="card">
+					                        <h5>
+					                            <a href="{{ path('admin_user_com') }}" class="list-group-item">
+					                                <i class="fas fa-comment-dots"><span class="badge"></span></i>
+					                            </a>
+					                        </h5>
+					                        <h4>Commentaires</h4>
+					                        {{ countComments }}                                                        
+					                    </div>
+					                </div>
+					            </div> #}
+	</div>
+</div>{% endblock %}
