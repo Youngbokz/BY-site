@@ -213,6 +213,14 @@ button#dropdownMenuButton.btn.btn-secondary.dropdown-toggle.connexion_btn:hover,
 {
 	top: 20px;
 }
+/*FOOTER*/
+footer#sticky-footer.py-4.bg-dark.text-white-50{
+	display: flex;
+	flex-direction: row;
+}
+footer a{
+	color: rgba(255,255,255,.5)!important;
+}
 
 /* --------------------------------------------------------------------------------------------------------------------------- */
 /* ==            HOME PAGE                */

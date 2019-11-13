@@ -27,6 +27,20 @@ class SiteController extends AbstractController
         return $this->render('site/home.html.twig');
     }
     /**
+     * @Route("/privacyPolicy", name="privacy_policy")
+     */
+    public function privacyPolicy()
+    {
+        return $this->render('site/privacy_policy.html.twig');
+    }
+    /**
+     * @Route("/legalNotices", name="legal_notices")
+     */
+    public function legalNotices()
+    {
+        return $this->render('site/legal_notices.html.twig');
+    }
+    /**
      * @Route("/about", name="about")
      */
     public function about()

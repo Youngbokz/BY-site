@@ -4,7 +4,11 @@
 {% block body %}
       <!-- Header -->
       <header class="masthead d-flex">
+        
         <div class="container text-center my-auto">
+            {% for message in app.flashes('sucess') %}
+          <span class="badge badge-success" style="font-size:15px; font-weight:100;">{{ message }}</span>
+      {% endfor %}
           <h1 class="mb-1 main_title_home">DÉVELOPPEUR WEB JUNIOR </h1>
           <hr>
           <h2 class="mb-5 my_name">

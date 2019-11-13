@@ -11,6 +11,7 @@ use App\Form\EditUserForUserType;
 use App\Form\CommentType;
 use Doctrine\Common\Persistence\ObjectManager;
 use App\Repository\CommentRepository;
+use App\Repository\UserRepository;
 use Knp\Component\Pager\PaginatorInterface;
 
 class ProfileController extends AbstractController
@@ -161,4 +162,18 @@ class ProfileController extends AbstractController
             'commentForm' => $form->createView()
         ]);
     }
+
+    /**
+     * @Route("/deleteOwnAccount/{id}", name="delete_own_account")
+     */
+    public function deleteAccount(User $user, ObjectManager $manager, Request $request, UserRepository $userRepo)
+    {
+        $id = $user->getId();
+        $user = $userRepo->find($id);
+        
+        $manager->remove($user);
+        $manager->flush();
+        $this->addFlash('sucess', 'L\'utilisateur a bien été supprimé !');
+        return $this->redirectToRoute('home');
+    } 
 }

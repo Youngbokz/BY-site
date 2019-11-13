@@ -51,11 +51,11 @@ class SecurityController extends AbstractController
         $form = $this->createForm(UserType::class, $user);
 
         $form->handleRequest($request);
-
+        $this->addFlash('sucess', 'Coucou ! Vous êtes connecté');
         if($form->isSubmitted() && $form->isValid()){
-
+            
             return $this->redirectToRoute('home');
-         }
+        }
         return $this->render('security/connexion.html.twig',[
             'formConnexion' => $form->createView()
         ]);

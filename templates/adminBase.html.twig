@@ -165,12 +165,25 @@
         </body>
 
     </html>
-</div></div><footer id="sticky-footer" class="py-4 bg-dark text-white-50">
-<div class="container text-center">
-    <small>
-        Copyright &copy; BOKOLO Yannick
-    </small>
-</div></footer>{% block script %}
+<footer id="sticky-footer" class="py-4 bg-dark text-white-50">
+        <div class="container text-center">
+                <small>
+                    Copyright &copy; BOKOLO Yannick
+                </small>
+            </div>
+                <div class="container text-center">
+                <small>
+                        <a href="{{ path('legal_notices') }}">Mentions Légales</a> 
+                     </small>
+                    </div>
+                     <div class="container text-center">
+                     <small>
+                      <a href="{{ path('privacy_policy') }}">Politique de confidentialité</a>       
+                         </small>
+            </div>
+</div>
+</footer>
+{% block script %}
 <!--jQuery CDN Js-->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <!--Popper CDN Js-->
