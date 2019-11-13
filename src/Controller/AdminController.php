@@ -174,7 +174,7 @@ class AdminController extends AbstractController
 
     /**
      * @Route("/adminAddProject", name="admin_add_project")
-     *   
+     * @Route("/adminEditProject/{id}", name="admin_edit_project")
      */
     public function formProject(Project $project = null, Request $request, ObjectManager $manager)
     {
@@ -216,4 +216,39 @@ class AdminController extends AbstractController
         return $this->redirectToRoute('admin_projects');
     } 
     
+    /**
+     * @Route("/reportFromAdmin/{id}", name="reportFromAdmin")
+     */
+    public function report(Comment $comment, Request $request, CommentRepository $comRepo, ObjectManager $manager)
+    {
+       
+        if($comment->getReported() === false){
+            $comment->setReported(1);
+            $manager->persist($comment);
+            $manager->flush();
+            $this->addFlash('sucess', 'Le message à bien été restauré !');
+            return  $this->redirectToRoute('admin_user_com');
+        }
+        else{
+            $comment->setReported(0);
+            $manager->persist($comment);
+            $manager->flush();
+            $this->addFlash('sucess', 'Le message à bien été signalé !');
+            return  $this->redirectToRoute('reported_com');
+        }
+    }
+
+    /**
+     * @Route("/adminDeleteUser/{id}", name="admin_delete_user")
+     */
+    public function deleteAUser(User $user, ObjectManager $manager, Request $request, UserRepository $userRepo)
+    {
+        $id = $user->getId();
+        $user = $userRepo->find($id);
+        
+        $manager->remove($user);
+        $manager->flush();
+        $this->addFlash('sucess', 'L\'utilisateur a bien été supprimé !');
+        return $this->redirectToRoute('subscribers');
+    } 
 }

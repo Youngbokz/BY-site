@@ -17,7 +17,7 @@
                             {{  comment.createdAt | date('d/m/Y') }}
                         </div>
                         <div class="col-2">
-                            <a class="btn btn-warning" href="#" role="button">Restaurer</a>
+                            <a class="btn btn-warning" href="{{ path('reportFromAdmin', {'id': comment.id}) }}" role="button">Restaurer</a>
                         </div>
                         <div class="col-2">
                             <a class="btn btn-danger" href="{{ path('delete_reported_com', {'id': comment.id}) }}" role="button">Supprimer</a>

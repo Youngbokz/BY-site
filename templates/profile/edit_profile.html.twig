@@ -14,11 +14,11 @@
                         <div class="bg-white shadow rounded overflow-hidden">
                             <div class="px-4 pt-0 pb-4 bg-dark">
                                 <div class="media align-items-end profile-header">
-                                    <div class="profile mr-3"><img src="{{ asset('img/headphone.jpg') }}" alt="Casque de musique sur fond jaune" width="130" class="rounded mb-2 img-thumbnail"><p>Changer mon profile</p>
+                                    <div class="profile mr-3"><img src="{{ asset('img/profile.jpg') }}" alt="Casque de musique sur fond jaune" width="130" class="rounded mb-2 img-thumbnail"><p>Changer mon profile</p>
                                     </div>
                                     <div class="media-body mb-5 text-white">
-                                        <h4 class="mt-0 mb-0">{{ app.user.firstname }}
-                                            {{ app.user.lastname }}</h4>
+                                        <p class="mt-0 mb-0">{{ app.user.firstname }}
+                                            {{ app.user.lastname }}</p>
                                         <p class="small mb-4">
                                             <i class="fa fa-map-marker mr-2"></i>
                                             {{ app.user.city }}</p>
@@ -28,14 +28,9 @@
                             <div class="bg-light p-4 d-flex justify-content-end text-center">
                                 <ul class="list-inline mb-0">
                                     <li class="list-inline-item">
-                                        <h5 class="font-weight-bold mb-0 d-block">241</h5>
+                                        <h5 class="font-weight-bold mb-0 d-block">{{ countUserComments }}</h5>
                                         <small class="text-muted">
-                                            <i class="fa fa-picture-o mr-1"></i>Commentaires</small>
-                                    </li>
-                                    <li class="list-inline-item">
-                                        <h5 class="font-weight-bold mb-0 d-block">84K</h5>
-                                        <small class="text-muted">
-                                            <i class="fa fa-user-circle-o mr-1"></i>Abonnés</small>
+                                            <i class="fas fa-comment-dots mr-1"></i>Commentaires</small>
                                     </li>
                                 </ul>
                             </div>
@@ -136,6 +131,7 @@
                                         <span style="text-transform:uppercase">éditer</span>
                                     </button>
                                     {{ form_end(formEditUserForUser) }}
+                                    <a class="btn btn-danger" href="#" role="button">Supprimer mon profile</a>
                                 </div>
                             </section>
                         </div>

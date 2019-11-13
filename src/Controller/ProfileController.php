@@ -11,6 +11,7 @@ use App\Form\EditUserForUserType;
 use App\Form\CommentType;
 use Doctrine\Common\Persistence\ObjectManager;
 use App\Repository\CommentRepository;
+use Knp\Component\Pager\PaginatorInterface;
 
 class ProfileController extends AbstractController
 {
@@ -50,8 +51,13 @@ class ProfileController extends AbstractController
     /**
      * @Route("/editProfile/{id}", name="edit_profile")
      */
-    public function editProfile(User $user, Request $request, ObjectManager $manager)
+    public function editProfile(User $user, Request $request, ObjectManager $manager, CommentRepository $comRepo)
     {
+        $user = $this->getUser();
+        $userId = $user->getId();
+
+        $countUserComments = $comRepo->countAllCommentsOfUser($userId);
+
         $form = $this->createForm(EditUserForUserType::class, $user);
 
         $form->handleRequest($request);
@@ -62,16 +68,25 @@ class ProfileController extends AbstractController
         }
 
         return $this->render('profile/edit_profile.html.twig', [
-            'formEditUserForUser' => $form->createView()
+            'formEditUserForUser' => $form->createView(),
+            'countUserComments' => $countUserComments
         ]);
     }
 
     /**
      * @Route("/userComments", name="user_comments")
      */
-    public function userComments(CommentRepository $repo)
+    public function userComments(PaginatorInterface $paginator, CommentRepository $repo, Request $request)
     {
-        return $this->render('profile/comments.html.twig');
+        $user = $this->getUser();
+        $userId = $user->getId();
+        $comments = $paginator->paginate(
+            $repo->findAllUserCommentQuery($userId), 
+            $request->query->getInt('page', 1), 3
+        );
+        return $this->render('profile/comments.html.twig', [
+            'comments' => $comments
+        ]);
     }
 
     /**
@@ -92,9 +107,18 @@ class ProfileController extends AbstractController
     /**
      * @Route("/userReportedCom", name="user_reported_com")
      */
-    public function userReportedCom()
+    public function userReportedCom(PaginatorInterface $paginator, CommentRepository $repo, Request $request)
     {
-        return $this->render('profile/reported.html.twig');
+        $user = $this->getUser();
+        $userId = $user->getId();
+        $reportedCom = $paginator->paginate(
+            $repo->findAllUserReportedCommentQuery($userId), 
+            $request->query->getInt('page', 1), 3
+        );
+        
+        return $this->render('profile/reported.html.twig', [
+            'reportedCom' => $reportedCom
+        ]);
     }
 
     /**

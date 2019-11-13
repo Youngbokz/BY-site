@@ -8,7 +8,7 @@
                 <h2>
                     <span style="text-transform:uppercase">Mes messages</span>
                 </h2>
-                {% for comment in app.user.comments %}
+                {% for comment in comments %}
                     {% if comment.reported != false %}
                         <div class="row">
                             <div class="col-12">
@@ -33,6 +33,9 @@
                     {% endif %}
                 {% endfor %}
             </section>
+            <div class="pagination">
+                {{ knp_pagination_render(comments) }}
+            </div>
         </div>
     </div>
 {% endblock %}

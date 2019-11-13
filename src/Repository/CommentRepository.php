@@ -19,7 +19,7 @@ class CommentRepository extends ServiceEntityRepository
         parent::__construct($registry, Comment::class);
     }
 
-    public function findAllWithUserQuery()
+    public function findAllWithUserQuery() // To paginate all users comments in admin dashboard Comments
     {
         return $this->createQueryBuilder('c')
             ->andWhere('c.reported = true')
@@ -28,7 +28,29 @@ class CommentRepository extends ServiceEntityRepository
         ;
     }
 
-    public function findAllReportedCommentQuery()
+    public function findAllUserCommentQuery($userId) // To paginate user's comments in Profile
+    {
+        return $this->createQueryBuilder('c')
+            ->andWhere('c.reported = true')
+            ->andWhere('c.user = :userId')
+            ->setParameter('userId', $userId)
+            ->orderBy('c.createdAt', 'DESC')
+            ->getQuery()
+        ;
+    }
+
+    public function findAllUserReportedCommentQuery($userId) // To paginate user's reported comments in Profile
+    {
+        return $this->createQueryBuilder('c')
+            ->andWhere('c.reported = false')
+            ->andWhere('c.user = :userId')
+            ->setParameter('userId', $userId)
+            ->orderBy('c.createdAt', 'DESC')
+            ->getQuery()
+        ;
+    }
+
+    public function findAllReportedCommentQuery() // To paginate all reported comments in Admin dashboard
     {
         return $this->createQueryBuilder('c')
             ->andWhere('c.reported = false')
@@ -37,18 +59,7 @@ class CommentRepository extends ServiceEntityRepository
         ;
     }
 
-    // public function findOneReportedComment($id)
-    // {
-    //     return $this->createQueryBuilder('c')
-    //         ->andWhere('c.reported = false')
-    //         ->andWhere('c.user = :userId')
-    //         ->setParameter('userId', $id)
-    //         ->getQuery()
-    //         ->getSingleScalarResult()
-    //     ;
-    // }
-
-    public function countAllComment()
+    public function countAllComment() // For Admin coçunt all comments on site
     {
         return $this->createQueryBuilder('c')
             ->select('COUNT(c.id)')
@@ -57,7 +68,7 @@ class CommentRepository extends ServiceEntityRepository
         ;
     }
 
-    public function lastCommentFromAll()
+    public function lastCommentFromAll() // Display the last comment post on site for Admin profile
     {
         return $this->createQueryBuilder('c')
             ->andWhere('c.reported = true')
@@ -70,7 +81,7 @@ class CommentRepository extends ServiceEntityRepository
 
     //------------------------------------------------------------
     
-    public function countAllCommentsOfUser($userId)
+    public function countAllCommentsOfUser($userId) // NUmber of all comments on site
     {
         return $this->createQueryBuilder('c')
             ->select('COUNT(c.user)')
@@ -82,7 +93,7 @@ class CommentRepository extends ServiceEntityRepository
         ;
     }
 
-    public function countAllReportedOfUser($reportedUserId)
+    public function countAllReportedOfUser($reportedUserId) // NUmber of all reported comments on site
     {
         return $this->createQueryBuilder('c')
             ->select('COUNT(c.user)')

@@ -7,8 +7,9 @@
             <h2>
                 <span style="text-transform:uppercase">mes messages signalés</span>
             </h2>
-            {% for comment in app.user.comments %}
-                {% if comment.reported != true  and app.user.comments is not empty %}
+            
+            {% for comment in reportedCom %}
+                
                     <div class="row">
                         <div class="col-12">
                             COMMENTAIRE posté le
@@ -30,11 +31,15 @@
                         <hr align="center" size="8" width="100%"/>
                     </div>
         
-                    {% else %}
-                        <p class="noReported"><span class="badge badge-secondary">Vous n'avez pas de message signalé</span></p>
-                    {% endif %}
+                    
 
             {% endfor %}
+            {% if reportedCom is null %}
+                        <p class="noReported"><span class="badge badge-secondary">Vous n'avez pas de message signalé</span></p>
+                        {% endif %}    
+                    <div class="pagination">
+                        {{ knp_pagination_render(reportedCom) }}
+                    </div>
         </div>
     </div>
 {% endblock %}

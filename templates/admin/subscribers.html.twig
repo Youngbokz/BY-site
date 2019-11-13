@@ -19,7 +19,7 @@
                             {{  user.createdAt | date('d/m/Y') }}
                         </div>
                         <div class="col-2">
-                            <a class="btn btn-danger" href="#" role="button">Supprimer</a>
+                            <a class="btn btn-danger" href="{{ path('admin_delete_user', {'id': user.id}) }}" role="button">Supprimer</a>
                         </div>
                         <hr align="center" size="8" width="100%"/>
                     </div>
