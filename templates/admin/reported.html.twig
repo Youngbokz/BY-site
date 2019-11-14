@@ -9,6 +9,7 @@
                     <span style="text-transform:uppercase">Les messages signalés</span>
                 </h2>
                 {% for comment in comments %}
+                <div class="message_box">
                     <div class="row">
                         <div class="col-4">
                             <span style="text-transform:uppercase">{{ comment.user.username }}</span>
@@ -34,6 +35,7 @@
                         </div>
                     </div>
                     <hr align="center" size="8" width="100%"/>
+                </div>
                 {% endfor %}
             </section>
             <div class="pagination">

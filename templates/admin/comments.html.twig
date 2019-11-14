@@ -9,11 +9,12 @@
                     <span style="text-transform:uppercase">Tous les messages</span>
                 </h2>
                 {% for comment in comments %}
+                <div class="message_box">
                     <div class="row">
                         <div class="col-4">
-                            <span style="text-transform:uppercase">{{ comment.user.username }}</span>
+                            <span class="log_message">{{ comment.user.username }}</span>
                         </div>
-                        <div class="col-4">
+                        <div class="col-4 comment_col">
                             {{  comment.createdAt | date('d/m/Y') }}
                         </div>
                         <div class="col-2">
@@ -24,7 +25,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-12">
+                        <div class="col-12 comment_col">
                             COMMENTAIRE
                         </div>
                     </div>
@@ -34,7 +35,9 @@
                             <hr/>
                         </div>
                     </div>
+                </div>
                 {% endfor %}
+            
             </section>
             <div class="pagination">
                 {{ knp_pagination_render(comments) }}

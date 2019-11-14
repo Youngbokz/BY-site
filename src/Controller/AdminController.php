@@ -155,8 +155,11 @@ class AdminController extends AbstractController
     /**
      * @Route("/adminEditProfile/{id}", name="admin_edit_profile")
      */
-    public function adminEditProfile(User $user, Request $request, ObjectManager $manager)
+    public function adminEditProfile(User $user, Request $request, ObjectManager $manager, UserRepository $userRepo, CommentRepository $comRepo)
     {
+        $countUsers = $userRepo->countAllUser();
+        $countComments = $comRepo->countAllComment();
+
         $form = $this->createForm(EditUserType::class, $user);
 
         $form->handleRequest($request);//analyse la requete HTTP
@@ -168,7 +171,9 @@ class AdminController extends AbstractController
         }
 
         return $this->render('admin/edit_profile.html.twig', [
-            'formEditUser' => $form->createView()
+            'formEditUser' => $form->createView(),
+            'countUsers' => $countUsers,
+            'countComments' => $countComments
         ]);
     }
 

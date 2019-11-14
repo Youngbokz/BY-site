@@ -37,7 +37,13 @@ h2, h3, h4{
 	position: relative;
 	font-family: 'Aquatico';
 }
-
+a{
+	color: #659DBD !important;
+}
+a:hover{
+	color:#062f4f !important;
+	text-decoration: none !important;
+}
 /*All p*/
 p{
 	font-family: 'AdventPro', Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
@@ -105,13 +111,20 @@ nav#mainNav .connexion_group div.col-md-3 a:hover{
 }
 
 /*Button dropdown menu*/
-button#dropdownMenuButton.btn.btn-secondary.dropdown-toggle.connexion_btn, button.btn.btn-outline-primary:hover{
+button#dropdownMenuButton.btn.btn-secondary.dropdown-toggle.connexion_btn, 
+button.btn.btn-outline-primary:hover, 
+button.btn.btn-success, 
+a.btn.btn-success{
 	color: #fff;
 	background-color: #083b66;
 	border-color: rgba(0, 0, 0, 0.01);
 }
 
-button#dropdownMenuButton.btn.btn-secondary.dropdown-toggle.connexion_btn:hover, .btn.btn-primary.btn-xl.js-scroll-trigger:hover, button.btn.btn-outline-primary{
+button#dropdownMenuButton.btn.btn-secondary.dropdown-toggle.connexion_btn:hover, 
+.btn.btn-primary.btn-xl.js-scroll-trigger:hover, 
+button.btn.btn-outline-primary,
+button.btn.btn-success:hover,
+a.btn.btn-success:hover{
 	color: #659DBD;
 	background-color: white;
 	border-color: rgba(0, 0, 0, 0.01);;
@@ -333,7 +346,7 @@ header.masthead.d-flex
 .box_project .box-content{width:100%;height:100%;background:rgba(0,0,0,.6);opacity:0;position:absolute;top:0;left:0;transform:perspective(400px) rotateX(-90deg);transform-origin:center top 0;transition:all .5s ease 0s}
 .box_project .icon li a,.box_project .title{background:#659DBD;font-size:20px;color:#fff}
 .box_project:hover .box-content{opacity:1;transform:perspective(400px) rotateX(0)}
-.box_project .title{padding:5px 7px;border-radius:5px;font-weight:600;bottom:20px;left:20px;transition:all .9s ease 0s}
+.box_project .title{padding:5px 7px;border-radius:5px;font-weight:100;bottom:20px;left:20px;transition:all .9s ease 0s}
 .box_project .icon li a{transition:all .35s ease 0s}
 .box_project:hover .title{bottom:-40px}
 .box_project .icon{list-style:none;padding:0;top:42%;left:0;right:0}
@@ -393,9 +406,23 @@ div.card.skills_card h2{
 /* --------------------------------------------------------------------------------------------------------------------------- */
 /* ==            ADMIN GENERAL                */
 /*---------------------------------------- */
-.pagination{
-	justify-content: center;
+/* Dashbord */
+ div.content div.wrapper.d-flex{
+	/* min-height: 500px;
+	background-attachment: fixed;
+	    background-position: center;
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-image: url(img/00.jpg); */
+	min-height: 450px;
 }
+
+div.col-xl-12.col-md-12.col-sm-12.mx-auto section{
+	padding: 70px;
+}
+
+
+
 
 /*SideNavBar*/
 div.sidebar a.nav-link{
@@ -404,11 +431,56 @@ div.sidebar a.nav-link{
     display: flex;
     justify-content: space-between;
 } 
-
+div.sidebar a.nav-link:hover,
+div.card.global_view a:hover{
+	background-color: rgba(0, 0, 0, 0.08) !important;
+}
+div.sidebar a.nav-link span, 
+div.sidebar a.nav-link i:hover,
+div.card.global_view i:hover{
+	color: lightslategray;
+}
+div.sidebar a.nav-link i, 
+div.card.global_view i,
+div.sidebar a.nav-link span:hover{
+	color: #083b66;
+}
+div.sidebar a.nav-link span.out:hover, 
+div.sidebar a.nav-link i.out:hover{
+	color: crimson;
+}
 /*main content*/
-/* div.content.col-9{
+div.content.col-9{
 	padding: 15px;
-} */
+}
+/*Pagination*/
+
+.pagination{
+	justify-content: center;
+}
+div.wrapper.d-flex div.content.col-9 a.page-link{
+	border: none;
+	color: goldenrod;
+}
+li.page-item.active span.page-link{
+	background-color: lightgray;
+	border: none;
+	border-radius: 50%;
+}
+/* --------------------------------------------------------------------------------------------------------------------------- */
+/* ==            PRIVACY POLICY PAGE                */
+/*---------------------------------------- */
+.privacy_policy p{
+	padding: 30px;
+	
+}
+.privacy_policy ul li{
+	list-style: square;
+	text-align: left;
+}
+/* --------------------------------------------------------------------------------------------------------------------------- */
+/* ==            LEGAL NOTICES PAGE                */
+/*---------------------------------------- */
 /* --------------------------------------------------------------------------------------------------------------------------- */
 /* ==            SECURITY CONNEXION PAGE                */
 /*---------------------------------------- */
@@ -426,7 +498,7 @@ div.container.registration_container{
 /*---------------------------------------- */
 .sideMenu
 {
-	border-right: solid 0.2px #659dbd;
+	border-right: solid 4px #343a40;
 }
 #dropDownMenuAdmin.dropdown-menu {
 	left: -50% !important;
@@ -434,12 +506,70 @@ div.container.registration_container{
 
 hr
 {
-	border-top:solid 2px #659dbd !important;
+	border-top:solid 2px #d5dce0 !important;
+}
+a.list-group-item{
+	border: 2px solid lightgray;
+}
+div.card, div.card.global_view{
+	text-align: center;
+	border: none;
+}
+div.card.global_view i{
+	font-size: 35px;
 }
 /* --------------------------------------------------------------------------------------------------------------------------- */
 /* ==            (ADMIN) COMMENTS PAGE                */
 /*---------------------------------------- */
+.comment_col{
+	color: darkgray;
+}
+.message_box{
+	position: relative;
+	background-color: white;
+	border: 1px solid gainsboro;
+	margin-bottom: 20px;
+	padding: 15px;
+}
+.message_box:before, .message_box:after{
+	z-index: -1;
+  position: absolute;
+  content: "";
+  bottom: 25px;
+  left: 10px;
+  width: 50%;
+  top: 80%;
+  max-width:300px;
+  background: #777;
+  -webkit-box-shadow: 0 35px 20px #777;
+  -moz-box-shadow: 0 35px 20px #777;
+  box-shadow: 0 35px 20px #777;
+  -webkit-transform: rotate(-8deg);
+  -moz-transform: rotate(-8deg);
+  -o-transform: rotate(-8deg);
+  -ms-transform: rotate(-8deg);
+  transform: rotate(-8deg);
+}
 
+.message_box:after{
+	-webkit-transform: rotate(8deg);
+	-moz-transform: rotate(8deg);
+	-o-transform: rotate(8deg);
+	-ms-transform: rotate(8deg);
+	transform: rotate(8deg);
+	right: 10px;
+	left: auto;
+}
+
+.log_message{
+	text-transform: uppercase;
+	color: #083b66;
+	font-size: 25px;
+	font-weight: 600;
+}
+.btn-warning{
+	background-color: none;
+}
 /* --------------------------------------------------------------------------------------------------------------------------- */
 /* ==            (ADMIN) REPORTED PAGE                */
 /*---------------------------------------- */
@@ -451,7 +581,16 @@ hr
 /* --------------------------------------------------------------------------------------------------------------------------- */
 /* ==            (ADMIN) PROJECTS PAGE                */
 /*---------------------------------------- */
-
+div.card.mb-6.projectCard{
+	margin: 25px;
+	padding: 15px;
+	border: none;
+}
+div.wrapper.d-flex div.row{
+	margin-top: 50px;
+	margin-left: 30px;
+	border: none;
+}
 /* --------------------------------------------------------------------------------------------------------------------------- */
 /* ==            (ADMIN) SUBSCRIBERS PAGE                */
 /*---------------------------------------- */
@@ -459,7 +598,9 @@ hr
 /* --------------------------------------------------------------------------------------------------------------------------- */
 /* ==            (ADMIN) EDIT-PROFILE PAGE                */
 /*---------------------------------------- */
-
+div.profile.mr-3{
+	margin-top: 10px;
+}
 /* --------------------------------------------------------------------------------------------------------------------------- */
 /* ==            (ADMIN) ADD-PROJECT in FORMPROJECT PAGE                */
 /*---------------------------------------- */

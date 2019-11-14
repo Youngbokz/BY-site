@@ -4,18 +4,19 @@
     <div class="main_title_topContainer" style="text-align: center;min-height:500px;background-attachment: fixed;background-position: center;background-size: cover;background-repeat: no-repeat;background-image: url('img/wall.jpg')">
     <h1 class="main_title">MES PROJETS</h1>
     </div>
-        <div class="container-fluid projects_container" style="padding:0px 120px;background-attachment: fixed;background-position: center;background-size: cover;background-repeat: no-repeat;background-image: url('img/wall.jpg')">           
+        <div class="container-fluid projects_container" style="padding:0px 300px;background-attachment: fixed;background-position: center;background-size: cover;background-repeat: no-repeat;background-image: url('img/wall.jpg')">           
             <div class="row">
                 {% for project in projects %}
                 <div class="col-md-6 col-sm-6">
-                    <div class="box_project" style="box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inse;">
+                    <div class="box_project message_box">
                         <img src="{{ project.imageUrl }}" alt="Image de Projet">
                         <h2 class="title">{{ project.name }}</h2>
                         <div class="box-content">
                             <ul class="icon">
-                                    <li>Découvrir<br /> {{ project.createdAt | date('d/m/Y') }}</li>
-                                <li><a href="{{ path('show_project',{'id': project.id}) }}"><i class="fa fa-search"></i></a> </li>
-                                
+                                <a href="{{ path('show_project',{'id': project.id}) }}" style="display: flex;flex-direction: column;font-size:25px;">
+                                    <li><span style="color: darkgray;">Découvrir</span><br /> {{ project.name }} </li>
+                                    <li><i class="fa fa-search" style="color: #659DBD;"></i></li>
+                                </a>
                             </ul>
                         </div>
                     </div>

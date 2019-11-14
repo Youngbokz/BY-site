@@ -9,9 +9,9 @@
                     <span style="text-transform:uppercase">Mes messages</span>
                 </h2>
                 {% for comment in comments %}
-                    {% if comment.reported != false %}
+                    <div class="message_box">
                         <div class="row">
-                            <div class="col-12">
+                            <div class="col-12 comment_col">
                                 MESSAGE posté le
                                 {{  comment.createdAt | date('d/m/Y') }}
                             </div>
@@ -22,16 +22,17 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-4">
+                            <div class="col-6">
                                 <a class="btn btn-success" href="{{ path('edit_message', {'id': comment.id}) }}" role="button">Modifier</a>
                             </div>
-                            <div class="col-4">
+                            <div class="col-6">
                                 <a class="btn btn-danger" href="{{ path('user_delete_com', {'id': comment.id}) }}" role="button">Supprimer</a>
                             </div>
                             <hr align="center" size="8" width="100%"/>
                         </div>
-                    {% endif %}
+                    </div>
                 {% endfor %}
+            
             </section>
             <div class="pagination">
                 {{ knp_pagination_render(comments) }}
