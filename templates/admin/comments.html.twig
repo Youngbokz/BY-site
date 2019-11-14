@@ -21,7 +21,7 @@
                             <a class="btn btn-warning" href="{{ path('reportFromAdmin', {'id': comment.id}) }}" role="button">Signaler</a>
                         </div>
                         <div class="col-2">
-                            <a class="btn btn-danger" href="{{ path('admin_delete_user_com', {'id': comment.id}) }}" role="button">Supprimer</a>
+                            <a class="btn btn-danger" href="{{ path('admin_delete_user_com', {'id': comment.id}) }}" role="button" onclick="if(!confirm('êtes vous sûr de vouloir supprimer ?')) { return false; }">Supprimer</a>
                         </div>
                     </div>
                     <div class="row">

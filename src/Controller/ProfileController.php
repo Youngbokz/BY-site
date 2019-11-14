@@ -65,6 +65,7 @@ class ProfileController extends AbstractController
         if($form->isSubmitted() && $form->isValid()){
             $manager->persist($user);
             $manager->flush();
+            $this->addFlash('sucess', 'Votre profile à bien été mis à jour !');
             return $this->redirectToRoute('show_profile');
         }
 

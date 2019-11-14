@@ -268,7 +268,12 @@ header.masthead.d-flex
 	background: #659DBD;
 	border: #659DBD;
 }
-
+a.btn.btn-primary.btn-xl.js-scroll-trigger{
+	color: white !important;
+}
+a.btn.btn-primary.btn-xl.js-scroll-trigger:hover{
+	color: #062f4f !important;
+}
 /* --------------------------------------------------------------------------------------------------------------------------- */
 /* ==            PROJECT PAGE                */
 /*---------------------------------------- */
