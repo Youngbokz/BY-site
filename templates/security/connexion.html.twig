@@ -11,5 +11,7 @@
       <button type="submit" class="btn btn-success">Se connecter</button>
       {{ form_end(formConnexion) }}
   </div> 
-  <div class="container connexion_container">Si vous n'avez pas encore de compte ? <a href="{{ path('security_registration') }}" class="btn btn-outline-primary" role="button">S'inscrire</a></div>
+  <div class="alert alert-info alert-dismissible fade show" style="text-align: center;">
+    Vous n'avez pas encore de compte ? N'hésitez-pas ! <a href="{{ path('projects') }}">Inscrivez-vous</a> !
+  </div>
 {% endblock %}
