@@ -130,7 +130,7 @@
                                     <button type="submit" class="btn btn-success">
                                         <span style="text-transform:uppercase">éditer</span>
                                     </button>
-                                    <a class="btn btn-danger" href="" role="button">Supprimer mon profile</a>
+                                    <a href="{{ path('delete_own_account', {'id': app.user.id}) }}" class="btn btn-danger" href="" role="button">Supprimer mon profile</a>
                                     {{ form_end(formEditUserForUser) }}
                                     
                                 </div>

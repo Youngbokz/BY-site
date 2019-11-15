@@ -1,26 +1,23 @@
 <!DOCTYPE html>
 <html>
-
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta name="description" content="">
         <meta name="author" content="">
         <title>
-            {% block title %}BOKOLO Yannick!
-            {% endblock %}
+            {% block title %}BOKOLO Yannick!{% endblock %}
         </title>
         {% block css %}
             <!--My persnnal CSS-->
-            <link
-            href="{{ asset('css/style.css') }}" rel="stylesheet" type="text/css">
+            <link href="{{ asset('css/style.css') }}" rel="stylesheet" type="text/css">
             <!--Fontawsome-->
             <script src="https://kit.fontawesome.com/94d8a89f76.js" crossorigin="anonymous"></script>
             <!--Bootstrap CDN-->
-            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+                integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         {% endblock %}
     </head>
-
     <body id="page-top">
         <nav id="mainNav">
             <div class="row" style="width:100%;">
@@ -46,7 +43,8 @@
                         <div class="row" style="align-items:flex-end;">
                             {% if is_granted('ROLE_USER') %}
                                 <div class="dropdown col-md-12">
-                                    <button class="btn btn-outline-primary" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <button class="btn btn-outline-primary" type="button" id="dropdownMenuButton"
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         Hey!
                                         {{ app.user.username }}
                                         <i class="fas fa-angle-down"></i>
@@ -55,8 +53,7 @@
                                         {% if is_granted('ROLE_ADMIN') %}
                                             <a class="dropdown-item" href="{{ path('admin') }}">Espace Admin</a>
                                         {% endif %}
-                                        <a class="dropdown-item" href="{{ path('profile', {'id': app.user.id}) }}">Espace
-                                                                                Personnel</a>
+                                        <a class="dropdown-item" href="{{ path('profile', {'id': app.user.id}) }}">Espace Personnel</a>
                                         <a class="dropdown-item" href="{{ path('security_disconnexion') }}">Déconnexion</a>
                                     </div>
                                 </div>
@@ -75,122 +72,127 @@
                     </div>
                     <div class="myLogo col-4">
                         <a href="{{ path('home') }}">
-                            <img src="{{ asset('img/bokolo.png') }}" alt="Bokolo Yannick Logo"/>
+                            <img src="{{ asset('img/bokolo.png') }}" alt="Bokolo Yannick Logo" />
                         </a>
                     </div>
                 </div>
             </div>
         </nav>
-        <div class="main_title_topContainer" style="text-align: center;min-height:450px;background-attachment: fixed;background-position: center;background-size: cover;background-repeat: no-repeat;background-image: url('img/wall.jpg')">
+        <div class="main_title_topContainer"
+            style="text-align: center;min-height:450px;background-attachment: fixed;background-position: center;background-size: cover;background-repeat: no-repeat;background-image: url('{{ asset("img/wall.jpg") }}')">
             <h1 class="main_title"> {% block adminPageTitle %}{% endblock %}</h1>
-            </div>
-            
-            <div class="content">
-                <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-                    <button class="navbar-toggler sideMenuToggler" type="button">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <a class="navbar-brand" href="#">{{ app.user.username }}</a>
-                    {% for message in app.flashes('sucess') %}
-                        <span class="badge badge-success" style="font-size:15px;font-weight:100;">{{ message }}</span>
-                    {% endfor %}
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav ml-auto">
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Options</a>
-                                <div id="dropDownMenuAdmin" class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ path('admin_add_project') }}">Ajouter Projet</a>
-                                    <a class="dropdown-item" href="{{ path('admin_projects') }}">Editer Projet</a>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </nav>
-                <div class="wrapper d-flex">
-                    <div class="sideMenu col-2">
-                        <div class="sidebar">
-                            <ul class="navbar-nav">
-                                <li class="nav-item">
-                                    <a href="{{ path('admin') }}" class="nav-link">
-                                        <span>Tableau de bord
-                                        </span>
-                                        <i class="fas fa-tachometer-alt"></i>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{ path('admin_profile') }}" class="nav-link">
-                                        <span>Profile</span>
-                                        <i class="fas fa-id-card"></i>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{ path('admin_projects') }}" class="nav-link">
-                                        <span>Projets</span>
-                                        <i class="fas fa-project-diagram"></i>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{ path('subscribers') }}" class="nav-link">
-                                        <span>Abonnés
-                                        </span>
-                                        <i class="fas fa-users"></i>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{ path('admin_user_com') }}" class="nav-link">
-                                        <span>Commentaires</span>
-                                        <i class="far fa-comments"></i>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{ path('reported_com') }}" class="nav-link">
-                                        <span>Notifications</span>
-                                        <i class="fas fa-comment-slash"></i>
-                                    </span>
-                                </li>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ path('security_disconnexion') }}" class="nav-link">
-                                <span class="out">Se déconnecter</span>
-                                <i class="fas fa-sign-out-alt out"></i>
-                            </a>
+        </div>
+
+        <div class="content">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <button class="navbar-toggler sideMenuToggler" type="button">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <a class="navbar-brand" href="#">{{ app.user.username }}</a>
+                {% for message in app.flashes('sucess') %}
+                    <span class="badge badge-success" style="font-size:15px;font-weight:100;">{{ message }}</span>
+                {% endfor %}
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Options</a>
+                            <div id="dropDownMenuAdmin" class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="{{ path('admin_add_project') }}">Ajouter Projet</a>
+                                <a class="dropdown-item" href="{{ path('admin_projects') }}">Editer Projet</a>
+                            </div>
                         </li>
                     </ul>
                 </div>
-            </div>
-            {% block body %}{% endblock %}
-        </body>
-
-    </html>
-<footer id="sticky-footer" class="py-4 bg-dark text-white-50">
-        <div class="container text-center">
-                <small>
-                    Copyright &copy; BOKOLO Yannick
-                </small>
-            </div>
-                <div class="container text-center">
-                <small>
-                        <a href="{{ path('legal_notices') }}">Mentions Légales</a> 
-                     </small>
+            </nav>
+            <div class="wrapper d-flex">
+                <div class="sideMenu col-2">
+                    <div class="sidebar">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a href="{{ path('admin') }}" class="nav-link">
+                                    <span>Tableau de bord</span>
+                                    <i class="fas fa-tachometer-alt"></i>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ path('admin_profile') }}" class="nav-link">
+                                    <span>Profile</span>
+                                    <i class="fas fa-id-card"></i>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ path('admin_projects') }}" class="nav-link">
+                                    <span>Projets</span>
+                                    <i class="fas fa-project-diagram"></i>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ path('subscribers') }}" class="nav-link">
+                                    <span>Abonnés</span>
+                                    <i class="fas fa-users"></i>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ path('admin_user_com') }}" class="nav-link">
+                                    <span>Commentaires</span>
+                                    <i class="far fa-comments"></i>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ path('reported_com') }}" class="nav-link">
+                                    <span>Notifications</span>
+                                    <i class="fas fa-comment-slash"></i>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ path('security_disconnexion') }}" class="nav-link">
+                                    <span class="out">Se déconnecter</span>
+                                    <i class="fas fa-sign-out-alt out"></i>
+                                </a>
+                            </li>
+                        </ul>
                     </div>
-                     <div class="container text-center">
-                     <small>
-                      <a href="{{ path('privacy_policy') }}">Politique de confidentialité</a>       
-                         </small>
+                </div>
+                {% block body %}{% endblock %}
             </div>
-</div>
-</footer>
-{% block script %}
-<!--jQuery CDN Js-->
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<!--Popper CDN Js-->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<!--Bootstrap CDN Js-->
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-<!--My personnal JS-->
-<script src="{{ asset('js/by-site.js') }}"></script>
-<!--using symfony/asset for files path-->{% endblock %}</body></html>
+    </div>
+    <footer id="sticky-footer" class="py-4 bg-dark text-white-50">
+        <div class="container text-center">
+            <small>
+                Copyright &copy; BOKOLO Yannick
+            </small>
+        </div>
+        <div class="container text-center">
+            <small>
+                <a href="{{ path('legal_notices') }}">Mentions Légales</a>
+            </small>
+        </div>
+        <div class="container text-center">
+            <small>
+                <a href="{{ path('privacy_policy') }}">Politique de confidentialité</a>
+            </small>
+        </div>
+    </footer>
+    {% block script %}
+    <!--jQuery CDN Js-->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <!--Popper CDN Js-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <!--Bootstrap CDN Js-->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <!--My personnal JS-->
+    <script src="{{ asset('js/by-site.js') }}"></script>
+    <!--using symfony/asset for files path-->{% endblock %}
+    </body>
+</html>
