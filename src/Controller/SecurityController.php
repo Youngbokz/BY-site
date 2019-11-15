@@ -21,7 +21,7 @@ class SecurityController extends AbstractController
         $user = new User();
 
         $form = $this->createForm(RegistrationType::class, $user);
-
+        
         $form->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid()){
@@ -33,7 +33,7 @@ class SecurityController extends AbstractController
 
             $manager->persist($user);
             $manager->flush();
-
+            $this->addFlash('sucess', 'Vous avez bien été enregistré ! Connectez-vous ');
             return $this->redirectToRoute('security_connexion');
         }
         return $this->render('security/registration.html.twig', [
@@ -51,11 +51,11 @@ class SecurityController extends AbstractController
         $form = $this->createForm(UserType::class, $user);
 
         $form->handleRequest($request);
-        $this->addFlash('sucess', 'Coucou ! Vous êtes connecté');
+        
         if($form->isSubmitted() && $form->isValid()){
-            
             return $this->redirectToRoute('home');
         }
+        $this->addFlash('warning', 'you wrong ninja ');
         return $this->render('security/connexion.html.twig',[
             'formConnexion' => $form->createView()
         ]);
