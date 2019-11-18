@@ -22,6 +22,7 @@
 					<h2>{{ project.comments | length }}
 						Commentaires</h2>
 					{% for comment in project.comments %}
+					{% if comment.reported != 0 %}
 						<div class="container message_box">
 							<div class="card">
 								<div class="card-body">
@@ -42,8 +43,8 @@
 											{% if app.user %}
 												<p>
 													<a class="btn btn-danger" href="{{ path('report', {'id': comment.id}) }}" role="button">
-														<i class="far fa-times-circle"></i>
-														Signaler</a>
+														<i class="far fa-times-circle"></i> Signaler
+													</a>
 												</p>
 											{% endif %}
 											<hr/>
@@ -52,6 +53,8 @@
 								</div>
 							</div>
 						</div>
+						{% endif %}
+
 					{% endfor %}
 					{% if app.user %}
 						<div class="container">
