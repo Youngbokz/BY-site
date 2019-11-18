@@ -172,9 +172,18 @@ class ProfileController extends AbstractController
         $id = $user->getId();
         $user = $userRepo->find($id);
         
-        $manager->remove($user);
-        $manager->flush();
-        $this->addFlash('sucess', 'L\'utilisateur a bien été supprimé !');
-        return $this->redirectToRoute('home');
+        // $manager->remove($user);
+        // $manager->flush();
+        // $this->addFlash('sucess', 'L\'utilisateur a bien été supprimé !');
+        // return $this->redirectToRoute('home');
+
+
+        if($user->getVisible() === false){
+            $user->setVisible(1);
+            $manager->persist($user);
+            $manager->flush();
+            $this->addFlash('sucess', 'Votre compte a bien été supprimé');
+            return  $this->redirectToRoute('home');
+        }
     } 
 }

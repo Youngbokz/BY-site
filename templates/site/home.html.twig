@@ -6,9 +6,19 @@
       <header class="masthead d-flex">
         
         <div class="container text-center my-auto">
-            {% if app.user is defined and app.user is not null %}
+            {% for message in app.flashes('sucess') %}
+                  <div class="alert alert-info alert-dismissible fade show" style="text-align: center;">
+                    {{ message }} <i class="far fa-thumbs-up"></i>
+                  </div>
+            {% endfor %}
+            {% if app.user is defined and app.user is not null and app.user.visible != true %}
             <div class="alert alert-success alert-dismissible fade show">
                 <strong>Bravo!</strong> Vous êtes bien connecté(e).
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+            </div>
+            {% elseif app.user is defined and app.user is not null and app.user.visible != false %}
+            <div class="alert alert-danger alert-dismissible fade show">
+                <strong>Oups!</strong> Vous avez supprimé votre compte. Contactez l'administarteur pour le restaurer.
                 <button type="button" class="close" data-dismiss="alert">&times;</button>
             </div>
             {% endif %}

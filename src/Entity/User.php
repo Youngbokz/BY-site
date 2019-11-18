@@ -103,6 +103,11 @@ class User implements UserInterface
      */
     private $comments;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $visible;
+
     public function __construct()
     {
         $this->comments = new ArrayCollection();
@@ -297,5 +302,17 @@ class User implements UserInterface
         else{
             return ['ROLE_USER'];
         }
+    }
+
+    public function getVisible(): ?bool
+    {
+        return $this->visible;
+    }
+
+    public function setVisible(bool $visible): self
+    {
+        $this->visible = $visible;
+
+        return $this;
     }
 }

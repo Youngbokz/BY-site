@@ -36,7 +36,7 @@
                 <div class="sectionSecond col-md-6">
                     <div class="connexion_group col-8">
                         <div class="row" style="align-items:flex-end;">
-                            {% if is_granted('ROLE_USER') %}
+                            {% if is_granted('ROLE_USER') and app.user.visible != true %}
                             <div class="dropdown col-md-12">
                                 <button class="btn btn-outline-primary" type="button" id="dropdownMenuButton"
                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
