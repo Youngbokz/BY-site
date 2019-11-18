@@ -20,13 +20,13 @@ class EditUserForUserType extends AbstractType
             ->add('address')
             ->add('city')
             ->add('country', ChoiceType::class, [
-                'choices' => ['France' => 'fr',
-                'Allemagne' => 'all',
-                'États-Unis' => 'us',
-                'Royaume-Unis' => 'uk',
-                'Italie' => 'it',
-                'Espagne' => 'esp',
-                'Autres' => 'other'],
+                'choices' => ['France' => 'France',
+                'Allemagne' => 'Allemagne',
+                'États-Unis' => 'États-Unis',
+                'Royaume-Unis' => 'Royaume-Unis',
+                'Italie' => 'Italie',
+                'Espagne' => 'Espagne',
+                'Autres' => 'Autres'],
             ])
             ->add('email')
             ->add('mobilePhone')
