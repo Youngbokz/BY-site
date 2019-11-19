@@ -855,4 +855,10 @@ div.profile.mr-3{
 		max-width: 100%;
 		text-align: center;
 	}
+	/* --------------------------------------------------------------------------------------------------------------------------- */
+	/* ==            CONNEXION PAGE                */
+	/*---------------------------------------- */
+	div.container.connexion_container, div.container.registration_container {
+		padding: 40px 40px;
+	}
 }
