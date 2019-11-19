@@ -653,6 +653,70 @@ div.profile.mr-3{
 /* ==                  On screens that are 992px wide or less Tablette Type         */
 /*---------------------------------------- */
 @media screen and (max-width: 992px) {
+	/* --------------------------------------------------------------------------------------------------------------------------- */
+	/* ==            (ADMIN) GENERAL                */
+	/*---------------------------------------- */
+	/*SideBar menu*/
+	div.wrapper.d-flex{
+		flex-direction: column;
+	}
+
+	div.wrapper.d-flex div.sideMenu.col-2{
+		max-width: 100%;
+		padding-left: 0px;
+		padding-right: 0px;
+	}
+
+	div.wrapper.d-flex ul.navbar-nav{
+		flex-direction: row;
+		justify-content: center;
+		background-color: lightblue;
+		border: solid 1px #062f4f;
+	}
+
+	div.wrapper.d-flex div.sidebar a.nav-link span{
+		display: none;
+	}
+	/* --------------------------------------------------------------------------------------------------------------------------- */
+	/* ==            (ADMIN) Global View                */
+	/*---------------------------------------- */
+	div.content.col-9{
+		max-width: 100%;
+	}
+	div.wrapper.d-flex div.row{
+		margin-left: 0px;
+		margin-top: 0px;
+	}
+	div.card{
+		background-color: unset;
+	}
+	/* --------------------------------------------------------------------------------------------------------------------------- */
+	/* ==            (ADMIN) EDIT PAGE                */
+	/*---------------------------------------- */
+	div.row.py-5.px-4{
+		padding-left:0.5rem !important;
+		padding-right:0.5rem !important;
+		padding-top:0.5rem !important;
+		padding-bottom:0.5rem !important;
+	}
+	div.media.align-items-end.profile-header{
+		flex-direction: column;
+	}
+	div.profile.mr-3, div.media-body.mb-5.text-white{
+		margin: 0 auto !important;
+	} 
+	div.bg-white.shadow.rounded.overflow-hidden div.row{
+		flex-direction: column;
+	}
+	div.bg-white.shadow.rounded.overflow-hidden section{
+		padding: 5px;
+	}
+	div.bg-white.shadow.rounded.overflow-hidden div.row div.col{
+		text-align: center;
+	}
+	div.bg-white.shadow.rounded.overflow-hidden div.row span{
+		color: #659DBD;
+	}
 }
 
 /* --------------------------------------------------------------------------------------------------------------------------- */
@@ -744,9 +808,36 @@ div.profile.mr-3{
 	}
 	div.wrapper.d-flex div.row{
 		margin-left: 0px;
+		margin-top: 0px;
 	}
 	div.card{
 		background-color: unset;
 	}
-
+	/* --------------------------------------------------------------------------------------------------------------------------- */
+	/* ==            (ADMIN) EDIT PAGE                */
+	/*---------------------------------------- */
+	div.row.py-5.px-4{
+		padding-left:0.5rem !important;
+		padding-right:0.5rem !important;
+		padding-top:0.5rem !important;
+		padding-bottom:0.5rem !important;
+	}
+	div.media.align-items-end.profile-header{
+		flex-direction: column;
+	}
+	div.profile.mr-3, div.media-body.mb-5.text-white{
+		margin: 0 auto !important;
+	} 
+	div.bg-white.shadow.rounded.overflow-hidden div.row{
+		flex-direction: column;
+	}
+	div.bg-white.shadow.rounded.overflow-hidden section{
+		padding: 5px;
+	}
+	div.bg-white.shadow.rounded.overflow-hidden div.row div.col{
+		text-align: center;
+	}
+	div.bg-white.shadow.rounded.overflow-hidden div.row span{
+		color: #659DBD;
+	}
 }
