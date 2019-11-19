@@ -75,6 +75,16 @@ nav#mainNav{
 	transition: .5s;
 	z-index: 200;
 }
+/*Top Container Blue Bricks Background*/ 
+.main_title_topContainer{
+	text-align: center;
+    min-height: 500px;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url(../img/wall.jpg);
+}
 /* NavBar scrolling */
 nav#mainNav.black{
 	background: rgba(0, 0, 0, 0.7);
@@ -278,87 +288,84 @@ a.btn.btn-primary.btn-xl.js-scroll-trigger:hover{
 /* ==            PROJECT PAGE                */
 /*---------------------------------------- */
 
-/*Images effect*/
-.mainProjectCont
-{
-	display: flex;
-	width: 100%;
-	flex-wrap: wrap;
-	justify-content: center;
+/*Project boxes*/
+
+.box_project .title{
+	display:inline-block;
+	margin:0;
+	position:absolute;
+	background:#659DBD;
+	font-size:20px;
+	color:#fff;
+	padding:5px 7px;
+	border-radius:5px;
+	font-weight:100;
+	bottom:20px;
+	left:20px;
+	transition:all .9s ease 0s;
+}
+.box_project .icon{
+	margin:0;
+	position:absolute;
+}
+.box_project{
+	box-shadow:0 1px 4px rgba(255, 255, 255, 0.8), 0 0 40px rgba(0, 0, 0, 0.6) inset;
+	position:relative;
+	margin: 20px auto;
+	overflow:hidden;
+	text-align:center;
+	max-width: 600px;
+}
+.box_project img{
+	width:100%;height:auto;
+}
+.box_project .box-content{
+	width:100%;
+	height:100%;background:rgba(0,0,0,.6);
+	opacity:0;
+	position:absolute;
+	top:0;
+	left:0;
+	transform:perspective(400px) rotateX(-90deg);
+	transform-origin:center top 0;
+	transition:all .5s ease 0s;
+}
+.box_project:hover .box-content{
+	opacity:1;
+	transform:perspective(400px) rotateX(0);
+}
+.box_project .icon li a{
+	transition:all .35s ease 0s;
+	text-align:center;
+	background:#659DBD;
+	font-size:20px;
+	color:#fff;
+	display:block;
+	width:40px;
+	height:40px;
+	line-height:40px;
+	border-radius:50%;
+	margin-right:7px
+}
+.box_project .icon li a:hover{
+	background:#fff;
+	color:#000;
+}
+.box_project:hover .title{
+	bottom:-40px;
+}
+.box_project .icon{
+	list-style:none;
+	padding:0;
+	top:42%;
+	left:0;
+	right:0;
 }
 
-.projectContainer
-{
-	width: 600px;
-	height: 400px;
-	position: relative;
-	cursor: pointer;
-	margin: 5px;
+.box_project .icon li{
+	color: white;
+	display:inline-block;
 }
-
-.projectContainer:hover .post-s
-{
-	width: 600px;
-}
-
-.projectContainer img
-{
-	display: block;
-	width: 600px;
-	height: 400px;
-}
-.projectContainer-show_project{
-	text-align: center;
-}
-.post-s
-{
-	width: 0px;
-	height: 400px;
-	background: rgba(0,0,0,.3);
-	position: absolute;
-	top: 0;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	overflow: hidden;
-	transition: 0.9s ease;
-}
-
-.post-s h2
-{
-	border: 2px solid #5D5C61;
-	font-size: 50px;
-}
-
-.post-s h2, .post-s p
-{
-	color: #ffffff;
-	padding: 10px 30px;
-}
-
-.post-s p
-{
-	font-size: 25px;
-}
-/*test*/
-.box_project{overflow:hidden}
-.box_project,.box_project .icon li a{text-align:center}
-.box_project .icon li,.box_project .title{display:inline-block}
-.box_project .icon,.box_project .title{margin:0;position:absolute}
-.box_project{box-shadow:0 1px 4px rgba(255, 255, 255, 0.8), 0 0 40px rgba(0, 0, 0, 0.6) inset;position:relative; margin: 20px;}
-.box_project img{width:100%;height:auto}
-.box_project .box-content{width:100%;height:100%;background:rgba(0,0,0,.6);opacity:0;position:absolute;top:0;left:0;transform:perspective(400px) rotateX(-90deg);transform-origin:center top 0;transition:all .5s ease 0s}
-.box_project .icon li a,.box_project .title{background:#659DBD;font-size:20px;color:#fff}
-.box_project:hover .box-content{opacity:1;transform:perspective(400px) rotateX(0)}
-.box_project .title{padding:5px 7px;border-radius:5px;font-weight:100;bottom:20px;left:20px;transition:all .9s ease 0s}
-.box_project .icon li a{transition:all .35s ease 0s}
-.box_project:hover .title{bottom:-40px}
-.box_project .icon{list-style:none;padding:0;top:42%;left:0;right:0}
-.box_project .icon li a{display:block;width:40px;height:40px;line-height:40px;border-radius:50%;margin-right:7px}
-.box9 .icon{width:100%;font-size:22px}
-.box_project .icon li a:hover{background:#fff;color:#000}
-.box_project .icon li{color: white;}
 
 
 
@@ -367,7 +374,9 @@ a.btn.btn-primary.btn-xl.js-scroll-trigger:hover{
 /* --------------------------------------------------------------------------------------------------------------------------- */
 /* ==            SHOW ONE PROJECT PAGE                */
 /*---------------------------------------- */
-
+.container-fluid.show_project{
+	text-align: center;
+}
 /* --------------------------------------------------------------------------------------------------------------------------- */
 /* ==            ABOUT PAGE PAGE                */
 /*---------------------------------------- */
@@ -641,15 +650,103 @@ div.profile.mr-3{
 /* -----------------------------------------------------     MEDIA QUERIES     ----------------------------------------------- */
 
 /* --------------------------------------------------------------------------------------------------------------------------- */
-/* ==                  On screens that are 992px wide or less          */
+/* ==                  On screens that are 992px wide or less Tablette Type         */
 /*---------------------------------------- */
 @media screen and (max-width: 992px) {
 }
 
 /* --------------------------------------------------------------------------------------------------------------------------- */
-/* ==                  On screens that are 600px wide or less          */
+/* ==                  On screens that are 600px wide or less Samrtphone Type         */
 /*---------------------------------------- */
 
 @media screen and (max-width: 600px) {
-    
+	/* --------------------------------------------------------------------------------------------------------------------------- */
+	/* ==            GENERAL                */
+	/*---------------------------------------- */
+	/*NavBar top*/
+	nav#mainNav.black, nav#mainNav{
+		padding: 0px;
+	}
+	nav#mainNav div.row{
+		margin-right: 0px;
+		margin-left: 0px;
+	}
+	div.myLogo.col-4{
+		position: absolute;
+		top: -140px;
+		right: 10px;
+	}
+	div.connexion_group.col-8{
+		position: absolute;
+		top: -40px;
+		justify-content: center;
+		max-width: 100%;
+	}
+	/*Top container Blue Bricks Background */
+	.main_title_topContainer{
+		text-align: center;
+		min-height: 350px;
+		background-attachment: fixed;
+		background-position: center;
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-image: url(../img/wall.jpg);
+	}
+	.main_title{
+		font-size: 2.5rem;
+		left: 1%;
+	}
+	/* --------------------------------------------------------------------------------------------------------------------------- */
+	/* ==            SKILLS                */
+	/*---------------------------------------- */
+	section div.card.skills_card div.row.text-content{
+		display: flex;
+		flex-direction: column;
+	}
+	/* --------------------------------------------------------------------------------------------------------------------------- */
+	/* ==            CONTACT PAGE                */
+	/*---------------------------------------- */
+	div.container.contact_container{
+		padding: 10px 20px;
+	}
+	div#contactForm.mt-4 form div.row{
+		flex-direction: column;
+	}
+	/* --------------------------------------------------------------------------------------------------------------------------- */
+	/* ==            (ADMIN) GENERAL                */
+	/*---------------------------------------- */
+	/*SideBar menu*/
+	div.wrapper.d-flex{
+		flex-direction: column;
+	}
+
+	div.wrapper.d-flex div.sideMenu.col-2{
+		max-width: 100%;
+		padding-left: 0px;
+		padding-right: 0px;
+	}
+
+	div.wrapper.d-flex ul.navbar-nav{
+		flex-direction: row;
+		justify-content: center;
+		background-color: lightblue;
+		border: solid 1px #062f4f;
+	}
+
+	div.wrapper.d-flex div.sidebar a.nav-link span{
+		display: none;
+	}
+	/* --------------------------------------------------------------------------------------------------------------------------- */
+	/* ==            (ADMIN) Global View                */
+	/*---------------------------------------- */
+	div.content.col-9{
+		max-width: 100%;
+	}
+	div.wrapper.d-flex div.row{
+		margin-left: 0px;
+	}
+	div.card{
+		background-color: unset;
+	}
+
 }

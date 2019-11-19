@@ -2,11 +2,11 @@
 {% block title %}Show a Project
 {% endblock %}
 {% block body %}
-	<div class="main_title_topContainer" style="text-align: center;min-height:500px;background-attachment: fixed;background-position: center;background-size: cover;background-repeat: no-repeat;background-image: url('img/wall.jpg')">
-		<h1 class="main_title">{{ project.name }}</h1>
+	<div class="main_title_topContainer">
+		<h1 class="main_title big">{{ project.name }}</h1>
 	</div>
 	<div class="container">
-		<div class="container-fluid mainProjectCont-show_project">
+		<div class="container-fluid show_project">
 			<div class="projectContainer-show_project">
 				<img src="{{ project.imageUrl }}" alt="Image de Projet">
 				<div class="metadata">Projet posté le
