@@ -840,4 +840,19 @@ div.profile.mr-3{
 	div.bg-white.shadow.rounded.overflow-hidden div.row span{
 		color: #659DBD;
 	}
+	/* --------------------------------------------------------------------------------------------------------------------------- */
+	/* ==            (ADMIN) PORTFOLIO DE PROJETS                */
+	/*---------------------------------------- */
+	.message_box:after,.message_box:before{
+		content: none;
+	}
+	div.message_box div.row, section.message_box div.row{
+		flex-direction: column;
+		align-items: center;
+	}
+	div.message_box div.row div.col-2,div.message_box div.row div.col-5,
+	section.message_box div.row div.col-2, section.message_box div.row div.col-5{
+		max-width: 100%;
+		text-align: center;
+	}
 }
