@@ -126,13 +126,19 @@ class SiteController extends AbstractController
             $comment->setReported(1);
             $manager->persist($comment);
             $manager->flush();
-            return  $this->redirectToRoute('projects');
+            return  $this->json([
+                'code' => 200,
+                'message' => 'Message bien rétabli'
+            ], 200);
         }
         else{
             $comment->setReported(0);
             $manager->persist($comment);
             $manager->flush();
-            return  $this->redirectToRoute('projects');
+            return  $this->json([
+                'code' => 200,
+                'message' => 'Message bien signalé'
+            ], 200);
         }
     }
 }
