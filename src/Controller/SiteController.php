@@ -128,7 +128,8 @@ class SiteController extends AbstractController
             $manager->flush();
             return  $this->json([
                 'code' => 200,
-                'message' => 'Message bien rétabli'
+                'message' => 'Message bien rétabli',
+                'btnTitle' => 'Signaler'
             ], 200);
         }
         else{
@@ -137,7 +138,8 @@ class SiteController extends AbstractController
             $manager->flush();
             return  $this->json([
                 'code' => 200,
-                'message' => 'Message bien signalé'
+                'message' => 'Message bien signalé',
+                'btnTitle' => 'Rétablir pour ne pas signaler',
             ], 200);
         }
     }

@@ -33,26 +33,31 @@ $(window).on('scroll', function () {
 //     link.addEventListener('click', onClickBtnReport);
 // })
 
+$(function () {
+    function onClickBtnReport(e) {
+        e.preventDefault();
+        alert("Was preventDefault() called: " + event.isDefaultPrevented());
+        const url = this.href;
+        const icone = this.querySelector('i');
+        const btnTitle = this.querySelector('span.js-btnTitle');
 
-function onClickBtnReport(e) {
-    e.preventDefault();
-    const url = this.href;
-    const icone = this.querySelector('i');
-    const btnTitle = this.querySelector('span.js-btnTitle');
+        $(url).get().then(function (response) {
+            if (icone.classList.contains('far')) {
+                icone.classList.replace('far', 'fas');
+                icone.classList.replace('fa-times-circle', 'fa-heartbeat');
+                btnTitle.text(response.data.btnTitle);
+                $('.a.js-report').css({ background: 'orange' });
+            }
+            else {
+                icone.classList.replace('fas', 'far');
+                icone.classList.replace('fa-heartbeat', 'fa-times-circle');
+                btnTitle.text(response.data.btnTitle);
+                $('.a.js-report').css({ background: 'red' });
+            }
+        })
 
-    axios.get(url).then(function (response) {
-        if (icone.classList.contains('far')) {
-            icone.classList.replace('far', 'fas');
-            icone.classList.replace('fa-times-circle', 'fa-heartbeat');
-            btnTitle.textContent = 'Rétablir pour ne pas signaler';
-        }
-        else {
-            icone.classList.replace('fas', 'far');
-            icone.classList.replace('fa-heartbeat', 'fa-times-circle');
-            btnTitle.textContent = 'Signaler';
-        }
+    }
+    $('a[class="js-report"]').each(function (link) {
+        link.on('click', onClickBtnReport);
     })
-}
-document.querySelectorAll('a.js-report').forEach(function (link) {
-    link.addEventListener('click', onClickBtnReport);
 })
