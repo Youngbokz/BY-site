@@ -18,3 +18,7 @@ $(window).on('scroll', function(){
     }
 })
 
+var btnReportedElt = document.getElementById("reportedBtn"); 
+btnReportedElt.addEventListener("click", function(){
+    
+});

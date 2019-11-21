@@ -1,14 +1,14 @@
 {% extends 'base.html.twig' %}
 {% block title %}Projets{% endblock %}
 {% block body %}
-    <div class="main_title_topContainer" style="text-align: center;min-height:500px;background-attachment: fixed;background-position: center;background-size: cover;background-repeat: no-repeat;background-image: url('img/wall.jpg')">
+    <div class="main_title_topContainer">
     <h1 class="main_title">MES PROJETS</h1>
     </div>
-        <div class="container-fluid projects_container" style="padding:0px 300px;background-attachment: fixed;background-position: center;background-size: cover;background-repeat: no-repeat;background-image: url('img/wall.jpg')">           
+        <div class="container-fluid projects_container" style="padding:0px 50px;background-attachment: fixed;background-position: center;background-size: cover;background-repeat: no-repeat;background-image: url('img/wall.jpg')">           
             <div class="row">
                 {% for project in projects %}
                 <div class="col-md-6 col-sm-6">
-                    <div class="box_project message_box">
+                    <div class="box_project">
                         <img src="{{ project.imageUrl }}" alt="Image de Projet">
                         <h2 class="title">{{ project.name }}</h2>
                         <div class="box-content">
