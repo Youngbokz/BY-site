@@ -36,28 +36,23 @@ $(window).on('scroll', function () {
 $(function () {
     function onClickBtnReport(e) {
         e.preventDefault();
-        alert("Was preventDefault() called: " + event.isDefaultPrevented());
-        const url = this.href;
-        const icone = this.querySelector('i');
-        const btnTitle = this.querySelector('span.js-btnTitle');
+        const icone = $("i.far.fa-times-circle");
+        var classReport = 'far fa-times-circle';
+        var classBack = 'fas fa-heartbeat';
+        const btnTitle = $('span.js-btnTitle');
 
-        $(url).get().then(function (response) {
-            if (icone.classList.contains('far')) {
-                icone.classList.replace('far', 'fas');
-                icone.classList.replace('fa-times-circle', 'fa-heartbeat');
-                btnTitle.text(response.data.btnTitle);
-                $('.a.js-report').css({ background: 'orange' });
-            }
-            else {
-                icone.classList.replace('fas', 'far');
-                icone.classList.replace('fa-heartbeat', 'fa-times-circle');
-                btnTitle.text(response.data.btnTitle);
-                $('.a.js-report').css({ background: 'red' });
-            }
-        })
-
+        if (icone) {
+            icone.removeClass(classReport);
+            icone.addClass(classBack);
+            btnTitle.text('Rétablir pour ne plus signaler');
+            $('.js-report').css({ background: 'orange' });
+        }
+        else {
+            icone.removeClass(classBack);
+            icone.addClass(classReport);
+            btnTitle.text('Signaler');
+            $('.js-report').css({ background: 'red' });
+        }
     }
-    $('a[class="js-report"]').each(function (link) {
-        link.on('click', onClickBtnReport);
-    })
+    $('.js-report').on('click', onClickBtnReport);
 })
