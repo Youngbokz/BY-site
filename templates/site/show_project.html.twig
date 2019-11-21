@@ -22,37 +22,39 @@
 					<h2>{{ project.comments | length }}
 						Commentaires</h2>
 					{% for comment in project.comments %}
-					{% if comment.reported != 0 %}
-						<div class="container message_box">
-							<div class="card">
-								<div class="card-body">
-									<div class="row">
-										<div class="col-md-2">
-											<img src="https://image.ibb.co/jw55Ex/def_face.jpg" class="img img-rounded img-fluid"/>
-											<p class="text-secondary text-center">
-												<small>{{ comment.createdAt | date('d/m/Y à H:i') }}
-												</small>
-											</p>
-										</div>
-										<div class="col-md-10">
-											<span style="color:#083b66;">
-												{{ comment.user.username }}
-											</span>
-											<div class="clearfix"></div>
-											<p>{{ comment.comment | raw }}</p>
-											{% if app.user %}
-												<p>
-													<a id="reportedBtn" class="btn btn-danger" href="{{ path('report', {'id': comment.id}) }}" role="button">
-														<i class="far fa-times-circle"></i> Signaler
-													</a>
+						{% if comment.reported != 0 %}
+							<div class="container message_box">
+								<div class="card">
+									<div class="card-body">
+										<div class="row">
+											<div class="col-md-2">
+												<img src="https://image.ibb.co/jw55Ex/def_face.jpg" class="img img-rounded img-fluid"/>
+												<p class="text-secondary text-center">
+													<small>{{ comment.createdAt | date('d/m/Y à H:i') }}
+													</small>
 												</p>
-											{% endif %}
-											<hr/>
+											</div>
+											<div class="col-md-10">
+												<span style="color:#083b66;">
+													{{ comment.user.username }}
+												</span>
+												<div class="clearfix"></div>
+												<p>{{ comment.comment | raw }}</p>
+												{% if app.user %}
+													<p>
+														<a id="reportedBtn" class="btn btn-danger js-report" href="{{ path('report', {'id': comment.id}) }}" role="button">
+
+															<i class="far fa-times-circle"></i>
+															<span class="js-btnTitle">Signaler</span>
+														</a>
+													</p>
+												{% endif %}
+												<hr/>
+											</div>
 										</div>
 									</div>
 								</div>
 							</div>
-						</div>
 						{% endif %}
 
 					{% endfor %}
