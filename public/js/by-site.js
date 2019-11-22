@@ -17,20 +17,20 @@ $(window).on('scroll', function () {
         $('#mainNav').removeClass('black')
     }
 })
+// Report a message in Show project page
+function onClickBtnReport(e) {
+    e.preventDefault();
+    var btn = $(this);
+    var url = btn.attr('href');
+    console.log(url);
+    if (btn.hasClass('reported')) {
+        btn.removeClass('reported');
 
-    function onClickBtnReport(e) {
-        e.preventDefault();
-        var btn = $(this);
-        var url = btn.attr('href');
-        console.log(url);
-        if (btn.hasClass('reported')) {
-            btn.removeClass('reported');
-           
-        } 
-        else {
-            btn.addClass('reported');
-        }
-        $.get(url);
     }
-    $('.js-report').on('click', onClickBtnReport);
+    else {
+        btn.addClass('reported');
+    }
+    $.get(url);
+}
+$('.js-report').on('click', onClickBtnReport);
 

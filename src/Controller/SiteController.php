@@ -16,6 +16,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use App\Notification\ContactNotification;
 
 class SiteController extends AbstractController
 {
@@ -100,7 +101,7 @@ class SiteController extends AbstractController
     /**
      * @Route("/contact", name="contact")
      */
-    public function contact(Request $request, ObjectManager $manager)
+    public function contact(Request $request, ObjectManager $manager, ContactNotification $notification)
     {
         $contact = new Contact();
 
@@ -109,7 +110,9 @@ class SiteController extends AbstractController
         $form->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid()){
-            return $this->redirectToRoute('site/contact.html.twig');
+            $notification->notify($contact);
+            $this->addFlash('success', 'Votre email à bien été envoyé !');
+            return $this->redirectToRoute('contact');
         }
         return $this->render('site/contact.html.twig', [
             'formContact' => $form->createView()

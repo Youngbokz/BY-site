@@ -53,16 +53,24 @@ class SecurityController extends AbstractController
         $form->handleRequest($request);
         
         if($form->isSubmitted() && $form->isValid()){
+
+            $this->addFlash('success', 'Vous êtes bien connecté(e) !');
             return $this->redirectToRoute('home');
-        }
+            
+        } 
+        
         $this->addFlash('warning', 'Essayer à nouveau ou créer un nouveau compte');
+        
         return $this->render('security/connexion.html.twig',[
+
             'formConnexion' => $form->createView()
+
         ]);
     }
 
     /**
      * @Route("/disconnexion", name="security_disconnexion")
      */
-    public function disconnexion(){}
+    public function disconnexion(){
+    }
 }

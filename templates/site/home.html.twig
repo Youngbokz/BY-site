@@ -1,34 +1,45 @@
 {% extends 'base.html.twig' %}
-{% block title %}Accueil{% endblock %}
-{% block span %}<div id="myBurger" class="openMyBtn" onclick="openMyNav()"><span class="homeSpan"></span><span class="homeSpan"></span><span class="homeSpan"></span></div>{% endblock %}
+{% block title %}Accueil
+{% endblock %}
+{% block span %}
+	<div id="myBurger" class="openMyBtn" onclick="openMyNav()">
+		<span class="homeSpan"></span>
+		<span class="homeSpan"></span>
+		<span class="homeSpan"></span>
+	</div>
+{% endblock %}
 {% block body %}
-      <!-- Header -->
-      <header class="masthead d-flex">
-        
-        <div class="container text-center my-auto">
-            {% for message in app.flashes('sucess') %}
-                  <div class="alert alert-info alert-dismissible fade show" style="text-align: center;">
-                    {{ message }} <i class="far fa-thumbs-up"></i>
-                  </div>
-            {% endfor %}
-            {% if app.user is defined and app.user is not null and app.user.visible != true %}
-            <div class="alert alert-success alert-dismissible fade show">
-                <strong>Bravo!</strong> Vous êtes bien connecté(e).
-                <button type="button" class="close" data-dismiss="alert">&times;</button>
-            </div>
-            {% elseif app.user is defined and app.user is not null and app.user.visible != false %}
-            <div class="alert alert-danger alert-dismissible fade show">
-                <strong>Oups!</strong> Vous avez supprimé votre compte. Contactez l'administarteur pour le restaurer.
-                <button type="button" class="close" data-dismiss="alert">&times;</button>
-            </div>
-            {% endif %}
-          <h1 class="mb-1 main_title_home">DÉVELOPPEUR WEB JUNIOR </h1>
-          <hr>
-          <h2 class="mb-5 my_name">
-            BOKOLO N'DJALI Yannick
-          </h2>
-          <a class="btn btn-primary btn-xl js-scroll-trigger" href="{{ path('about') }}">Codons ensemble !</a>
-        </div>
-        <div class="overlay"></div>
-      </header>
+	<!-- Header -->
+	<header class="masthead d-flex">
+
+		<div class="container text-center my-auto">
+			{% for message in app.flashes('sucess') %}
+				<div class="alert alert-info alert-dismissible fade show" style="text-align: center;">
+					{{ message }}
+					<i class="far fa-thumbs-up"></i>
+				</div>
+			{% endfor %}
+			{% if app.user is defined and app.user is not null and app.user.visible != true %}
+				<div class="alert alert-success alert-dismissible fade show">
+					<strong>Bravo!</strong>
+					Vous êtes bien connecté(e).
+					<button type="button" class="close" data-dismiss="alert">&times;</button>
+				</div>
+			{% elseif app.user is defined and app.user is not null and app.user.visible != false %}
+				<div class="alert alert-danger alert-dismissible fade show">
+					<strong>Oups!</strong>
+					Vous avez supprimé votre compte. Contactez l'administarteur pour le restaurer.
+					<button type="button" class="close" data-dismiss="alert">&times;</button>
+				</div>
+			{% endif %}
+			<h1 class="mb-1 main_title_home">DÉVELOPPEUR WEB JUNIOR
+			</h1>
+			<hr>
+			<h2 class="mb-5 my_name">
+				BOKOLO N'DJALI Yannick
+			</h2>
+			<a class="btn btn-primary btn-xl js-scroll-trigger" href="{{ path('about') }}">Codons ensemble !</a>
+		</div>
+		<div class="overlay"></div>
+	</header>
 {% endblock %}
