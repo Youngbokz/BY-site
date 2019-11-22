@@ -18,41 +18,19 @@ $(window).on('scroll', function () {
     }
 })
 
-
-
-
-// function onClickBtnReport(e) {
-//     e.preventDefault();
-//     const url = $(this).attr(href);
-
-//     $.get(url).then(function (response) {
-//         console.log(response);
-//     })
-// }
-// $('a[class="js-report"]').each(function (link) {
-//     link.addEventListener('click', onClickBtnReport);
-// })
-
-$(function () {
     function onClickBtnReport(e) {
         e.preventDefault();
-        const icone = $("i.far.fa-times-circle");
-        var classReport = 'far fa-times-circle';
-        var classBack = 'fas fa-heartbeat';
-        const btnTitle = $('span.js-btnTitle');
-
-        if (icone) {
-            icone.removeClass(classReport);
-            icone.addClass(classBack);
-            btnTitle.text('Rétablir pour ne plus signaler');
-            $('.js-report').css({ background: 'orange' });
-        }
+        var btn = $(this);
+        var url = btn.attr('href');
+        console.log(url);
+        if (btn.hasClass('reported')) {
+            btn.removeClass('reported');
+           
+        } 
         else {
-            icone.removeClass(classBack);
-            icone.addClass(classReport);
-            btnTitle.text('Signaler');
-            $('.js-report').css({ background: 'red' });
+            btn.addClass('reported');
         }
+        $.get(url);
     }
     $('.js-report').on('click', onClickBtnReport);
-})
+

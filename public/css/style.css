@@ -377,6 +377,21 @@ a.btn.btn-primary.btn-xl.js-scroll-trigger:hover{
 .container-fluid.show_project{
 	text-align: center;
 }
+
+.js-report .report{
+	display: none;
+}
+.js-report.reported .report{
+	display: block;
+}
+
+.js-report .notReport{
+	display: block;
+}
+.js-report.reported .notReport{
+	display: none;
+}
+
 /* --------------------------------------------------------------------------------------------------------------------------- */
 /* ==            ABOUT PAGE PAGE                */
 /*---------------------------------------- */

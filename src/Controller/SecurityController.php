@@ -55,7 +55,7 @@ class SecurityController extends AbstractController
         if($form->isSubmitted() && $form->isValid()){
             return $this->redirectToRoute('home');
         }
-        $this->addFlash('warning', 'you wrong ninja ');
+        $this->addFlash('warning', 'Essayer à nouveau ou créer un nouveau compte');
         return $this->render('security/connexion.html.twig',[
             'formConnexion' => $form->createView()
         ]);

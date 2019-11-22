@@ -2,31 +2,33 @@
 {% block title %}COMMENTAIRES{% endblock %}
 {% block adminPageTitle %}COMMENTAIRES{% endblock %}
 {% block body %}
-    <div class="content col-9">
-        <div class="container">
-            <section>
-                <h2>
-                    <span style="text-transform:uppercase">Mes messages</span>
-                </h2>
-                {% for comment in app.user.comments %}
-                    {% if comment.reported != false %}
-                        <div class="row">
-                            <div class="col-12">
-                                MODIFIER votre message posté le {{  comment.createdAt | date('d/m/Y') }}
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-12">
-                                {{ form_start(commentForm) }}
-                                {{ form_row(commentForm.comment, {'label' : false}) }}
-                                <button type="submit" class="btn btn-success" style="color:white; background-color:#083b66;border:#083b66;">Éditer</button>
-                                {{ form_end(commentForm) }}
-                                <a class="btn btn-danger" href="{{ path('user_delete_com', {'id': comment.id}) }}" role="button">Supprimer</a>
-                            </div>
-                        </div>
-                    {% endif %}
-                {% endfor %}
-            </section>
-        </div>
+<div class="content col-9">
+    <div class="container">
+        <section>
+            <h2>
+                <span style="text-transform:uppercase">Mes messages</span>
+            </h2>
+            {% for comment in app.user.comments %}
+            {% if comment.reported != false %}
+            <div class="row">
+                <div class="col-12">
+                    MODIFIER votre message posté le {{  comment.createdAt | date('d/m/Y') }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    {{ form_start(commentForm) }}
+                    {{ form_row(commentForm.comment, {'label' : false}) }}
+                    <button type="submit" class="btn btn-success"
+                        style="color:white; background-color:#083b66;border:#083b66;">Éditer</button>
+                    {{ form_end(commentForm) }}
+                    <a class="btn btn-danger" href="{{ path('user_delete_com', {'id': comment.id}) }}"
+                        role="button">Supprimer</a>
+                </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+        </section>
     </div>
+</div>
 {% endblock %}
