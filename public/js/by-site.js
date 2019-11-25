@@ -33,4 +33,3 @@ function onClickBtnReport(e) {
     $.get(url);
 }
 $('.js-report').on('click', onClickBtnReport);
-

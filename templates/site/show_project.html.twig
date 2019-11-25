@@ -41,17 +41,18 @@
 												<div class="clearfix"></div>
 												<p>{{ comment.comment | raw }}</p>
 												{% if app.user %}
-													
-														<button id="reportedBtn" class="btn btn-danger js-report" href="{{ path('report', {'id': comment.id}) }}">
-																<div class="notReport"><i class="far fa-times-circle"></i>
-																	<span class="js-btnTitle">Signaler</span>
-																</div>
-																<div class="report">
-																	<i class="fas fa-heartbeat"></i>
-																	<span class="js-btnTitle">Rétablir pour ne plus signaler</span>
-																</div>
-														</button> 
-													
+
+													<button id="reportedBtn" class="btn btn-danger js-report" href="{{ path('report', {'id': comment.id}) }}">
+														<div class="notReport">
+															<i class="far fa-times-circle"></i>
+															<span class="js-btnTitle">Signaler</span>
+														</div>
+														<div class="report">
+															<i class="fas fa-heartbeat"></i>
+															<span class="js-btnTitle">Rétablir Buoffon</span>
+														</div>
+													</button>
+
 												{% endif %}
 												<hr/>
 											</div>

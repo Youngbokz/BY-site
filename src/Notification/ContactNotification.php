@@ -4,6 +4,7 @@ namespace App\Notification;
 use App\Entity\Contact;
 use Twig\Environment;
 
+
 class ContactNotification{
     /**
      * @var \Swift_Mailer
@@ -20,13 +21,14 @@ class ContactNotification{
         $this->renderer = $renderer;
 
     }
-    public function notify(Contact $contact) {
-        // $message = (new \Swift_Message())
-        //     ->setFrom('noreply@youngbokz-site.fr')
-        //     ->setTo('yanboks@gmail.com')
-        //     ->setReplayTo($contact->getEmail())
-        //     ->setBody$this->renderer('site/contact.html.twig', [
-        //         'contact' => $contact
-        //     ]), 'text/html');
-    }
+    public function notify(Contact $contact) { // Permet d envoyer un email
+        $message = (new \Swift_Message('Email utilisateur : ' . $contact->getEmail()))
+            ->setFrom($contact->getEmail())
+            ->setTo('rayrayallen20192018@gmail.com')
+            ->setReplyTo($contact->getEmail())
+            ->setBody($this->renderer->render('email/contact.html.twig', [
+                'contact' => $contact
+            ]), 'text/html');
+        $this->mailer->send($message); 
+       }
 }
