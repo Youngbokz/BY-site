@@ -1,116 +1,107 @@
 {% extends 'base.html.twig' %}
-{% block title %}Skills{% endblock %}
-{% block body %} 
-<div class="main_title_topContainer"><h1 class="main_title big">Mes "skills" | Competences</h1></div>
-<div class="container"> 
-   <section>
-       <div class="card skills_card">
-           <div class="card-content">
-               <h2>FRONT-OFFICE</h2>
-               <div class="row text-content">
-                   <div class="col s4 m2">
-                        <figure>
-                            <img src="{{ asset('img/html5.png') }}" alt="" style="max-width: 100%;
-                            max-height: 180px;">
-                            <figcaption>HTML5</figcaption>
-                        </figure>
-                   </div>
-                   <div class="col s4 m2">
-                        <figure>
-                            <img src="{{ asset('img/css3.png') }}" alt="" style="max-width: 100%;
-                            max-height: 180px;">
-                            <figcaption>CCS3</figcaption>
-                        </figure>
-                   </div>
-                   <div class="col s4 m2">
-                        <figure>
-                            <img src="{{ asset('img/js.png') }}" alt="" style="max-width: 100%;
-                            max-height: 180px;">
-                            <figcaption>JavaScript</figcaption>
-                        </figure>
-                   </div>
-                   <div class="col s4 m2">
-                        <figure>
-                            <img src="{{ asset('img/jquery.png') }}" alt="" style="max-width: 100%;
-                            max-height: 180px;">
-                            <figcaption>jQuery</figcaption>
-                        </figure>
-                   </div>
-                   <div class="col s4 m2">
-                        <figure>
-                            <img src="{{ asset('img/bootstrap.png') }}" alt="" style="max-width: 100%;
-                            max-height: 180px;">
-                            <figcaption>BOOTSTRAP</figcaption>
-                        </figure>
-                   </div>
-               </div>
-           </div>
-       </div>
+{% block title %}Skills
+{% endblock %}
+{% block body %}
+	<div class="main_title_topContainer">
+		<h1 class="main_title big">Mes "skills" | Competences</h1>
+	</div>
+	<div class="container">
+		<section>
+			<div class="card skills_card">
+				<div class="card-content">
+					<h2>FRONT-OFFICE</h2>
+					<div class="row text-content">
+						<div class="col s4 m2">
+							<figure>
+								<img src="{{ asset('img/html5.png') }}" alt="" style="max-width: 100%;max-height: 180px;">
+								<figcaption>HTML5</figcaption>
+							</figure>
+						</div>
+						<div class="col s4 m2">
+							<figure>
+								<img src="{{ asset('img/css3.png') }}" alt="" style="max-width: 100%;max-height: 180px;">
+								<figcaption>CCS3</figcaption>
+							</figure>
+						</div>
+						<div class="col s4 m2">
+							<figure>
+								<img src="{{ asset('img/js.png') }}" alt="" style="max-width: 100%;									                            max-height: 180px;">
+								<figcaption>JavaScript</figcaption>
+							</figure>
+						</div>
+						<div class="col s4 m2">
+							<figure>
+								<img src="{{ asset('img/jquery.png') }}" alt="" style="max-width: 100%;									                            max-height: 180px;">
+								<figcaption>jQuery</figcaption>
+							</figure>
+						</div>
+						<div class="col s4 m2">
+							<figure>
+								<img src="{{ asset('img/bootstrap.png') }}" alt="" style="max-width: 100%;									                            max-height: 180px;">
+								<figcaption>BOOTSTRAP</figcaption>
+							</figure>
+						</div>
+					</div>
+				</div>
+			</div>
 
-       <div class="card skills_card">
-            <div class="card-content">
-                <h2>BACK-OFFICE</h2>
-                <div class="row text-content">
-                    <div class="col s4 m2">
-                         <figure>
-                             <img src="{{ asset('img/mysql.png') }}" alt="" style="max-width: 100%;
-                             max-height: 180px;">
-                             <figcaption>MySQL</figcaption>
-                         </figure>
-                    </div>
-                    <div class="col s4 m2">
-                         <figure>
-                             <img src="{{ asset('img/php.png') }}" alt="" style="max-width: 100%;
-                             max-height: 180px;">
-                             <figcaption>PHP</figcaption>
-                         </figure>
-                    </div>
-                    <div class="col s4 m2">
-                        <figure>
-                            <img src="{{ asset('img/symfony4.png') }}" alt="" style="max-width: 100%;
-                            max-height: 180px;">
-                            <figcaption>SYMFONY 4</figcaption>
-                        </figure>
-                   </div>
-                   <div class="col s4 m2">
-                        <figure>
-                            <img src="{{ asset('img/composer.png') }}" alt="" style="max-width: 100%;
-                            max-height: 180px;">
-                            <figcaption>COMPOSER</figcaption>
-                        </figure>
-                   </div>
-                   <div class="col s4 m2">
-                        <figure>
-                            <img src="{{ asset('img/twig.png') }}" alt="" style="max-width: 100%;
-                            max-height: 180px;">
-                            <figcaption>TWIG</figcaption>
-                        </figure>
-                   </div>
-                </div>
-            </div>
-        </div>
+			<div class="card skills_card">
+				<div class="card-content">
+					<h2>BACK-OFFICE</h2>
+					<div class="row text-content">
+						<div class="col s4 m2">
+							<figure>
+								<img src="{{ asset('img/mysql.png') }}" alt="" style="max-width: 100%;										                             max-height: 180px;">
+								<figcaption>MySQL</figcaption>
+							</figure>
+						</div>
+						<div class="col s4 m2">
+							<figure>
+								<img src="{{ asset('img/php.png') }}" alt="" style="max-width: 100%;										                             max-height: 180px;">
+								<figcaption>PHP</figcaption>
+							</figure>
+						</div>
+						<div class="col s4 m2">
+							<figure>
+								<img src="{{ asset('img/symfony4.png') }}" alt="" style="max-width: 100%;									                            max-height: 180px;">
+								<figcaption>SYMFONY 4</figcaption>
+							</figure>
+						</div>
+						<div class="col s4 m2">
+							<figure>
+								<img src="{{ asset('img/composer.png') }}" alt="" style="max-width: 100%;										                            max-height: 180px;">
+								<figcaption>COMPOSER</figcaption>
+							</figure>
+						</div>
+						<div class="col s4 m2">
+							<figure>
+								<img src="{{ asset('img/twig.png') }}" alt="" style="max-width: 100%;										                            max-height: 180px;">
+								<figcaption>TWIG</figcaption>
+							</figure>
+						</div>
+					</div>
+				</div>
+			</div>
 
-        <div class="card skills_card">
-            <div class="card-content">
-                <h2>CMS</h2>
-                <div class="row text-content">
-                    <div class="col s4 m2">
-                         <figure>
-                             <img src="{{ asset('img/wordpress.png') }}" alt="" style="max-width: 100%;
-                             max-height: 180px;">
-                             <figcaption>WORDPRESS</figcaption>
-                         </figure>
-                    </div>
-                    <div class="col s4 m2">
-                         <figure>
-                             <img src="{{ asset('img/elementor.png') }}" alt="" style="max-width: 100%;
-                             max-height: 180px;">
-                             <figcaption>ELEMENTOR</figcaption>
-                         </figure>
-                    </div>
-                </div>
-            </div>
-        </div>
-   </section>
-</div>
+			<div class="card skills_card">
+				<div class="card-content">
+					<h2>CMS</h2>
+					<div class="row text-content">
+						<div class="col s4 m2">
+							<figure>
+								<img src="{{ asset('img/wordpress.png') }}" alt="" style="max-width: 100%;									                             max-height: 180px;">
+								<figcaption>WORDPRESS</figcaption>
+							</figure>
+						</div>
+						<div class="col s4 m2">
+							<figure>
+								<img src="{{ asset('img/elementor.png') }}" alt="" style="max-width: 100%;									                             max-height: 180px;">
+								<figcaption>ELEMENTOR</figcaption>
+							</figure>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
 {% endblock %}

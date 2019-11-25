@@ -111,7 +111,7 @@ class SiteController extends AbstractController
 
         if($form->isSubmitted() && $form->isValid()){
             $notification->notify($contact);
-            $this->addFlash('success', 'Votre email à bien été envoyé !');
+            $this->addFlash('success', 'Votre email a bien été envoyé !');
             return $this->redirectToRoute('contact');
         }
         return $this->render('site/contact.html.twig', [
