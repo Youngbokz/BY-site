@@ -33,7 +33,7 @@ class SecurityController extends AbstractController
 
             $manager->persist($user);
             $manager->flush();
-            $this->addFlash('sucess', 'Vous avez bien été enregistré ! Connectez-vous ');
+            $this->addFlash('connect', 'Vous avez bien été enregistré ! Connectez-vous ');
             return $this->redirectToRoute('security_connexion');
         }
         return $this->render('security/registration.html.twig', [
@@ -58,9 +58,10 @@ class SecurityController extends AbstractController
             return $this->redirectToRoute('home');
             
         } 
-        
-        $this->addFlash('warning', 'Essayer à nouveau ou créer un nouveau compte');
-        
+         elseif($form->isSubmitted() && !$form->isValid()) 
+        {
+            $this->addFlash('warning', 'Essayez à nouveau ou créer un nouveau compte !');
+        }
         return $this->render('security/connexion.html.twig',[
 
             'formConnexion' => $form->createView()

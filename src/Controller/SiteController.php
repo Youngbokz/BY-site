@@ -108,12 +108,13 @@ class SiteController extends AbstractController
         $form = $this->createForm(ContactType::class, $contact);
 
         $form->handleRequest($request);
-
+        
         if($form->isSubmitted() && $form->isValid()){
             $notification->notify($contact);
             $this->addFlash('success', 'Votre email a bien été envoyé !');
             return $this->redirectToRoute('contact');
         }
+        
         return $this->render('site/contact.html.twig', [
             'formContact' => $form->createView()
         ]);

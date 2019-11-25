@@ -6,13 +6,12 @@
 		<h1 class="main_title big">CONTACTEZ-MOI</h1>
 	</div>
 	<div class="container contact_container">
-		{% for message in app.flashes('sucess') %}
+		{% for message in app.flashes('success') %}
 			<div class="alert alert-info alert-dismissible fade show" style="text-align: center;">
 				{{ message }}
 				<i class="far fa-thumbs-up"></i>
 			</div>
 		{% endfor %}
-
 		<div id="contactForm" class="mt-4">
 			{{ form_start(formContact) }}
 			<div class="row">
