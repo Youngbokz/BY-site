@@ -21,7 +21,7 @@ class Project
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\Length(min=12, max=30)
+     * @Assert\Length(min=1, max=30)
      */
     private $name;
 
