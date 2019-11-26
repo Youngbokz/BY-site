@@ -8,7 +8,7 @@
 	<div class="container">
 		<div class="container-fluid show_project">
 			<div class="projectContainer-show_project">
-				<img src="{{ project.imageUrl }}" alt="Image de Projet">
+				<img src="{{ asset(project.imageUrl) }}" alt="Image de Projet">
 				<div class="metadata">Projet posté le
 					{{ project.createdAt | date('d/m/Y') }}</div>
 				<div class="description">{{ project.description }}
