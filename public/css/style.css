@@ -746,6 +746,19 @@ div.profile.mr-3{
 	div.bg-white.shadow.rounded.overflow-hidden div.row span{
 		color: #659DBD;
 	}
+
+	/* --------------------------------------------------------------------------------------------------------------------------- */
+	/* ==            SHOW ONE PROJECT PAGE                */
+	/*---------------------------------------- */
+	/* html body#page-top div.container-fluid.show_project{
+		padding-right: none !important;
+		padding-left: none !important;
+		margin-right: none !important;
+		margin-left: none !important;
+	} */
+	div.container-fluid.show_project img{
+		max-width: 600px;
+	}
 }
 
 /* --------------------------------------------------------------------------------------------------------------------------- */
