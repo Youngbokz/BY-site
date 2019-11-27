@@ -13,6 +13,7 @@ use Doctrine\Common\Persistence\ObjectManager;
 use App\Repository\CommentRepository;
 use App\Repository\UserRepository;
 use Knp\Component\Pager\PaginatorInterface;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 
 class ProfileController extends AbstractController
 {
