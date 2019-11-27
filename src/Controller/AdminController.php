@@ -15,11 +15,13 @@ use App\Repository\UserRepository;
 use App\Repository\CommentRepository;
 use Doctrine\Common\Persistence\ObjectManager;
 use Knp\Component\Pager\PaginatorInterface;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 
 class AdminController extends AbstractController
 {
     /**
      * @Route("/admin", name="admin")
+     * @Security("has_role('ROLE_ADMIN')")
      */
     public function dashboard(UserRepository $userRepo, CommentRepository $comRepo, ProjectRepository $projectRepo)
     {
@@ -36,6 +38,7 @@ class AdminController extends AbstractController
 
     /**
      * @Route("/adminUserCom", name="admin_user_com")
+     * @Security("has_role('ROLE_ADMIN')")
      */
     public function adminUserCom(PaginatorInterface $paginator, CommentRepository $repo, Request $request)
     {   
@@ -52,7 +55,8 @@ class AdminController extends AbstractController
 
     /**
      * @Route("/adminDeleteUserCom/{id}", name="admin_delete_user_com")
-     * * @Route("/deleteReportedCom/{id}", name="delete_reported_com")
+     * @Route("/deleteReportedCom/{id}", name="delete_reported_com")
+     * @Security("has_role('ROLE_ADMIN')")
      */
     public function adminDeleteUserCom(Comment $comment, ObjectManager $manager, CommentRepository $comRepo)
     {
@@ -73,6 +77,7 @@ class AdminController extends AbstractController
 
     /**
      * @Route("/reportedCom", name="reported_com")
+     * @Security("has_role('ROLE_ADMIN')")
      */
     public function reportedCom(CommentRepository $repo, Request $request, PaginatorInterface $paginator)
     {
@@ -89,6 +94,7 @@ class AdminController extends AbstractController
 
     // /**
     //  * @Route("/deleteReportedCom/{id}", name="delete_reported_com")
+    //  * @Security("has_role('ROLE_ADMIN')")
     //  */
     // public function adminDeleteUserReportedCom(Comment $reportedCom, ObjectManager $manager, CommentRepository $comRepo)
     // {
@@ -104,6 +110,7 @@ class AdminController extends AbstractController
 
     /**
      * @Route("/adminProjects", name="admin_projects")
+     * @Security("has_role('ROLE_ADMIN')")
      */
     public function adminProjects(ProjectRepository $repo)
     {
@@ -116,6 +123,7 @@ class AdminController extends AbstractController
 
     /**
      * @Route("/subscribers", name="subscribers")
+     * @Security("has_role('ROLE_ADMIN')")
      */
     public function subscribers(UserRepository $repo, Request $request, PaginatorInterface $paginator)
     {
@@ -132,6 +140,7 @@ class AdminController extends AbstractController
 
     /**
      * @Route("/adminProfile", name="admin_profile")
+     * @Security("has_role('ROLE_ADMIN')")
      */
     public function adminProfile(UserRepository $userRepo, CommentRepository $comRepo, ProjectRepository $projectRepo)
     {
@@ -154,6 +163,7 @@ class AdminController extends AbstractController
 
     /**
      * @Route("/adminEditProfile/{id}", name="admin_edit_profile")
+     * @Security("has_role('ROLE_ADMIN')")
      */
     public function adminEditProfile(User $user, Request $request, ObjectManager $manager, UserRepository $userRepo, CommentRepository $comRepo)
     {
@@ -180,6 +190,7 @@ class AdminController extends AbstractController
     /**
      * @Route("/adminAddProject", name="admin_add_project")
      * @Route("/adminEditProject/{id}", name="admin_edit_project")
+     * @Security("has_role('ROLE_ADMIN')")
      */
     public function formProject(Project $project = null, Request $request, ObjectManager $manager)
     {
@@ -209,6 +220,7 @@ class AdminController extends AbstractController
     
     /**
      * @Route("/adminDeleteProject/{id}", name="admin_delete_project")
+     * @Security("has_role('ROLE_ADMIN')")
      */
     public function deleteProject(Project $project, ObjectManager $manager, Request $request, ProjectRepository $projectRepo)
     {
@@ -223,6 +235,7 @@ class AdminController extends AbstractController
     
     /**
      * @Route("/reportFromAdmin/{id}", name="reportFromAdmin")
+     * @Security("has_role('ROLE_ADMIN')")
      */
     public function report(Comment $comment, Request $request, CommentRepository $comRepo, ObjectManager $manager)
     {
@@ -245,6 +258,7 @@ class AdminController extends AbstractController
 
     /**
      * @Route("/adminDeleteUser/{id}", name="admin_delete_user")
+     * @Security("has_role('ROLE_ADMIN')")
      */
     public function deleteAUser(User $user, ObjectManager $manager, Request $request, UserRepository $userRepo)
     {
