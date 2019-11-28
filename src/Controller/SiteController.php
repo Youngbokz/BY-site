@@ -71,8 +71,6 @@ class SiteController extends AbstractController
      */
     public function show_project(Project $project, Request $request, ObjectManager $manager)
     {
-        // $session = $request->getSession();
-        // $userId = $session->get('id');
 
         $id = $this->getUser(); // pourquoi this?
         $comment = new Comment();

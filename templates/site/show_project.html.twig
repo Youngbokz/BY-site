@@ -5,10 +5,10 @@
 	<div class="main_title_topContainer">
 		<h1 class="main_title big">{{ project.name }}</h1>
 	</div>
-	<div class="container">
+	
 		<div class="container-fluid show_project">
 			<div class="projectContainer-show_project">
-				<img src="{{ project.imageUrl }}" alt="Image de Projet">
+				<img src="{{ asset(project.imageUrl) }}" alt="Image de Projet">
 				<div class="metadata">Projet posté le
 					{{ project.createdAt | date('d/m/Y') }}</div>
 				<div class="description">{{ project.description }}
@@ -49,7 +49,7 @@
 														</div>
 														<div class="report">
 															<i class="fas fa-heartbeat"></i>
-															<span class="js-btnTitle">Rétablir Buoffon</span>
+															<span class="js-btnTitle">Rétablir pour ne plus signaler</span>
 														</div>
 													</button>
 
@@ -92,5 +92,5 @@
 				</section>
 			</div>
 		</div>
-	</div>
+	
 {% endblock %}

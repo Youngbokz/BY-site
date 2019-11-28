@@ -618,7 +618,7 @@ div.card.global_view i{
 /* ==            (ADMIN) PROJECTS PAGE                */
 /*---------------------------------------- */
 div.card.mb-6.projectCard{
-	margin: 25px;
+	margin: 20px;
 	padding: 15px;
 	border: none;
 }
@@ -627,6 +627,13 @@ div.wrapper.d-flex div.row{
 	margin-left: 30px;
 	border: none;
 }
+
+/* div.card.mb-6.projectCard p.card-text{
+	max-height: 200px;
+	text-overflow: ellipsis;
+    overflow: hidden;
+} */
+
 /* --------------------------------------------------------------------------------------------------------------------------- */
 /* ==            (ADMIN) SUBSCRIBERS PAGE                */
 /*---------------------------------------- */
@@ -738,6 +745,19 @@ div.profile.mr-3{
 	}
 	div.bg-white.shadow.rounded.overflow-hidden div.row span{
 		color: #659DBD;
+	}
+
+	/* --------------------------------------------------------------------------------------------------------------------------- */
+	/* ==            SHOW ONE PROJECT PAGE                */
+	/*---------------------------------------- */
+	/* html body#page-top div.container-fluid.show_project{
+		padding-right: none !important;
+		padding-left: none !important;
+		margin-right: none !important;
+		margin-left: none !important;
+	} */
+	div.container-fluid.show_project img{
+		max-width: 600px;
 	}
 }
 
@@ -882,5 +902,17 @@ div.profile.mr-3{
 	/*---------------------------------------- */
 	div.container.connexion_container, div.container.registration_container {
 		padding: 40px 40px;
+	}
+	/* --------------------------------------------------------------------------------------------------------------------------- */
+	/* ==            SHOW ONE PROJECT PAGE                */
+	/*---------------------------------------- */
+	/* html body#page-top div.container-fluid.show_project{
+		padding-right: none !important;
+		padding-left: none !important;
+		margin-right: none !important;
+		margin-left: none !important;
+	} */
+	div.container-fluid.show_project img{
+		max-width: 295px;
 	}
 }
