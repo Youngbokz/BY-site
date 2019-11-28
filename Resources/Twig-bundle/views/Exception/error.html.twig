@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="{{ _charset }}"/>
+		<title>An Error Occurred:
+			{{ status_text }}</title>
+		<style>
+			body {
+				background-color: #fff;
+				color: #222;
+				font: 16px / 1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+				margin: 0;
+			}
+			.container {
+				margin: 30px;
+				max-width: 600px;
+			}
+			h1 {
+				color: #659DBD;
+
+				font-size: 24px;
+			}
+			h2 {
+				font-size: 18px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<h1>Oops! Ouch! Une erreur est survenue</h1>
+			<h2>Mon gentil serveur a renvoyé une erreur "{{ status_code }}
+				{{ status_text }}".</h2>
+			<p>
+				Nous n'avons pas su répontre à votre demande. Veuillez nous excuser pour le désagrément.
+				<a class="btn btn-primary btn-xl js-scroll-trigger" href="{{ path('about') }}">Retour à l'accueil</a>
+			</p>
+		</div>
+	</body>
+</html>

@@ -13,11 +13,13 @@ use Doctrine\Common\Persistence\ObjectManager;
 use App\Repository\CommentRepository;
 use App\Repository\UserRepository;
 use Knp\Component\Pager\PaginatorInterface;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 
 class ProfileController extends AbstractController
 {
     /**
      * @Route("/profile", name="profile")
+     * @Security("has_role('ROLE_USER')")
      */
     public function index(CommentRepository $comRepo)
     {
@@ -36,6 +38,7 @@ class ProfileController extends AbstractController
 
     /**
      * @Route("/showProfile", name="show_profile")
+     * @Security("has_role('ROLE_USER')")
      */
     public function showProfile(CommentRepository $comRepo)
     {
@@ -51,6 +54,7 @@ class ProfileController extends AbstractController
 
     /**
      * @Route("/editProfile/{id}", name="edit_profile")
+     * @Security("has_role('ROLE_USER')")
      */
     public function editProfile(User $user, Request $request, ObjectManager $manager, CommentRepository $comRepo)
     {
@@ -77,6 +81,7 @@ class ProfileController extends AbstractController
 
     /**
      * @Route("/userComments", name="user_comments")
+     * @Security("has_role('ROLE_USER')")
      */
     public function userComments(PaginatorInterface $paginator, CommentRepository $repo, Request $request)
     {
@@ -93,6 +98,7 @@ class ProfileController extends AbstractController
 
     /**
      * @Route("/userDeleteCom/{id}", name="user_delete_com")
+     * @Security("has_role('ROLE_USER')")
      */
     public function userDeletedCom(Comment $comment, ObjectManager $manager, CommentRepository $comRepo)
     {
@@ -125,6 +131,7 @@ class ProfileController extends AbstractController
 
     /**
      * @Route("/userDeleteReportedCom/{id}", name="user_delete_reported_com")
+     * @Security("has_role('ROLE_USER')")
      */
     public function userDeletedReportedCom(Comment $reportedCom, ObjectManager $manager, CommentRepository $comRepo)
     {
@@ -140,6 +147,7 @@ class ProfileController extends AbstractController
 
     /**
      * @Route("/edit_message/{id}", name="edit_message")
+     * @Security("has_role('ROLE_USER')")
      */
     public function edit_message(Comment $comment, Request $request, ObjectManager $manager)
     {
@@ -166,6 +174,7 @@ class ProfileController extends AbstractController
 
     /**
      * @Route("/deleteOwnAccount/{id}", name="delete_own_account")
+     * @Security("has_role('ROLE_USER')")
      */
     public function deleteAccount(User $user, ObjectManager $manager, Request $request, UserRepository $userRepo)
     {
