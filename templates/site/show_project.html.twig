@@ -8,16 +8,21 @@
 
 	<div class="container-fluid show_project">
 		<div class="projectContainer-show_project">
-			<img src="{{ asset(project.imageUrl) }}" alt="Image de Projet">
-			<div class="metadata">Projet posté le
-				{{ project.createdAt | date('d/m/Y') }}</div>
-			<div class="description">{{ project.description }}
-				<hr/></div>
-			<div class="url">
-				<a href="{{ project.address }}" target="_blank" type="button" class="btn btn-outline-secondary" role="button">Visiter le site
-				</a>
+			<div class="card" style="margin: 20px auto; max-width:900px">
+				<img src="{{ asset(project.imageUrl) }}" alt="Image de Projet" style="max-height: 600px;">
 			</div>
-			<br>
+			<div class="card skills_card">
+				<div class="card-content">
+					<div class="metadata">Projet posté le
+						{{ project.createdAt | date('d/m/Y') }}</div>
+					<div class="description">{{ project.description }}
+						<hr/></div>
+					<div class="url">
+						<a href="{{ project.address }}" target="_blank" class="btn btn-outline-secondary" role="button">Visiter le site</a>
+					</div>
+					<br>
+				</div>
+			</div>
 			<section id="comments">
 				<h2>{{ project.comments | length }}
 					Commentaires</h2>
