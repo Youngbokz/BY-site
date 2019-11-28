@@ -5,92 +5,92 @@
 	<div class="main_title_topContainer">
 		<h1 class="main_title big">{{ project.name }}</h1>
 	</div>
-	
-		<div class="container-fluid show_project">
-			<div class="projectContainer-show_project">
-				<img src="{{ asset(project.imageUrl) }}" alt="Image de Projet">
-				<div class="metadata">Projet posté le
-					{{ project.createdAt | date('d/m/Y') }}</div>
-				<div class="description">{{ project.description }}
-					<hr/></div>
-				<div class="url">
-					<a href="{{ project.address }}" type="button" class="btn btn-outline-secondary" role="button">Visiter le site
-					</a>
-				</div>
-				<br>
-				<section id="comments">
-					<h2>{{ project.comments | length }}
-						Commentaires</h2>
-					{% for comment in project.comments %}
-						{% if comment.reported != 0 %}
-							<div class="container message_box">
-								<div class="card">
-									<div class="card-body">
-										<div class="row">
-											<div class="col-md-2">
-												<img src="https://image.ibb.co/jw55Ex/def_face.jpg" class="img img-rounded img-fluid"/>
-												<p class="text-secondary text-center">
-													<small>{{ comment.createdAt | date('d/m/Y à H:i') }}
-													</small>
-												</p>
-											</div>
-											<div class="col-md-10">
-												<span style="color:#083b66;">
-													{{ comment.user.username }}
-												</span>
-												<div class="clearfix"></div>
-												<p>{{ comment.comment | raw }}</p>
-												{% if app.user %}
 
-													<button id="reportedBtn" class="btn btn-danger js-report" href="{{ path('report', {'id': comment.id}) }}">
-														<div class="notReport">
-															<i class="far fa-times-circle"></i>
-															<span class="js-btnTitle">Signaler</span>
-														</div>
-														<div class="report">
-															<i class="fas fa-heartbeat"></i>
-															<span class="js-btnTitle">Rétablir pour ne plus signaler</span>
-														</div>
-													</button>
+	<div class="container-fluid show_project">
+		<div class="projectContainer-show_project">
+			<img src="{{ asset(project.imageUrl) }}" alt="Image de Projet">
+			<div class="metadata">Projet posté le
+				{{ project.createdAt | date('d/m/Y') }}</div>
+			<div class="description">{{ project.description }}
+				<hr/></div>
+			<div class="url">
+				<a href="{{ project.address }}" target="_blank" type="button" class="btn btn-outline-secondary" role="button">Visiter le site
+				</a>
+			</div>
+			<br>
+			<section id="comments">
+				<h2>{{ project.comments | length }}
+					Commentaires</h2>
+				{% for comment in project.comments %}
+					{% if comment.reported != 0 %}
+						<div class="container message_box">
+							<div class="card">
+								<div class="card-body">
+									<div class="row">
+										<div class="col-md-2">
+											<img src="https://image.ibb.co/jw55Ex/def_face.jpg" class="img img-rounded img-fluid"/>
+											<p class="text-secondary text-center">
+												<small>{{ comment.createdAt | date('d/m/Y à H:i') }}
+												</small>
+											</p>
+										</div>
+										<div class="col-md-10">
+											<span style="color:#083b66;">
+												{{ comment.user.username }}
+											</span>
+											<div class="clearfix"></div>
+											<p>{{ comment.comment | raw }}</p>
+											{% if app.user %}
 
-												{% endif %}
-												<hr/>
-											</div>
+												<button id="reportedBtn" class="btn btn-danger js-report" href="{{ path('report', {'id': comment.id}) }}">
+													<div class="notReport">
+														<i class="far fa-times-circle"></i>
+														<span class="js-btnTitle">Signaler</span>
+													</div>
+													<div class="report">
+														<i class="fas fa-heartbeat"></i>
+														<span class="js-btnTitle">Rétablir pour ne plus signaler</span>
+													</div>
+												</button>
+
+											{% endif %}
+											<hr/>
 										</div>
 									</div>
 								</div>
 							</div>
-						{% endif %}
-
-					{% endfor %}
-					{% if app.user %}
-						<div class="container">
-							<div class="row">
-								<div class="col-9" style="margin:20px auto;">
-									{{ form_start(commentForm) }}
-
-									{{ form_row(commentForm.comment, {'attr': {'placeholder' : "Votre commentaire ici ..."}, 'label' : "Laissez un commentaire"}) }}
-									<button type="submit" class="btn btn-success" style="color:white; background-color:#083b66;border:#083b66;">Commenter</button>
-									{{ form_end(commentForm) }}
-								</div>
-							</div>
-						</div>
-					{% else %}
-						<div>
-							<p>
-								Connectez vous
-								<a href="{{ path('security_connexion') }}">
-									<i class="fas fa-plug"></i>
-								</a>
-								ou créez un compte
-								<a href="{{ path('security_registration') }}">
-									<i class="fab fa-wpforms"></i>
-								</a>
-								pour pouvoir laiser un commentaire</p>
 						</div>
 					{% endif %}
-				</section>
-			</div>
+
+				{% endfor %}
+				{% if app.user %}
+					<div class="container">
+						<div class="row">
+							<div class="col-9" style="margin:20px auto;">
+								{{ form_start(commentForm) }}
+
+								{{ form_row(commentForm.comment, {'attr': {'placeholder' : "Votre commentaire ici ..."}, 'label' : "Laissez un commentaire"}) }}
+								<button type="submit" class="btn btn-success" style="color:white; background-color:#083b66;border:#083b66;">Commenter</button>
+								{{ form_end(commentForm) }}
+							</div>
+						</div>
+					</div>
+				{% else %}
+					<div>
+						<p>
+							Connectez vous
+							<a href="{{ path('security_connexion') }}">
+								<i class="fas fa-plug"></i>
+							</a>
+							ou créez un compte
+							<a href="{{ path('security_registration') }}">
+								<i class="fab fa-wpforms"></i>
+							</a>
+							pour pouvoir laiser un commentaire</p>
+					</div>
+				{% endif %}
+			</section>
 		</div>
-	
+	</div>
+
 {% endblock %}
