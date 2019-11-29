@@ -16,12 +16,8 @@
 		{% for message in app.flashes('warning') %}
 			<div class="alert alert-info alert-dismissible fade show" style="text-align: center;background-color:red;">
 				{{ message }}
-
 			</div>
 		{% endfor %}
-		{% if messageError %}
-			{{ messageError }}
-		{% endif %}
 		{{ form_start(formConnexion) }}
 		{{ form_row(formConnexion.username, {'label' : 'Pseudo','full_name': "_username", 'attr' : {'placeholder' : 'Votre pseudo ici...'}}) }}
 		{{ form_row(formConnexion.password, {'label' : 'Mot de passe','full_name': "_password", 'attr' : {'placeholder' : 'Votre mot de passe ici...'}}) }}
