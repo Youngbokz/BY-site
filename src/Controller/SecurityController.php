@@ -51,20 +51,25 @@ class SecurityController extends AbstractController
         $form = $this->createForm(UserType::class, $user);
 
         $form->handleRequest($request);
-        
-        if($form->isSubmitted() && $form->isValid()){
-
+        $messageError ='tutu';
+        if($form->isSubmitted() && $form->isValid()) 
+        {
             $this->addFlash('success', 'Vous êtes bien connecté(e) !');
             return $this->redirectToRoute('home');
+           
+                // $this->addFlash('warning', 'Essayez à nouveau ou créer un nouveau compte !');
+                // ;
+                
+           
             
-        } 
-         elseif($form->isSubmitted() && !$form->isValid()) 
-        {
-            $this->addFlash('warning', 'Essayez à nouveau ou créer un nouveau compte !');
+        }
+        elseif($form->isSubmitted() && !$form->isValid()){
+            $messageError = 'Essayez à nouveau ou créer un nouveau compte !';
         }
         return $this->render('security/connexion.html.twig',[
 
-            'formConnexion' => $form->createView()
+            'formConnexion' => $form->createView(),
+            'messageError' => $messageError
 
         ]);
     }

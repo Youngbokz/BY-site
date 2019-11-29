@@ -19,6 +19,9 @@
 
 			</div>
 		{% endfor %}
+		{% if messageError %}
+			{{ messageError }}
+		{% endif %}
 		{{ form_start(formConnexion) }}
 		{{ form_row(formConnexion.username, {'label' : 'Pseudo','full_name': "_username", 'attr' : {'placeholder' : 'Votre pseudo ici...'}}) }}
 		{{ form_row(formConnexion.password, {'label' : 'Mot de passe','full_name': "_password", 'attr' : {'placeholder' : 'Votre mot de passe ici...'}}) }}
