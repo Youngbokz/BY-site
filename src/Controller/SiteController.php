@@ -72,7 +72,7 @@ class SiteController extends AbstractController
     public function show_project(Project $project, Request $request, ObjectManager $manager)
     {
 
-        $id = $this->getUser(); // pourquoi this?
+        $id = $this->getUser(); 
         $comment = new Comment();
 
         $form = $this->createForm(CommentType::class, $comment);
