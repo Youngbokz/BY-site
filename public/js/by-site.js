@@ -22,10 +22,9 @@ function onClickBtnReport(e) {
     e.preventDefault();
     var btn = $(this);
     var url = btn.attr('href');
-    console.log(url);
+    // console.log(url);
     if (btn.hasClass('reported')) {
         btn.removeClass('reported');
-
     }
     else {
         btn.addClass('reported');
@@ -33,3 +32,11 @@ function onClickBtnReport(e) {
     $.get(url);
 }
 $('.js-report').on('click', onClickBtnReport);
+
+//Success message using sweet alert
+
+// function onSubmitBtnConnexion() {
+//     var successMessage = swal("Good job!", "You clicked the button!", "success");
+
+// }
+// $('#submitConnexion').on('click', onSubmitBtnConnexion);
