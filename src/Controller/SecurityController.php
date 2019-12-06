@@ -7,17 +7,18 @@ use App\Form\UserType;
 use App\Form\RegistrationType;
 use App\Repository\ProjectRepository;
 use Symfony\Component\HttpFoundation\Request;
-use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use Doctrine\ORM\EntityManagerInterface; // replace use Doctrine\Common\Persistence\ObjectManager; because of a Doctrine update. 
+
 
 class SecurityController extends AbstractController
 {
     /**
      * @Route("/registration", name="security_registration")
      */
-    public function registration(Request $request, ObjectManager $manager, UserPasswordEncoderInterface $encoder){
+    public function registration(Request $request, EntityManagerInterface $manager, UserPasswordEncoderInterface $encoder){
         $user = new User();
 
         $form = $this->createForm(RegistrationType::class, $user);
