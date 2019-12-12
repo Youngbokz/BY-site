@@ -41,10 +41,10 @@
 										</div>
 										<div class="col-md-10">
 											<span style="color:#083b66;">
-												{{ comment.user.username }}
+												{{ comment.user.username | striptags }}
 											</span>
 											<div class="clearfix"></div>
-											<p>{{ comment.comment | raw }}</p>
+											<p>{{ comment.comment | escape }}</p>
 											{% if app.user %}
 
 												<button id="reportedBtn" class="btn btn-danger js-report" href="{{ path('report', {'id': comment.id}) }}">

@@ -19,14 +19,14 @@
                             <div class="col-md-8">
                                 <div class="card-body">
                                     <h5 class="card-title">
-                                        {{ project.name }}
+                                        {{ project.name | escape }}
                                     </h5>
                                     <p class="card-text">
-                                        {{ project.description }}
+                                        {{ project.description | escape }}
                                     </p>
                                     <p class="card-text">
                                         <small class="text-muted">
-                                            {{ project.address }}
+                                            {{ project.address | escape }}
                                         </small>
                                     </p>
                                     <div>

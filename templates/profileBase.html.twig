@@ -39,7 +39,7 @@
                         <div class="dropdown col-md-12">
                             <button class="btn btn-outline-primary" type="button" id="dropdownMenuButton"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Hey! {{ app.user.username }} <i class="fas fa-angle-down"></i>
+                                Hey! {{ app.user.username | striptags }} <i class="fas fa-angle-down"></i>
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                 {% if is_granted('ROLE_ADMIN') %}
@@ -78,7 +78,7 @@
     </div>
     <div class="content">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-                <a class="navbar-brand" href="#">{{ app.user.username }}</a>
+                <a class="navbar-brand" href="#">{{ app.user.username | striptags }}</a>
             {% for message in app.flashes('sucess') %}
                 <span class="badge badge-success" style="font-size:15px; font-weight:100;">{{ message }}</span>
             {% endfor %}

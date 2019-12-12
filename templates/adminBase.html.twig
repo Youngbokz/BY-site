@@ -46,7 +46,7 @@
                                     <button class="btn btn-outline-primary" type="button" id="dropdownMenuButton"
                                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         Hey!
-                                        {{ app.user.username }}
+                                        {{ app.user.username | striptags}}
                                         <i class="fas fa-angle-down"></i>
                                     </button>
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -87,7 +87,7 @@
                 <button class="navbar-toggler sideMenuToggler" type="button">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <a class="navbar-brand" href="#">{{ app.user.username }}</a>
+                <a class="navbar-brand" href="#">{{ app.user.username | striptags }}</a>
                 {% for message in app.flashes('sucess') %}
                     <span class="badge badge-success" style="font-size:15px;font-weight:100;">{{ message }}</span>
                 {% endfor %}

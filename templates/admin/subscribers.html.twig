@@ -13,7 +13,7 @@
                 {% for user in users %}
                     <div class="row">
                         <div class="col-5">
-                            <span style="text-transform:uppercase">{{ user.username }}</span>
+                            <span style="text-transform:uppercase">{{ user.username | striptags }}</span>
                         </div>
                         <div class="col-5">
                             {{  user.createdAt | date('d/m/Y') }}

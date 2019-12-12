@@ -12,7 +12,7 @@
                 <div class="message_box">
                     <div class="row">
                         <div class="col-4">
-                            <span style="text-transform:uppercase">{{ comment.user.username }}</span>
+                            <span style="text-transform:uppercase">{{ comment.user.username | striptags }}</span>
                         </div>
                         <div class="col-4">
                             {{  comment.createdAt | date('d/m/Y') }}
@@ -31,7 +31,7 @@
                     </div>
                     <div class="row">
                         <div class="col-12">
-                            {{ comment.comment }}
+                            {{ comment.comment | escape}}
                         </div>
                     </div>
                     <hr align="center" size="8" width="100%"/>

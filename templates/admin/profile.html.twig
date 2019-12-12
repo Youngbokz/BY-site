@@ -16,10 +16,10 @@
                                     <a href="{{ path('admin_edit_profile', {'id': app.user.id}) }}" class="btn btn-dark btn-sm btn-block">Éditer mon profile</a>
                                 </div>
                                 <div class="media-body mb-5 text-white">
-                                    <p class="mt-0 mb-0">{{ app.user.firstname }} <span style="text-transform:uppercase">{{ app.user.lastname }}</span></p>
+                                    <p class="mt-0 mb-0">{{ app.user.firstname | striptags }} <span style="text-transform:uppercase">{{ app.user.lastname | striptags }}</span></p>
                                     <p class="small mb-4">
                                         <i class="fa fa-map-marker mr-2"></i>
-                                        {{ app.user.city }}
+                                        {{ app.user.city | striptags }}
                                     </p>
                                 </div>
                             </div>
@@ -70,7 +70,7 @@
                                 <div class="p-4 bg-light rounded shadow-sm">
                                     {% for theLastComment in lastComment %}
                                         <p class="font-italic mb-0">
-                                            {{ theLastComment.comment }}
+                                            {{ theLastComment.comment | escape }}
                                         </p>
                                         <ul class="list-inline small text-muted mt-3 mb-0">
                                             <li class="list-inline-item">
@@ -79,7 +79,7 @@
                                             </li>
                                             <li class="list-inline-item">
                                                 <i class="fas fa-user-tag mr-2"></i>
-                                                {{ theLastComment.user.username }}</li>
+                                                {{ theLastComment.user.username | striptags }}</li>
                                         </ul>
                                     {% endfor %}
                                 </div>
@@ -92,7 +92,7 @@
                                         <span style="text-transform:uppercase">pseudo</span>
                                     </div>
                                     <div class="col">
-                                        {{  app.user.username }}
+                                        {{  app.user.username | striptags }}
                                     </div>
                                     <hr align="center" size="8" width="100%"/>
                                 </div>
@@ -101,7 +101,7 @@
                                         <span style="text-transform:uppercase">nom</span>
                                     </div>
                                     <div class="col">
-                                        {{ app.user.lastname }}
+                                        {{ app.user.lastname | striptags }}
                                     </div>
                                     <hr align="center" size="8" width="100%"/>
                                 </div>
@@ -110,7 +110,7 @@
                                         <span style="text-transform:uppercase">Prénom</span>
                                     </div>
                                     <div class="col">
-                                        {{ app.user.firstname }}
+                                        {{ app.user.firstname | striptags }}
                                     </div>
                                     <hr align="center" size="8" width="100%"/>
                                 </div>
@@ -119,7 +119,7 @@
                                         <span style="text-transform:uppercase">email</span>
                                     </div>
                                     <div class="col">
-                                        {{  app.user.email }}
+                                        {{  app.user.email | striptags }}
                                     </div>
                                     <hr align="center" size="8" width="100%"/>
                                 </div>
@@ -128,7 +128,7 @@
                                         <span style="text-transform:uppercase">adresse</span>
                                     </div>
                                     <div class="col">
-                                        {{  app.user.address }}
+                                        {{  app.user.address | striptags }}
                                     </div>
                                     <hr align="center" size="8" width="100%"/>
                                 </div>
@@ -137,7 +137,7 @@
                                         <span style="text-transform:uppercase">code postale</span>
                                     </div>
                                     <div class="col">
-                                        {{  app.user.codeZip }}
+                                        {{  app.user.codeZip | striptags }}
                                     </div>
                                     <hr align="center" size="8" width="100%"/>
                                 </div>
@@ -146,7 +146,7 @@
                                         <span style="text-transform:uppercase">ville</span>
                                     </div>
                                     <div class="col">
-                                        {{  app.user.city }}
+                                        {{  app.user.city | striptags }}
                                     </div>
                                     <hr align="center" size="8" width="100%"/>
                                 </div>
@@ -155,7 +155,7 @@
                                         <span style="text-transform:uppercase">pays</span>
                                     </div>
                                     <div class="col">
-                                        {{  app.user.country }}
+                                        {{  app.user.country | striptags }}
                                     </div>
                                     <hr align="center" size="8" width="100%"/>
                                 </div>
@@ -164,7 +164,7 @@
                                         <span style="text-transform:uppercase">téléphone</span>
                                     </div>
                                     <div class="col">
-                                        {{  app.user.mobilePhone }}
+                                        {{  app.user.mobilePhone | striptags }}
                                     </div>
                                     <hr align="center" size="8" width="100%"/>
                                 </div>
