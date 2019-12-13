@@ -114,6 +114,7 @@ class ProfileController extends AbstractController
 
     /**
      * @Route("/userReportedCom", name="user_reported_com")
+     * @Security("has_role('ROLE_USER')")
      */
     public function userReportedCom(PaginatorInterface $paginator, CommentRepository $repo, Request $request)
     {
@@ -142,7 +143,7 @@ class ProfileController extends AbstractController
         $manager->remove($reportedCom);
         $manager->flush();
         $this->addFlash('sucess', 'Le message de ' . $userReportedCom . ' à bien été supprimé !');
-        return $this->redirectToRoute('reported_com');
+        return $this->redirectToRoute('user_reported_com');
     }
 
     /**
@@ -151,9 +152,7 @@ class ProfileController extends AbstractController
      */
     public function edit_message(Comment $comment, Request $request, ObjectManager $manager)
     {
-        // $id = $comRepo->getId();
-        // $comment = $comRepo->findBy($id);
-        
+      
         $form = $this->createForm(CommentType::class, $comment);
 
         $form->handleRequest($request);
@@ -168,7 +167,8 @@ class ProfileController extends AbstractController
         }
 
         return $this->render('profile/edit_message.html.twig', [
-            'commentForm' => $form->createView()
+            'commentForm' => $form->createView(),
+            'comment' => $comment
         ]);
     }
 

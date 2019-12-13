@@ -6,10 +6,8 @@
     <div class="container">
         <section>
             <h2>
-                <span style="text-transform:uppercase">Mes messages</span>
+                <span style="text-transform:uppercase">Modifier mon message</span>
             </h2>
-            {% for comment in app.user.comments %}
-            {% if comment.reported != false %}
             <div class="row">
                 <div class="col-12">
                     MODIFIER votre message posté le {{  comment.createdAt | date('d/m/Y') }}
@@ -26,8 +24,6 @@
                         role="button">Supprimer</a>
                 </div>
             </div>
-            {% endif %}
-            {% endfor %}
         </section>
     </div>
 </div>
