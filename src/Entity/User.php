@@ -89,6 +89,7 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="integer", nullable=true)
+     * @Assert\Length(max=5)
      */
     private $codeZip;
 
