@@ -32,8 +32,8 @@ class User implements UserInterface
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
-     * @Assert\Length(min="2", minMessage = "Oups! trop court. 6 caractères minimum")
+     * @ORM\Column(type="string", length=20)
+     * @Assert\Length(min="2", minMessage = "Oups! trop court. 2 caractères minimum")
      * @Assert\Regex(
      * "#^[a-zA-Z0-9_]{3,16}$#"
      * )
