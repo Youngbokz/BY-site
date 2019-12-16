@@ -17,6 +17,10 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
  *  fields = {"username"},
  *  message = "Oups! Pseudo déjà utilisé. Choisissez-en un autre"
  * )
+ * * @UniqueEntity(
+ *  fields = {"email"},
+ *  message = "Oups! Ce mail existe déjà. Choisissez-en un autre"
+ * )
  */
 class User implements UserInterface
 {
@@ -29,6 +33,10 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Length(min="2", minMessage = "Oups! trop court. 6 caractères minimum")
+     * @Assert\Regex(
+     * "#^[a-zA-Z0-9_]{3,16}$#"
+     * )
      */
     private $username;
 
