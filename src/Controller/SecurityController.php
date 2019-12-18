@@ -48,7 +48,6 @@ class SecurityController extends AbstractController
     public function userConnexion(Request $request)
     {
         $user = new User();
-        // $messageError ='tutu';
 
         $form = $this->createForm(UserType::class, $user);
 
@@ -58,7 +57,6 @@ class SecurityController extends AbstractController
         {
             $this->addFlash('success', 'Vous êtes bien connecté(e) !');
             return $this->redirectToRoute('home');
-            // $this->addFlash('warning', 'Essayez à nouveau ou créer un nouveau compte !');
         }
         elseif($form->isSubmitted() && !$form->isValid()){
             $messageError = 'Essayez à nouveau ou créer un nouveau compte !';

@@ -33,10 +33,3 @@ function onClickBtnReport(e) {
 }
 $('.js-report').on('click', onClickBtnReport);
 
-//Success message using sweet alert
-
-// function onSubmitBtnConnexion() {
-//     var successMessage = swal("Good job!", "You clicked the button!", "success");
-
-// }
-// $('#submitConnexion').on('click', onSubmitBtnConnexion);

@@ -5,7 +5,6 @@
 	<div class="main_title_topContainer">
 		<h1 class="main_title big">{{ project.name }}</h1>
 	</div>
-
 	<div class="container-fluid show_project">
 		<div class="projectContainer-show_project">
 			<div class="card" style="margin: 20px auto; max-width:900px">
@@ -46,7 +45,6 @@
 											<div class="clearfix"></div>
 											<p>{{ comment.comment | escape }}</p>
 											{% if app.user %}
-
 												<button id="reportedBtn" class="btn btn-danger js-report" href="{{ path('report', {'id': comment.id}) }}">
 													<div class="notReport">
 														<i class="far fa-times-circle"></i>
@@ -57,7 +55,6 @@
 														<span class="js-btnTitle">Rétablir pour ne plus signaler</span>
 													</div>
 												</button>
-
 											{% endif %}
 											<hr/>
 										</div>
@@ -66,14 +63,12 @@
 							</div>
 						</div>
 					{% endif %}
-
 				{% endfor %}
 				{% if app.user %}
 					<div class="container">
 						<div class="row">
 							<div class="col-9" style="margin:20px auto;">
 								{{ form_start(commentForm) }}
-
 								{{ form_row(commentForm.comment, {'attr': {'placeholder' : "Votre commentaire ici ..."}, 'label' : "Laissez un commentaire"}) }}
 								<button type="submit" class="btn btn-success" style="color:white; background-color:#083b66;border:#083b66;">Commenter</button>
 								{{ form_end(commentForm) }}

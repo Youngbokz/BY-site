@@ -92,22 +92,6 @@ class AdminController extends AbstractController
         ]);
     }
 
-    // /**
-    //  * @Route("/deleteReportedCom/{id}", name="delete_reported_com")
-    //  * @Security("has_role('ROLE_ADMIN')")
-    //  */
-    // public function adminDeleteUserReportedCom(Comment $reportedCom, ObjectManager $manager, CommentRepository $comRepo)
-    // {
-    //     $id = $reportedCom->getId();
-    //     $reportedCom = $comRepo->find($id);
-    //     $userReportedCom = strtoupper($reportedCom->getUser()->getUsername());
-
-    //     $manager->remove($reportedCom);
-    //     $manager->flush();
-    //     $this->addFlash('sucess', 'Le message de ' . $userReportedCom . ' à bien été supprimé !');
-    //     return $this->redirectToRoute('reported_com');
-    // }
-
     /**
      * @Route("/adminProjects", name="admin_projects")
      * @Security("has_role('ROLE_ADMIN')")

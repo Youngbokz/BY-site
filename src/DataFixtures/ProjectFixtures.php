@@ -26,7 +26,6 @@ class ProjectFixtures extends Fixture
 
             $manager->persist($project);
 
-            // Je crée de faux commentaires pour les liés aux projets et aux utilisateurs
             for($j = 1; $j <= mt_rand(4, 6); $j ++)
             {
                 $user = new User();

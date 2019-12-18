@@ -7,7 +7,6 @@
             <h2>
                 <span style="text-transform:uppercase">mes messages signalés</span>
             </h2>
-            
             {% for comment in reportedCom %}
                 
                     <div class="row">
@@ -35,12 +34,10 @@
                     <div class="alert alert-info alert-dismissible fade show" style="text-align: center;">
                         Vous n'avez aucun message signalé. 
                     </div>
-
             {% endfor %}
-            
-                    <div class="pagination">
-                        {{ knp_pagination_render(reportedCom) }}
-                    </div>
+            <div class="pagination">
+                {{ knp_pagination_render(reportedCom) }}
+            </div>
         </div>
     </div>
 {% endblock %}

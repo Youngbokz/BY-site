@@ -121,7 +121,7 @@ class SiteController extends AbstractController
     /**
      * @Route("/report/{id}", name="report")
      */
-    public function report(Comment $comment, Request $request, CommentRepository $comRepo, ObjectManager $manager)
+    public function report(Comment $comment, ObjectManager $manager)
     {
        
         if($comment->getReported() === false){
